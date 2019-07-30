@@ -1,0 +1,366 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TDK.Common</name>
+    </assembly>
+    <members>
+        <member name="M:TDK.Common.Attributes.EnumDescriptionAttribute.#ctor(System.String)">
+            <summary>
+            Instantiates the EnumDescriptionAttribute object
+            </summary>
+            <param name="text">Description of the enum value</param>
+        </member>
+        <member name="P:TDK.Common.Attributes.EnumDescriptionAttribute.Text">
+            <summary>
+            Text describing the enum value
+            </summary>
+        </member>
+        <member name="M:TDK.Common.Attributes.EnumValueAttribute.#ctor(System.String)">
+            <summary>
+            Instantiates the EnumDescriptionAttribute object
+            </summary>
+            <param name="text">Description of the enum value</param>
+        </member>
+        <member name="P:TDK.Common.Attributes.EnumValueAttribute.Text">
+            <summary>
+            Text describing the enum value
+            </summary>
+        </member>
+        <member name="M:TDK.Common.Extensions.GetFriendlyName(System.Enum)">
+            <summary>
+            Will get the string value for a given enums description, this will
+            only work if you assign the StringValue attribute to
+            the items in your enum.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TDK.Common.Extensions.GetEnumCustomValue(System.Enum)">
+            <summary>
+            Will get the string value for a given enums description, this will
+            only work if you assign the StringValue attribute to
+            the items in your enum.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TDK.Common.Extensions.FindControlsOfType``1(System.Web.UI.Control)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="rootControl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TDK.Common.Helper.Encryption.DecryptToUserContext(System.String)">
+            <summary>
+            Ideally want to replace this with the generic type, but UserContext doesnt have parameterless constructor
+            </summary>
+            <param name="encryptedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TDK.Common.Helper.RefHelper">
+            <summary>
+            Reference to string
+            </summary>
+        </member>
+        <member name="T:TDK.Common.Helper.Transactions">
+            <summary>
+            Represents a containier for one or more Tropos transactions to be executed.
+            </summary>
+        </member>
+        <member name="E:TDK.Common.Helper.Transactions.DataValid">
+            <summary>
+            Occurs when the Tropos transaction has finished the validation phase and requires confirmation to continue with the execution
+            </summary>
+        </member>
+        <member name="M:TDK.Common.Helper.Transactions.#ctor">
+            <summary>
+            Initializes a new instance of the Transactions class
+            </summary>
+        </member>
+        <member name="M:TDK.Common.Helper.Transactions.#ctor(TDK.Common.Repository.ITransactionRepository)">
+            <summary>
+            Initializes a new instance of the Transactions class, containing a single transaction
+            </summary>
+            <param name="transaction"></param>
+        </member>
+        <member name="M:TDK.Common.Helper.Transactions.AddTransaction(TDK.Common.Helper.TransactionDTO)">
+            <summary>
+            Adds a Tropos transaction to the collection to be executed
+            </summary>
+            <param name="dto"></param>
+        </member>
+        <member name="M:TDK.Common.Helper.Transactions.ExecuteTransaction(System.Collections.Generic.IList{TDK.Common.Helper.TransactionError}@)">
+            <summary>
+            Execute all TroposTransactions without data-valid.
+            </summary>
+            <param name="errors"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TDK.Common.Helper.Transactions.ExecuteTransaction(System.Collections.Generic.IList{TDK.Common.Helper.TransactionError}@,TroposUI.Common.DataUpdater.ExecuteMode)">
+            <summary>
+            Execute the Tropos transaction(s).
+            The execute modes are as follows: 
+            Single, Execute the first transaction without data-valid; 
+            Multiple, Execute all transactions without data-valid; 
+            Validate, Execute all transactions to data-valid and reply No to each.
+            </summary>
+            <exception>NotImplementedException: The execute modes DataValid and FieldChoices are not allowed</exception>
+            <param name="errors"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TDK.Common.Helper.Transactions.Reply(System.Int32,TroposUI.Common.DataUpdater.TroposConfirmationResponse)">
+            <summary>
+            Reply to data-valid for a transaction, without an electronic signature
+            </summary>
+            <param name="transactionKey">Identifies the transaction which is waiting for data valid. Should be populated from the data valid event arguments</param>
+            <param name="response">The response to be made to data valid</param>
+        </member>
+        <member name="M:TDK.Common.Helper.Transactions.Reply(System.Int32,TroposUI.Common.DataUpdater.TroposConfirmationResponse,TDK.Common.Helper.TroposElectronicSignature)">
+            <summary>
+            Reply to data-valid for a transaction, with electronic signature data
+            </summary>
+            <param name="transactionKey">Identifies the transaction which is waiting for data valid. Should be populated from the data valid event arguments</param>
+            <param name="response">The response to be made to data valid</param>
+            <param name="signature">The elctronic signature data entered by the user</param>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.Label">
+            <summary>
+            Labels rows so that they can be referenced in the OnSuccess and OnFailure columns
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.OnSuccess">
+            <summary>
+            Action to be taken if the transaction succeeds:
+            CONTINUE	Continue to the next row in the control table.
+            LABEL	Continue processing from the next row containing LABEL in the Label column.
+            QUIT	Stop processing – all later transactions are omitted.
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.OnFailure">
+            <summary>
+            Action to be taken if the transaction fails:
+            CONTINUE	Continue to the next row in the control table.
+            LABEL	Continue processing from the next row containing LABEL in the Label column.
+            QUIT	Stop processing – all later transactions are omitted.
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.IgnoreChanges">
+            <summary>
+            Treat the “No changes entered” (AAAA00007) validation error as indicating success rather than failure
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.Chained">
+            <summary>
+            This transaction is expected to be executed as a result of server chaining from the previous transaction.
+            If such a chain did not occur (for example the previous transaction failed), this transaction is ignored.
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.Continuation">
+            <summary>
+            This transaction is a continuation of a previous one, and the previous content of input fields should not be cleared.
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.Carryforward">
+            <summary>
+            Indicates that there are rows on the Carry table detailing datanames to be carried forward to a following transaction.
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.ScrollLines">
+            <summary>
+            Maximum number of scroll lines to be returned.
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.DataTable">
+            <summary>
+            DataTable to be used in transaction, defaults to TransactionCode + TransactionGroup value
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.TransactionCode">
+            <summary>
+            Tropos action code to be performed
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Helper.TransactionDTO.TransactionGroup">
+            <summary>
+            Tropos action code group it belongs to, default is string.empty
+            </summary>
+        </member>
+        <member name="M:TDK.Common.Helper.TransactionDTO.#ctor(System.String)">
+            <summary>
+            Transaction DTO to be used in a given transaction and use default group
+            </summary>
+            <param name="transactionCode">Tropos action code to be performed</param>
+        </member>
+        <member name="M:TDK.Common.Helper.TransactionDTO.#ctor(System.String,System.String)">
+            <summary>
+            Transaction DTO to be used in a given transaction
+            </summary>
+            <param name="transactionCode">Tropos action code to be performed</param>
+            <param name="transactionGroup">Tropos action code group</param>
+        </member>
+        <member name="M:TDK.Common.Helper.TransactionDTO.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Transaction DTO to be used in a given transaction
+            </summary>
+            <param name="transactionCode">Tropos action code to be performed</param>
+            <param name="transactionGroup">Tropos action code group</param>
+            <param name="screenNumber">Screen Number used</param>
+        </member>
+        <member name="T:TDK.Common.Helper.TroposElectronicSignature">
+            <summary>
+            Represents a Tropos electronic signature
+            </summary>
+        </member>
+        <member name="F:TDK.Common.Helper.TroposElectronicSignature.Identity">
+            <summary>
+            Tropos identity component of electronic signature
+            </summary>
+        </member>
+        <member name="F:TDK.Common.Helper.TroposElectronicSignature.Password">
+            <summary>
+            Tropos password component of electronic signature
+            </summary>
+        </member>
+        <member name="F:TDK.Common.Helper.TroposElectronicSignature.Reason">
+            <summary>
+            DAVL code representing the reason for the electronic signature
+            </summary>
+        </member>
+        <member name="F:TDK.Common.Helper.TroposElectronicSignature.Comment">
+            <summary>
+            Comment component of electronic signature
+            </summary>
+        </member>
+        <member name="T:TDK.Common.Helper.DataValidEventArgs">
+            <summary>
+            Event data associated with Tropos data valid 
+            </summary>
+        </member>
+        <member name="F:TDK.Common.Helper.DataValidEventArgs.ElectronicSignatureRequired">
+            <summary>
+            Indicates whether the user is required to electronically sign the transaction
+            </summary>
+        </member>
+        <member name="F:TDK.Common.Helper.DataValidEventArgs.TransactionKey">
+            <summary>
+            The key of the transaction which is waiting for a response to data valid. This value should not be changed.
+            </summary>
+        </member>
+        <member name="F:TDK.Common.Helper.DataValidEventArgs.Reasons">
+            <summary>
+            List of reason code and associated descriptions from which the user must select when signing a transaction
+            </summary>
+        </member>
+        <member name="F:TDK.Common.Helper.DataValidEventArgs.Response">
+            <summary>
+            The response to data valid
+            </summary>
+        </member>
+        <member name="F:TDK.Common.Helper.DataValidEventArgs.Signature">
+            <summary>
+            The electronic signature details entered by the user
+            </summary>
+        </member>
+        <member name="T:TDK.Common.Interfaces.IBaseControl">
+            <summary>
+            Defines common properties for Tropos controls
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Interfaces.IBaseControl.ScreenNumber">
+            <summary>
+            When implemented by a Tropos control class, gets or sets the Tropos screen number associated with the Tropos control
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Interfaces.IBaseControl.TransactionCode">
+            <summary>
+            When implemented by a Tropos control class, gets or sets the Tropos transaction code associated with the control
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Interfaces.IBaseControl.DataName">
+            <summary>
+            When implemented by a Tropos control class, gets or sets the Tropos dataname associated with the control
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Interfaces.IBaseControl.ToolTip">
+            <summary>
+            When implemented by a Tropos control class, gets or sets the tooltip for the control
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Interfaces.IBaseControl.FieldName">
+            <summary>
+            When implemented by a Tropos control class, gets or sets the Tropos field name used in a transaction
+            </summary>
+        </member>
+        <member name="T:TDK.Common.Interfaces.IInputControl">
+            <summary>
+            Defines common properties for Tropos input controls
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Interfaces.IInputControl.FieldValue">
+            <summary>
+            When implemented by a Tropos control class, gets or sets the value stored in the field
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Interfaces.IInputControl.HighlightError">
+            <summary>
+            When implemented by a Tropos control class, gets or sets the error highlight status of the field
+            </summary>
+        </member>
+        <member name="P:TDK.Common.Interfaces.IInputControl.TransactionGroup">
+            <summary>
+            When implemented by a Tropos control class, gets or sets the transaction group to which the field belongs
+            </summary>
+        </member>
+        <member name="M:TDK.Common.Repository.TransactionRepository.Execute(System.Data.DataSet)">
+            <summary>
+            Execute all Tropos transactions in the dataset, using execute mode Multiple.
+            Each transaction will be executed without data-valid if possible, otherwise a Yes reply will be 
+            issued if required.
+            </summary>
+            <param name="ds">DataSet of transactions to be executed</param>
+            <returns></returns>
+        </member>
+        <member name="M:TDK.Common.Repository.TransactionRepository.Execute(System.Data.DataSet,TroposUI.Common.DataUpdater.ExecuteMode)">
+            <summary>
+            Execute the Tropos transactions in the dataset.
+            The valid execute modes are as follows: 
+            Single, Execute the first transaction without data-valid; 
+            Multiple, Execute all transactions without data-valid; 
+            Validate, Execute all transactions to data-valid and reply No to each.
+            </summary>
+            <param name="ds">DataSet of transactions to be executed</param>
+            <param name="mode">Execute mode</param>
+            <returns></returns>
+        </member>
+        <member name="M:TDK.Common.Repository.TransactionRepository.Status">
+            <summary>
+            Returns the status of the Tropos session
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TDK.Common.Repository.ITransactionRepository.Execute(System.Data.DataSet)">
+            <summary>
+            Execute all Tropos transactions in the dataset, using execute mode Multiple.
+            Each transaction will be executed without data-valid if possible, otherwise a Yes reply will be 
+            issued if required.
+            </summary>
+            <param name="ds">DataSet of transactions to be executed</param>
+            <returns></returns>
+        </member>
+        <member name="M:TDK.Common.Repository.ITransactionRepository.Execute(System.Data.DataSet,TroposUI.Common.DataUpdater.ExecuteMode)">
+            <summary>
+            Execute the Tropos transactions in the dataset.
+            The execute modes are as follows: 
+            Single, Execute the first transaction without data-valid; 
+            Multiple, Execute all transactions without data-valid; 
+            Validate, Execute all transactions to data-valid and reply No to each.
+            </summary>
+            <param name="ds">DataSet of transactions to be executed</param>
+            <param name="mode">Execute mode</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,389 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*----------------------------------
+Epicor Tropos UI - core framework
+
+version:   
+author:    Neale Thomas Hall 
+
+-----------------------------------*/ 
+
+
+/* Default Setup 
+-----------------------------------------------------------------------------*/ 
+html {
+	/*overflow-y: scroll;*/
+	overflow:hidden;
+}
+body, html {
+	/* theme */ background: #dfe5ed url(ui_images/ui_base_bg.png) no-repeat fixed;
+	margin: 0px;
+	padding: 0px;
+}
+body, table, tr, td, p, h1,h2,h3,h4,h5,input,select {
+	font: normal 12px "Segoe UI", Arial, Helvetica, sans-serif;
+}
+* {
+	margin:0;
+	padding:0;
+}
+a, a:link, a:visited, a:hover, a:active {
+	text-decoration:none;
+	outline:none
+}
+.clr {
+	clear:both;
+}
+/* Header
+-----------------------------------------------------------------------------*/ 
+div#ui_header_bar {
+	height: 36px;
+	/* theme */ background: url(ui_images/ui_header.png) repeat-x 0px 0px;
+	/* theme */ color: #c9c9c9;
+	position: fixed;
+	padding: 0px 99px 0px 0px;
+	overflow: hidden;
+	/* z-index: 99910; */
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+div#ui_header_bar a {/* theme */ color: #c9c9c9;}
+div#ui_header_bar a:hover {/* theme */ color: #fff;}
+
+div#ui_header_bar #ui_brand {
+	/* theme */ background: url(ui_images/ui_header.png) no-repeat left -101px;
+	height: 36px;
+	width: 69px;
+	/* z-index: 99920;*/
+	right: 10px;
+	position: fixed;
+	top: 0px;
+}
+div#ui_header_bar #ui_brand span {
+	display:none;
+}
+
+div#ui_header_bar #ui_header_menu #ui_AppBar {
+	position: absolute;
+	left: 206px;
+	top: 0px;
+	height: 30px;
+}
+#ui_WebApp {
+	float: left;
+	display: block;
+	padding: 6px 0px 0px 33px;
+	height: 24px;	
+}
+/* theme */ #ui_WebApp:hover {color:#FFF; cursor:pointer;}
+
+#ui_WebApp span {}
+#ui_WebApp.Trp,
+#ui_WebApp.Mtc,
+#ui_WebApp.ivp,
+#ui_WebApp.xvp {/* theme */ background: url(ui_images/ui_WebApps.png) no-repeat 0px 0px; }
+
+#ui_WebApp.Trp {background-position: 0px 0px;}
+#ui_WebApp.Mtc {background-position: 0px -100px;}
+#ui_WebApp.ivp {background-position: 0px -200px;}
+#ui_WebApp.xvp {background-position: 0px -300px;}
+
+
+div#ui_header_bar #ui_header_menu {
+	height: 29px;
+	position: relative;
+}
+
+div#ui_header_bar .ui_Ssearch {
+	width: 200px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 30px;
+}
+
+/* theme */ div#ui_header_bar .ui_Ssearch input,
+div#ui_header_bar .ui_Ssearch button,
+div#ui_header_bar .ui_Ssearch .ui_goSearch {background: url( ui_images/ui_search.png) no-repeat 0px 0px;}
+
+div#ui_header_bar .ui_Ssearch input {
+	/* theme */ color: #FFF;
+	margin: 0px;
+	padding: 2px 0px 0px 5px;
+	height: 20px;
+	width: 165px;
+	background-position: 0px 0px;
+	border-style: none;
+	outline: none;
+	position: absolute;
+	left: 5px;
+	top: 4px;
+	
+	font-size: 13px;
+}
+
+div#ui_header_bar .ui_Ssearch input.ui_Ssearch_newWindow {
+	padding: 1px 22px 0px 5px;
+	width: 143px;
+}
+
+div#ui_header_bar .ui_Ssearch button,
+div#ui_header_bar .ui_Ssearch .ui_goSearch {
+	background-position:  right 0px;
+	height: 21px;
+	width: 20px;
+	position: absolute;
+	left: 175px;
+	top: 4px;
+	border-style: none;
+	cursor: pointer;
+}
+
+div#ui_header_bar .ui_Ssearch .ui_goSearch_newWindow {
+	background-position:  -154px -200px;
+	height: 21px;
+	width: 20px;
+	position: absolute;
+	left: 154px;
+	top: 4px;
+	border-style: none;
+	cursor: pointer;
+	display:none;
+}
+
+div#ui_header_bar .ui_Ssearch:hover .ui_goSearch_newWindow {display:block;}
+
+div#ui_header_bar .ui_Ssearch .ui_goSearch_newWindow:hover {background-position:  -154px -300px;}
+
+div#ui_header_bar .ui_Ssearch button span,
+div#ui_header_bar .ui_Ssearch .ui_goSearch span,
+div#ui_header_bar .ui_Ssearch .ui_goSearch_newWindow span {	display:none;}
+
+div#ui_header_bar .ui_Ssearch button:hover,
+div#ui_header_bar .ui_Ssearch .ui_goSearch:hover {	background-position:  right -100px;}
+
+div#ui_header_bar #ui_header_menu #ui_Suser {
+	position: absolute;
+	top: 6px;
+	right: 95px;
+}
+
+div#ui_header_bar #ui_header_menu #ui_Suser a {
+	/* theme */ color:#8f8f8f;
+	/* theme */ background: url(ui_images/ui_icons.png)  -250px -400px;
+	margin: 0px 15px 0px 0px;
+	padding: 0px 0px 0px 15px;
+	
+}
+ 
+div#ui_header_bar #ui_header_menu #ui_Suser a:hover {
+	/* theme */ color:#fff;
+	background-position: -250px -500px;
+	
+}
+
+
+
+
+	
+/* Workspace
+-----------------------------------------------------------------------------*/ 
+div#ui_workspace {
+	padding: 0px;
+	/* z-index: 1000;*/
+	position: absolute;
+	left: 0px;
+	top: 30px;
+	bottom: 0px;
+	right: 0px;
+	overflow: hidden;
+}
+
+div#ui_workspace.ui_workspace_navopen {
+	/*padding: 37px 0px 0px;*/
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 200px;
+}
+
+/* loader
+-----------------------------------------------------------------------------*/ 
+.ui_fullscreenloader {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 99999999;
+	/* theme */ background: url(ui_images/ui_loader_bg.png);
+	background: url(ui_images/ui_loaderlght_bg.png); /* Light translucent background */
+	}
+	
+.ui_fullscreenloader .ui_loaderindicate {
+	height: 55px;
+	width: 54px;
+	margin-top: 15%;
+	margin-right: auto;
+	margin-left: auto;
+	/* theme */ background: url(ui_images/ui_loader.gif) no-repeat;
+}
+
+.ui_loader {
+	position: absolute;
+	top: 80px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 99999999;
+	/* theme */ background: url(ui_images/ui_loaderlght_bg.png);
+	}
+	
+.ui_loader .ui_loaderindicate {
+	height: 55px;
+	width: 54px;
+	margin-top: 15%;
+	margin-right: auto;
+	margin-left: auto;
+	/* theme */ background: url(ui_images/ui_loaderlght.gif) no-repeat;
+}
+
+/* button
+-----------------------------------------------------------------------------*/ 
+
+a.ui_button,
+.ui_button,
+a.ui_button span,
+.ui_button span,
+span.ui_button input,
+span.ui_button a,
+a.ui_buttonAlt,
+.ui_buttonAlt,
+a.ui_buttonAlt span,
+.ui_buttonAlt span,
+span.ui_buttonAlt input,
+span.ui_buttonAlt a,
+a.ui_buttonAltSml,
+.ui_buttonAltSml,
+a.ui_buttonAltSml span,
+.ui_buttonAltSml span,
+span.ui_buttonAltSml input,
+span.ui_buttonAltSml a {
+	/* theme */ background: url(ui_images/ui_buttons.png) no-repeat 0px 0px;}
+
+
+a.ui_button,
+.ui_button {
+	background-position:  right -50px;
+	padding: 0px 5px 0px 0px;
+	display: block;
+	float: left;
+	/* theme */ color: #FFF;
+	text-align: center;
+	font-size: 14px;
+	cursor:pointer;
+}
+a.ui_button span,
+.ui_button span,
+span.ui_button input,
+span.ui_button a {
+	padding: 0px 5px 0px 10px;
+	height: 27px;
+	display: block;
+	/* min-width: 100px; */
+	background-position:  0px 0px;
+	border: none;
+	text-align: center;
+	color: #ffffff;
+}
+
+a.ui_button:hover,
+.ui_button:hover {
+	background-position:  right -150px;
+}
+a.ui_button:hover span,
+.ui_button:hover span,
+span.ui_button:hover input,
+span.ui_button:hover a {
+	background-position:  0px -100px;
+}
+
+span.ui_button a  /* Centralise the text on buttons (not needed for input buttons)*/
+{
+	padding-top:3px
+}
+	
+a.ui_buttonAlt,
+.ui_buttonAlt {
+	background-position: right -250px;
+	padding: 0px 5px 0px 0px;
+	display: block;
+	float: left;
+	/* theme */ color: #333;
+	text-align: center;
+	font-size: 14px;
+	cursor:pointer;
+	margin-right: 5px;
+}
+a.ui_buttonAlt span,
+.ui_buttonAlt span,
+span.ui_buttonAlt input,
+span.ui_buttonAlt a {
+	padding: 2px 5px 0px 10px;
+	height: 27px;
+	display: block;
+	/* min-width: 100px; */
+	background-position:  0px -200px;
+	border: none;
+	margin-right: 0px;
+	color: #000000;
+}
+
+a.ui_buttonAlt:hover,
+.ui_buttonAlt:hover {
+	background-position:  right -350px;
+}
+a.ui_buttonAlt:hover span,
+.ui_buttonAlt:hover span,
+span.ui_buttonAlt:hover input,
+span.ui_buttonAlt:hover a {
+	background-position: 0px -300px;
+}
+
+
+
+a.ui_buttonAltSml,
+.ui_buttonAltSml {
+	background-position:  right -550px;
+	padding: 0px 5px 0px 0px;
+	display: block;
+	float: left;
+	/* theme */ color: #333;
+	text-align: center;
+	font-size: 12px;
+	cursor:pointer;
+}
+a.ui_buttonAltSml span,
+.ui_buttonAltSml span,
+span.ui_buttonAltSml input,
+span.ui_buttonAltSml a {
+	padding: 2px 5px 0px 10px;
+	height: 20px;
+	display: block;
+	/*min-width: 50px;*/
+	background-position: 0px -500px;
+	color: #000000;
+border: none;
+}
+
+a.ui_buttonAltSml:hover,
+.ui_buttonAltSml:hover {
+	background-position:  right -650px;
+}
+
+a.ui_buttonAltSml:hover span,
+.ui_buttonAltSml:hover span,
+span.ui_buttonAltSml:hover input,
+span.ui_buttonAltSml:hover a {
+	background-position: 0px -600px;
+}

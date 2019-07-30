@@ -1,0 +1,1 @@
+﻿The Custom folder is used to store customised help files for the Tropos Web Application; the file names should match those in the parent folder which holds the package help files.

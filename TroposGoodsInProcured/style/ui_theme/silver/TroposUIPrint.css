@@ -1,0 +1,53 @@
+/***************************************
+Print CSS
+
+1) remove background colours and images except in the application area
+2) hide the menu and all elements of the top menu except the logo
+3) move the application area to fill the page, but leaving space for the logo
+
+Note: IE6 may have a problem with the "everything in the topmenu selector" #topHeader>*
+***************************************/
+
+/* Get rid of any backgrounds */
+html, body, *
+{
+background-image: none;
+background-color: #ffffff;
+color: #000000;
+}
+
+/* Hide all elements from the top header (except the logo) */
+#ui_header_menu,
+#splash,
+.ui_panelset_tabs,
+#ui_nav,
+.ControlsWrap
+{
+display: none;
+}
+
+#ui_brand
+{
+	display: block;
+}
+
+/* Reposition the remaining content to take up the whole page */
+#ui_workspace
+{
+top: 30px;
+bottom: 0;
+left: 0;
+right: 0;
+margin: 0 0 0 0 !important;
+padding: 0 0 0 0;
+}
+
+.troposScroll
+{
+	display: none;
+}
+
+.troposScrollPrint
+{
+	display: block;
+}

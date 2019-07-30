@@ -1,0 +1,331 @@
+﻿@charset "UTF-8";
+/* CSS Document */
+
+/*----------------------------------
+Solarsoft UI - navigation panel and contents
+
+version:   
+author:    Neale Thomas Hall 
+
+-----------------------------------*/ 
+
+
+/* Default Setup 
+-----------------------------------------------------------------------------*/ 
+
+#ui_nav {
+	/* theme */ color: #4d4d4d;
+	/* theme */ background: url(ui_images/ui_nav_bg.png) repeat-y right 0px;
+	position: absolute;
+	left: 0px;
+	top: 30px;
+	bottom: 0px;
+	overflow: hidden;
+	/* z-index: 800;*/
+}
+
+
+#ui_nav.ui_nav_navopen {
+	width: 200px;
+	left: 0px;
+	top: 30px;
+}
+
+#ui_nav_splitter {
+    background-color: #7a7a7a; 
+    z-index: 98; 
+    cursor: e-resize; 
+    position: absolute; 
+    top:30px; 
+    left: 200px; 
+    width: 5px; 
+    height: 100%;
+}
+/* IE7 styling fixes
+*/
+.ui_tree
+{
+	min-width: 20px;
+	font-weight: normal;
+}
+
+.ui_tree ul
+{
+	position: relative;
+	min-width: 20px;
+}
+
+.ui_tree li
+{
+	position: relative;
+	min-width: 20px;
+}
+
+.ui-tree a
+{
+	position: relative;
+}
+
+.ui_tree span
+{
+	position: relative;
+	min-width: 2px;
+}
+/* End IE7 Styling fixes */
+
+#ui_nav_area .ui_tree .ui_treeLaunchwindow {
+	display: none;	
+	position: absolute;
+	width: 11px;
+	height: 17px;
+	background: #9C9;
+	background: url(ui_images/ui_tree.png) no-repeat -1001px -604px;
+	top: 0px;
+	left: 0px;
+}
+
+
+#ui_nav_area .ui_tree LI:hover>.ui_treeLaunchwindow {
+	display:block;	
+}
+
+
+#ui_nav #ui_navcontrol li.ui_navcontrolActive,
+#ui_nav #ui_navcontrol li.ui_navcontrolTask,
+#ui_nav #ui_navcontrol li.ui_navcontrolBookmark,
+#ui_nav #ui_navcontrol li.ui_navcontrolSequence,
+#ui_nav #ui_navcontrol li.ui_navcontrolHelp,
+#ui_nav_navtoggle {/* theme */ background: url(ui_images/ui_icons.png) no-repeat 0px 0px;}
+
+#ui_nav_navtoggle {
+	position: fixed;
+	height: 20px;
+	width: 20px;
+	top: 35px;
+	left: 184px;
+	z-index: 20; 
+	background-position:-1995px 5px;
+	cursor:pointer;
+}
+
+#ui_nav_navtoggle:hover {	background-position:-1995px -15px;}
+#ui_nav_navtoggle.ui_nav_navtoggle_close {background-position: -1995px -45px;}
+#ui_nav_navtoggle.ui_nav_navtoggle_close:hover {background-position: -1995px -65px;}
+
+
+#ui_nav #ui_nav_area {
+	position: absolute;
+	width: 200px;
+	left: 0px;
+	top: 45px;
+	bottom: 0px;
+	overflow: auto;
+	/* theme */ background: url(ui_images/ui_treeblend_wide.png) no-repeat 0px 0px;
+	padding: 0px;
+}
+
+#ui_nav #ui_navcontrol {
+	height: 45px;
+	width: 199px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	/* theme */ background: url(ui_images/ui_nav_icons.png) 0px 0px;
+}
+
+#ui_nav #ui_navcontrol ul {
+	list-style: none;
+	padding: 0px 0px 0px 8px;
+}
+
+#ui_nav #ui_navcontrol li {
+	height: 27px;
+	width: 29px;
+	float: left;
+	margin: 0px 5px 0px 0px;
+	cursor:pointer;
+}
+
+#ui_nav #ui_navcontrol li.ui_navcontrolActive {background-position: 0px -400px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolTask {background-position: -50px -400px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolBookmark {background-position: -100px -400px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolSequence {background-position: -150px -400px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolHelp {background-position: -200px -400px;}
+
+#ui_nav #ui_navcontrol li.ui_navcontrolActive:hover,
+#ui_nav #ui_navcontrol li.ui_navcontrolActive.selected:hover {background-position: 0px -500px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolTask:hover,
+#ui_nav #ui_navcontrol li.ui_navcontrolTask.selected:hover {background-position: -50px -500px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolBookmark:hover,
+#ui_nav #ui_navcontrol li.ui_navcontrolBookmar.selectedk:hover {background-position: -100px -500px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolSequence:hover,
+#ui_nav #ui_navcontrol li.ui_navcontrolSequence.selected:hover {background-position: -150px -500px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolHelp:hover,
+#ui_nav #ui_navcontrol li.ui_navcontrolHelp.selected:hover {background-position: -200px -500px;}
+
+#ui_nav #ui_navcontrol li.ui_navcontrolActive.selected {background-position:  0px -600px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolTask.selected {background-position: -50px -600px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolBookmark.selected {background-position: -100px -600px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolSequence.selected {background-position: -150px -600px;}
+#ui_nav #ui_navcontrol li.ui_navcontrolHelp.selected {background-position: -200px -600px;}
+
+
+
+
+
+/* Main Menu
+-----------------------------------------------------------------------------*/ 
+
+.ui_MainMenuWrapper {
+	width: 600px;
+	margin: 20px auto 0px;
+}
+
+.ui_MainMenuWrapper ul {
+	list-style: none;
+}
+
+.ui_MainMenuWrapper li,
+.ui_MainMenuWrapper li a {
+	/* theme */ background: url(ui_images/ui_buttons.png) right -850px;color: #333;}
+	
+	.ui_MainMenuWrapper li {
+	background-position: right -850px;
+	display: block;
+	padding: 0px 5px 0px 0px;
+	cursor:pointer;
+	margin: 0px 0px 5px;
+}
+
+.ui_MainMenuWrapper li a {
+	background-position: 0px -800px;
+	display: block;
+	height: 28px;
+	padding: 3px 5px 0px 45px;
+	font: 100 normal 16px "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+.ui_MainMenuWrapper li a em {
+	font: normal 11px "Segoe UI", Arial, Helvetica, sans-serif;
+	/* theme */ color: #CBCBCB;
+	padding: 0px 0px 0px 5px;
+}
+
+
+.ui_MainMenuWrapper li:hover {	background-position: right -950px;}
+
+.ui_MainMenuWrapper li:hover a {	background-position:  0px -900px;}
+
+
+
+
+/* Active erp 
+-----------------------------------------------------------------------------*/ 
+
+#ui_nav_area .ui_activekey {
+	/* theme */ background: url(ui_images/ui_activekey.png) right bottom;
+	/* theme */ border-top: 1px solid #203754;
+	margin: 5px 1px 0px 0px;
+	padding: 5px 15px 12px 3px;
+}
+
+#ui_nav_area .ui_activekey h2 {
+	/* theme */ color: #FFF;
+	margin: 0px;
+	padding: 0px 0px 2px 17px;
+	font-size: 14px;
+	font-style: normal;
+	line-height: 14px;
+	font-weight: normal;
+	font-variant: normal;
+}
+	
+#ui_nav_area .ui_activekey h3 {
+	/* theme */ color: #bfc7d1;
+	margin: 0px;
+	padding: 0px 0px 0px 17px;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+#ui_nav_area .ui_activekey h2.ui_customer {
+	/* theme */ background: url(ui_images/ui_icons.png) no-repeat -1000px -798px;
+}
+
+/* Tree 
+-----------------------------------------------------------------------------*/ 
+
+.ui_tree {
+	padding: 5px 10px 0px 5px;
+}
+
+.ui_tree a,
+.ui_tree ul,
+.ui_tree li {display:block;position: relative;margin: 0px;padding: 0px;list-style: none;}
+
+.ui_tree ul li a {
+	/* theme */ background: url(ui_images/ui_tree.png) no-repeat 0px -400px;
+	/* theme */ color: #4d4d4d;/*border-top: 1px solid #f5f5f5;*/
+	border-bottom: 1px solid #d9e1e8;
+	margin-top: 1px;
+	cursor: pointer;
+}
+.ui_tree ul li a:hover,
+.ui_tree ul li.selected a,
+.ui_tree ul li a.selected {/* theme */
+	color: #fff;/*border-top: 1px solid #7da2ba;*/
+	border-bottom: 1px solid #0b131f;
+}
+.ui_tree ul li ul li a {/* theme */ color:#7a7a7a;} 
+
+/* Level 1 setup */
+.ui_tree ul {
+	font: normal 14px  "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+.ui_tree ul li.ui_treecollapse > ul { display:none;}
+.ui_tree ul li.ui_treecollapse.open > ul { display:block;}
+
+.ui_tree ul li > a {padding: 2px 0px 4px 12px;background-position:0px -400px;} 
+.ui_tree ul li.ui_treecollapse > a {background-position: 0px 0px;}
+
+.ui_tree ul li.ui_treecollapse.open > a {background-position: 0px -200px;}
+.ui_tree ul li.ui_treenewwindow > a {background-position: 0px -600px;}
+.ui_tree ul li > a:hover,
+.ui_tree ul li.ui_treenode > a:hover {background-position: -1000px -400px;} 
+.ui_tree ul li.ui_treecollapse > a:hover {background-position: -1000px 0px;}
+.ui_tree ul li.ui_treecollapse.open > a:hover {background-position: -1000px -200px;}
+.ui_tree ul li.ui_treenewwindow > a:hover {background-position: -1000px -600px;}
+
+.ui_tree ul li > a.selected,
+.ui_tree ul li.selected a,
+.ui_tree ul li.endNode.selected,
+.ui_tree ul li.ui_treenode.selected  {background-position: -1000px -400px; color: #ffffff} 
+.ui_tree ul li.ui_treecollapse.selected  {background-position: -1000px 0px;}
+.ui_tree ul li.ui_treecollapse.open.selected  {background-position: -1000px -200px;}
+.ui_tree ul li.ui_treenewwindow.selected  {background-position: -1000px -600px;}
+
+
+/* Level 2 setup */
+.ui_tree ul li ul {
+	margin: 0px 0px 0px 10px;
+	font: normal 12px "Segoe UI", Arial, Helvetica, sans-serif;
+}
+.ui_tree ul li ul li.ui_treecollapse>ul {display:none;}
+
+.ui_tree ul li ul li.ui_treecollapse.open>ul {display:block;}
+
+.ui_tree ul li ul li > a {padding: 0px 0px 1px 11px;background-position: 0px -1200px;} 
+.ui_tree ul li ul li.ui_treecollapse > a {background-position: 0px -800px;}
+.ui_tree ul li ul li.ui_treecollapse.open > a {background-position: 0px -1000px;}
+.ui_tree ul li ul li.ui_treenewwindow > a {background-position: 0px -1400px;}
+
+.ui_tree ul li ul li > a:hover {background-position: -1000px -1200px;} 
+.ui_tree ul li ul li.ui_treecollapse > a:hover {background-position: -1000px -800px;}
+.ui_tree ul li ul li.ui_treecollapse.open > a:hover {background-position: -1000px -1000px;}
+.ui_tree ul li ul li.ui_treenewwindow > a:hover {background-position: -1000px -1400px;}
+
+.ui_tree ul li ul li.selected > a {background-position: -1000px -1200px;} 
+.ui_tree ul li ul li.ui_treecollapse.selected >a {background-position: -1000px -800px;}
+.ui_tree ul li ul li.ui_treecollapse.open.selected >a{background-position: -1000px -1000px;}
+.ui_tree ul li ul li.ui_treenewwindow.selected >a{background-position: -1000px -1400px;}

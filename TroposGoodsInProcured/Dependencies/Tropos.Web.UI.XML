@@ -1,0 +1,990 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tropos.Web.UI</name>
+    </assembly>
+    <members>
+        <member name="F:Tropos.Web.UI.Forms.TransactionExecutionOrder.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TransactionExecutionOrder.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TransactionExecutionOrder.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.Forms.TroposConnectionDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposConnectionDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposConnectionDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.Forms.TroposConnectionTest.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposConnectionTest.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposConnectionTest.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.Forms.TroposDavlSelector.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposDavlSelector.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposDavlSelector.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.Forms.TroposFieldBrowser.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposFieldBrowser.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposFieldBrowser.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.Forms.TroposHelp.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposHelp.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposHelp.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.Forms.TroposQuickFind.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposQuickFind.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposQuickFind.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.Forms.TroposInputBind.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposInputBind.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tropos.Web.UI.Forms.TroposInputBind.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.Helpers.FormatHelper.ConvertStringArrayToStringPreserveLineFeeds(System.Collections.ObjectModel.Collection{System.String})">
+            <summary>
+            Concatenate all the elements into a single string with Line Feeds.
+            </summary>
+            <param name="array"></param>
+            <returns>string</returns>
+        </member>
+        <member name="T:Tropos.Web.UI.Helpers.VSIconUrlGeneration">
+            <summary>
+            To get the URL of embedded resources for Visual Studio in Design mode
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.Properties.Resources.TroposIcon">
+            <summary>
+              Looks up a localized string similar to Tropos.ico.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposActionButton.ForeColor">
+            <summary>
+            Sets the text colour for the button.
+            Recommended colour to indicate that related data is present is LightGreen.
+            To return to the default colour, set to System.Drawing.Color.Empty
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposActionButton.PostExecutionEventArgs.StatusEnum">
+            <summary>
+            Contains flags to indicate whether field highlighting and values, and messages from the server, should be displayed or ignored.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.TroposActionButton.PostExecutionEventArgs.StatusEnum.Normal">
+            <summary>
+            Field highlighting and values, and messages from the server, will all be displayed
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.TroposActionButton.PostExecutionEventArgs.StatusEnum.CancelHighlightFields">
+            <summary>
+            Any field highlighting sent by the Tropos server will be ignored.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.TroposActionButton.PostExecutionEventArgs.StatusEnum.CancelUpdateFields">
+            <summary>
+            Field values sent by the Tropos server will be ignored and screen fields will be left unchanged.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.TroposActionButton.PostExecutionEventArgs.StatusEnum.CancelClearFields">
+            <summary>
+            Each field value sent by the Tropos server will be updated to the corresponding screen field unless the new value is 
+            blank, in which case the screen field will be left unchanged.
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.TroposActionButton.PostExecutionEventArgs.StatusEnum.CancelMessages">
+            <summary>
+            Messages sent by the Tropos server will be ignored
+            </summary>
+        </member>
+        <member name="F:Tropos.Web.UI.TroposActionButton.PostExecutionEventArgs.StatusEnum.CancelAll">
+            <summary>
+            Field highlighting and values, and messages from the server, will all be ignored
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposBusinessCalendar">
+            <summary>
+            Input field combined with a drop-down calendar.
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposBusinessCalendar.OnDateSelectedEventHandler">
+            <summary>
+            Represents the method that will handle the event when a date has been selected
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:Tropos.Web.UI.TroposBusinessCalendar.DateSelected">
+            <summary>
+            Occurs when a date has been selected
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposBusinessCalendar.OnDateChangedEventHandler">
+            <summary>
+            Represents the method that will handle the event when the date has been changed
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:Tropos.Web.UI.TroposBusinessCalendar.DateChanged">
+            <summary>
+            Occurs when the date has been changed
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposBusinessCalendar.#ctor">
+            <summary>
+            Initalises a new instance of the Tropos.Web.UI.TroposBusinessCalendar class
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.RangeStartDate">
+            <summary>
+            Used together with RangeEndDate to define a range of dates to be highlighted
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.RangeEndDate">
+            <summary>
+            Used together with RangeStartDate to define a range of dates to be highlighted
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.CalendarStartDate">
+            <summary>
+            Start date of business calendar – dates before this date are marked as not selectable
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.CalendarEndDate">
+            <summary>
+            End date of business calendar – dates after this date are marked as not selectable
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.CalendarNonDates">
+            <summary>
+            List of dates within the calendar start/end dates that are marked as not selectable
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.IsNonDate">
+            <summary>
+            True if the user has entered a non date in the input field
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.DatePicker">
+            <summary>
+            Handle to the RadDatePicker control
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.AllowTabToCalendar">
+            <summary>
+            If true, allows the user to tab to the calendar button; if false, the calendar button will be excluded from the tab sequence on the page
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.SharedCalendarID">
+            <summary>
+            ID of the RadCalendar control to share
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.SharedCalendar">
+            <summary>
+            Handle to the RadCalendar control to share
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.Width">
+            <summary>
+            Width of the control
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.TabIndex">
+            <summary>
+            The index of the control in the tab order
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.UserData">
+            <summary>
+            Data stored for the benefit of the calling program
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.DefaultTextboxFocus">
+            <summary>
+            Default value for the TextboxFocus property
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.TextboxFocus">
+            <summary>
+            Javascript code to be added to the text box as the onfocus handler
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposBusinessCalendar.CreateChildControls">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposBusinessCalendar.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the PreRender event. Occurs after the Control object is loaded but prior to rendering.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposBusinessCalendar.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Sends server control content to a provided HtmlTextWriter object, which writes the content to be rendered on the client
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposBusinessCalendar.ApplyErrorClass">
+            <summary>
+            Adds the error class to the embedded RadDateInput control, to provide a visual indication that the field is in error
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposBusinessCalendar.RemoveErrorClass">
+            <summary>
+            Clears the error class from the embedded RadDateInput control
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.ScreenNumber">
+            <summary>
+            Tropos screen number associated with the control
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.TransactionCode">
+            <summary>
+            Tropos transaction code associated with the control
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.DataName">
+            <summary>
+            Tropos dataname associated with the control
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.FieldName">
+            <summary>
+            Tropos field name associated with the control; this is the field name used in the CCT screen definition file
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.IsEmpty">
+            <summary>
+            Used to determine if the control is empty
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.Text">
+            <summary>
+            Gets or sets a string representing the date in a format which may be passed to a Tropos transaction
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.FieldValue">
+            <summary>
+            Gets or sets the date in a format which may be passed to a Tropos transaction
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.HighlightError">
+            <summary>
+            Gets or sets a boolean value indicating whether the field should be shown as in error
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusinessCalendar.TransactionGroup">
+            <summary>
+            Gets or sets the Transaction group associated with the field
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposControlHelper.TroposQuery(Tropos.Web.UI.DTO.ITroposQuery)">
+            <summary>
+            Design Time Call to be used with Developer Context
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposInput">
+            <summary>
+            Input field with options to call a lookup or the dimension calculator
+            </summary>
+        </member>
+        <member name="E:Tropos.Web.UI.TroposInput.TroposCalcClick">
+            <summary>
+            Occurs when the calculator button has been clicked
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposInput.OnBlurHandler">
+            <summary>
+            Represents the method that will handle the event when the control loses focus
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:Tropos.Web.UI.TroposInput.Blur">
+            <summary>
+            Occurs when the control loses focus
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposInput.OnTextChangeHandler">
+            <summary>
+            Represents the method that will handle the event when the text changes
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:Tropos.Web.UI.TroposInput.TextChange">
+            <summary>
+            Occurs when the text changes
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.#ctor">
+            <summary>
+            Initalises a new instance of the Tropos.Web.UI.TroposInput class
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.SharedLookup">
+            <summary>
+            Gets or sets a lookup to be shared by several Tropos input fields (reducing the amount of code rendered on the page)
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.DefaultTextboxFocus">
+            <summary>
+            Default value for the TextboxFocus property
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.TextboxFocus">
+            <summary>
+            Javascript code to be added to the text box as the onfocus handler
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.FieldNumber">
+            <summary>
+            The Tropos field number
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.Lookup">
+            <summary>
+            Gets or sets the ID of the lookup associated with the control
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.Length">
+            <summary>
+            Length of the field in characters
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.FullWidth">
+            <summary>
+            If true, Width represents the full width of the control including buttons.  If false (compatible with older applications) the Width property refers to the input field only
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.DisplayLength">
+            <summary>
+            Number of characters to display (giving a horizontal scrolling window
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.SuppressAbsolute">
+            <summary>
+            The lookup or calculator button has a style of absolute positioning to align it exactly with the end of the input box.
+            This can cause problems if the TroposInput control inside a scrolling container (e.g. a TroposGridView or GridView).  
+            This will normally be corrected automatically, but if the position of the button is still incorrect,
+            then set the SuppressAbsolute property to true to prevent this behaviour and restore relative positioning.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.LastKeyCode">
+            <summary>
+            The last key code entered by the user into the input field.  For example, 9 = tab, 13 = return.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.LookUpCode">
+            <summary>
+            LookUpCode to generate the lookup from
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.GenerateCalcButton">
+            <summary>
+            Should the calculator button be generated (if dimensions are present on the database)
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.CalcButtonVisible">
+            <summary>
+            Should the calculator button be visible (if GenerateCalcButton is true)
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.ShowLookupButton">
+            <summary>
+            Should the lookup button be shown (if a lookup is defined)
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.UserData">
+            <summary>
+            Data stored for the benefit of the calling program
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.Description">
+            <summary>
+            Data name description
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.Visible">
+            <summary>
+            True if the field is visible on the screen
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.PersistentHighlightError">
+            <summary>
+            Set to true to highlight the field to show an error
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.Echo">
+            <summary>
+            True if the field displays typed text
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.Mandatory">
+            <summary>
+            True if the field is mandatory
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.Actions">
+            <summary>
+            Tropos actions associated with the input
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.Text">
+            <summary>
+            Gets or sets the text content of the control
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.TextMode">
+            <summary>
+            Always TextMode.SingleLine.  For multi-line inputs use the TroposTextArea control
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.Parameters">
+            <summary>
+            The ListParameters to be used by the LookUp
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.TextBoxControl">
+            <summary>
+            Handle to the text box control
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.OnInit(System.EventArgs)">
+            <summary>
+            Raises the Init event
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.CreateChildControls">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.LoadControlState(System.Object)">
+            <summary>
+            Restores control-state information from a previous page request that was saved using the SaveControlState method
+            </summary>
+            <param name="savedState"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.SaveControlState">
+            <summary>
+            Saves any control state changes that have occurred since the time the page was posted back to the server
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.TabIndex">
+            <summary>
+            Gets or sets the tab index of the Web server control
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Sends server control content to a provided HtmlTextWriter object, which writes the content to be rendered on the client
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.CreateLookUp(System.String)">
+            <summary>
+            Display the lookup assocated with the control
+            </summary>
+            <param name="lookUpCode"></param>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposInput.LookUpDataSelectedEventHandler">
+            <summary>
+            Represents an event handler for the LookupDataSelectedEvent
+            </summary>
+            <param name="parameters"></param>
+        </member>
+        <member name="E:Tropos.Web.UI.TroposInput.LookUpDataSelectedEvent">
+            <summary>
+            Occurs when a row is selected in the lookup
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposInput.TroposLookUpDataSelectedEventHandler">
+            <summary>
+            Represents an event handler for the TroposLookupDataSelectedEvent
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:Tropos.Web.UI.TroposInput.TroposLookUpDataSelected">
+            <summary>
+            Occurs when a row is selected in the lookup
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposInput.LookUpClickEventHandler">
+            <summary>
+            Represents an event handler for the LookupClickEvent
+            </summary>
+        </member>
+        <member name="E:Tropos.Web.UI.TroposInput.LookUpClickEvent">
+            <summary>
+            Occurs when the user clicks the lookup button
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposInput.TroposLookUpClickEventHandler">
+            <summary>
+            Represents an event handler for the TroposLookUpClick 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:Tropos.Web.UI.TroposInput.TroposLookUpClick">
+            <summary>
+            Occurs when the user clicks the lookup button
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.ApplyErrorClass">
+            <summary>
+            Adds the error class to the embedded RadDateInput control, to provide a visual indication that the field is in error
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.RemoveErrorClass">
+            <summary>
+            Clears the error class from the embedded RadDateInput control
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the PreRender event. Occurs after the Control object is loaded but prior to rendering.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposInput.BindToControl">
+            <summary>
+            Gets or sets the ID of another TroposInput control to which this control is bound
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.LoadPostData(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Processes postback data for the control
+            </summary>
+            <param name="postDataKey"></param>
+            <param name="postCollection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposInput.RaisePostDataChangedEvent">
+            <summary>
+            Signals the control to notify the ASP.NET application that the state of the control has changed.
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.TroposLabel.LabelJustification">
+            <summary>
+            Text alignment of the label R = Right Aligned, L = Left Aligned (default)
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.DelayedLoad">
+            <summary>
+            Delays the loading of values into the page until the user presses the button. This reduces the page size
+            but suppresses the validation of a value immediately the user enters it.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.DefaultTextboxFocus">
+            <summary>
+            Default value for the TextboxFocus property
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.TextboxFocus">
+            <summary>
+            Javascript code to be added to the text box as the onfocus handler
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.UserData">
+            <summary>
+            Data stored for the benefit of the calling program
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.UseWebservice">
+            <summary>
+            Specifies whether to use an Ajax webservice to retreive the DAVL data - not available where DavlType is Dynamic or UserDefined
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.SuppressAbsolute">
+            <summary>
+            The DAVL button has a style of absolute positioning to align it exactly with the end of the input box.
+            This can cause problems if the TroposInput control inside a scrolling container (e.g. a TroposGridView or GridView).  
+            This will normally be corrected automatically, but if the position of the button is still incorrect,
+            then set the SuppressAbsolute property to true to prevent this behaviour and restore relative positioning.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.DavlDropDownType">
+            <summary>
+            Type of drop down menu: Code only, Code and Description, or Description only
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.DavlType">
+            <summary>
+            Type of the DAVL: No - no DAVLs, no button; Yes - list based on dataname codes/descriptions; YorN - Yes or No; YorM - Yes/No/Maintain; Dynamic - determined by Tropos application; UOM - list of Units of Measure; SQL - list determined by the SQLStatement property; UserDefined - list provided in the UserDefined property collection
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.MenuWidth">
+            <summary>
+            Width of the DAVL menu
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.SuppressAdditionalEntries">
+            <summary>
+            Determines whether additional entries in the DAVL list are to be suppressed, either the all asterisk entry, the spaces entry, or both
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.SQLStatement">
+            <summary>
+            SQL Statement to retrieve code and description
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.Description">
+            <summary>
+            The description in a DAVL code/description pair
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.Text">
+            <summary>
+            The Text value.  Represents the code in a DAVL code/description pair.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.InvalidCodeMessage">
+            <summary>
+            Message to be output if the user enters an invalid code.  May be text to be displayed as is, or a resource identifier prefixed with a $ symbol.  Default is $MSG_NOSUCHOPTION.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.Mandatory">
+            <summary>
+            True if the field is mandatory
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.UserDefined">
+            <summary>
+            List of codes and descriptions
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.AddAdditionalEntries">
+            <summary>
+            Type of drop down menu: Code only, Code and Description, or Description only
+            </summary>
+            [Category("Behavior")]
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.SqlParameters">
+            <summary>
+            Parameters for the SQL statement
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.LastKeyCode">
+            <summary>
+            The last key code entered by the user into the input field.  For example, 9 = tab, 13 = return.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDAVL.TabIndex">
+            <summary>
+             TabIndex for the TextBox control
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposDAVL.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the PreRender event
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposDAVL.OnLoad(System.EventArgs)">
+            <summary>
+            Raises the Load event
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusiness.DefaultTextboxFocus">
+            <summary>
+            Default value for the TextboxFocus property
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusiness.TextboxFocus">
+            <summary>
+            Javascript code to be added to the text box as the onfocus handler
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBusiness.UserData">
+            <summary>
+            Data stored for the benefit of the calling program
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposGridView.ExportName">
+            <summary>
+            Gets or Sets the file name for the export file.  If unset, then the name will be the page name suffixed with date and time.
+            If set to a value ending in +, then the + will be replace by _ and the data and time suffixed.
+            If set to any other value, then that will be the filename used for the export.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposSimpleInput.DefaultTextboxFocus">
+            <summary>
+            Default value for the TextboxFocus property
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposSimpleInput.TextboxFocus">
+            <summary>
+            Javascript code to be added to the text box as the onfocus handler
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposSimpleInput.SuppressAbsolute">
+            <summary>
+            The lookup or calculator button has a style of absolute positioning to align it exactly with the end of the input box.
+            This can cause problems if the TroposSimpleInput control inside a scrolling container (e.g. a TroposGridView or GridView).  
+            This will normally be corrected automatically, but if the position of the button is still incorrect,
+            then set the SuppressAbsolute property to true to prevent this behaviour and restore relative positioning.
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposBaseGrid.ExportName">
+            <summary>
+            Gets or Sets the file name for the export file.  If unset, then the name will be the page name suffixed with date and time.
+            If set to a value ending in +, then the + will be replace by _ and the data and time suffixed.
+            If set to any other value, then that will be the filename used for the export.
+            </summary>
+        </member>
+        <member name="T:Tropos.Web.UI.DAVLUserDefinedCollection">
+            <summary>
+            DAVLUserDefinedList behaves like a List&gt;DAVLUserDefinedData&lt; except that it persists itself in
+            the web application's session so that it is not lost when a page is reloaded.
+            The stored data is keyed using the id passed into the constructor.
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedCollection.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a new instance of the DAVLUserDefinedList, and retrieves the stored values
+            from the HTTP session
+            </summary>
+            <param name="id"></param>
+            <param name="designMode"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedCollection.Add(Tropos.Web.UI.DAVLUserDefinedData)">
+            <summary>
+            Adds a DAVLUserDefinedData item to the end of the list.  Any values restored from a saved list will be cleared before the item is added.
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedCollection.AddRange(System.Collections.Generic.IEnumerable{Tropos.Web.UI.DAVLUserDefinedData})">
+            <summary>
+            Adds the elements of the specific collection to the end of the list.  Any values restored from a saved list will be cleared before the item is added.
+            </summary>
+            <exception>System.ArgumentNullException</exception>
+            <param name="collection"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedCollection.Clear">
+            <summary>
+            Removes all elements from the list
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedCollection.Insert(System.Int32,Tropos.Web.UI.DAVLUserDefinedData)">
+            <summary>
+            Inserts an element into the list at the specified index
+            </summary>
+            <param name="index"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedCollection.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{Tropos.Web.UI.DAVLUserDefinedData})">
+            <summary>
+            Inserts the elements of a collection into the list at the specified index
+            </summary>
+            <param name="index"></param>
+            <param name="collection"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedCollection.Remove(Tropos.Web.UI.DAVLUserDefinedData)">
+            <summary>
+            Removes the first occurrence of a specific object from the list
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes the element at the specified index from the list
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedCollection.RemoveAll(System.Predicate{Tropos.Web.UI.DAVLUserDefinedData})">
+            <summary>
+            Removes all the elements that match the condition defined by the specified predicate
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedCollection.RemoveRange(System.Int32,System.Int32)">
+            <summary>
+            Removes a range of elements from the list
+            </summary>
+            <param name="index"></param>
+            <param name="count"></param>
+        </member>
+        <member name="T:Tropos.Web.UI.DAVLUserDefinedData">
+            <summary>
+            DAVLUserDefinedData object stores a single matched pair of code and description
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.DAVLUserDefinedData.Code">
+            <summary>
+            Code of the user defined DAVL
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.DAVLUserDefinedData.Description">
+            <summary>
+            Description of the user defined DAVL
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedData.#ctor">
+            <summary>
+            New empty instance of DAVLUserDefinedData
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.DAVLUserDefinedData.#ctor(System.String,System.String)">
+            <summary>
+            New instance of DAVLUserDefinedData initialised with the specified code and description
+            </summary>
+            <param name="code"></param>
+            <param name="description"></param>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDisplayField.ExtendedDisplayTop">
+            <summary>
+             Value for the 'top' style when showing extended data; 'auto' or a value e.g. '150px'
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposDisplayField.ExtendedDisplayLeft">
+            <summary>
+             Value for the 'left' style when showing extended data; 'auto' or a value e.g. '150px'
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposStaticGrid.StaticRows">
+            <summary>
+            The number of rows in the grid that will be static (i.e. exempt from scrolling)
+            </summary>
+        </member>
+        <member name="P:Tropos.Web.UI.TroposStaticGrid.StaticColumns">
+            <summary>
+            The number of columns in the grid that will be static (i.e. exempt from scrolling)
+            </summary>
+        </member>
+        <member name="M:Tropos.Web.UI.TroposStaticGrid.DetectForbiddenControls(System.Web.UI.Control)">
+            <summary>
+             Searches for forbidden controls in the Controls collection for this control and all its children, and raises an exception if any are found.
+            </summary>
+            <param name="control"></param>
+        </member>
+    </members>
+</doc>

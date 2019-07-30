@@ -1,0 +1,492 @@
+﻿@charset "UTF-8";
+/* CSS Document */
+
+/*----------------------------------
+Epicor Tropos UI - forms
+
+version:   
+author:    Neale Thomas Hall 
+
+-----------------------------------*/ 
+
+
+/* Default Setup 
+-----------------------------------------------------------------------------*/ 
+
+form {
+	margin: 0px;
+	padding: 0px;
+}
+.ui_form,
+.ui_form input,
+.ui_form textarea,
+.ui_form select {
+	font: #e2ebf6;
+}
+
+/* theme */  .ui_form label {
+	/*color:#3f6ea8;*/
+	color:#4a4f57;
+}
+
+/* theme */ .ui_form fieldset legend, .ui_form .ui_fieldsetset,
+.ui_form fieldset{
+	color:#284569;
+}
+
+/* default sizing */
+
+.ui_form.ui_formdefault  label {width: 120px;}
+.ui_form.ui_formdefault .inputBlock,
+.ui_form.ui_formdefault p,
+.ui_form.ui_formdefault input[type=text],
+.ui_form.ui_formdefault input[type=password],
+.ui_form.ui_formdefault textarea,
+.ui_form.ui_formdefault select,
+.ui_form.ui_formdefault input[readonly=readonly][type=text],
+.ui_form.ui_formdefault input[readonly=readonly][type=password],
+.ui_form.ui_formdefault textarea[readonly=readonly] {width:240px;}
+
+.ui_form.ui_formdefault select {	width: 248px;}
+
+.ui_form.ui_formdefault .ui_lookup {width: 265px;}
+
+.ui_form .ui_form_control .ui_lookupCntrl,
+.ui_form .ui_form_control .ui_CalendarCntrl,
+.ui_form .ui_form_control .ui_DropCntrl,
+.ui_form .ui_form_control .ui_lookupCntrlAlt,
+.ui_form .ui_form_control .ui_CalendarCntrlAlt,
+.ui_form .ui_form_control .ui_DropCntrlAlt {
+	position: absolute;
+	left: 250px;
+	top: 2px;
+}
+
+
+
+
+/* Input back colours */
+
+.ui_form input[type=text],
+.ui_form input[type=password],
+.ui_form textarea,
+.ui_form select {
+	/* theme */ border-top: 1px solid #96b8e3;
+	/* theme */ border-right: 1px solid #bed2eb;
+	/* theme */ border-bottom: 1px solid #bed2eb;
+	/* theme */ border-left: 1px solid #bed2eb;
+	/* theme */ color: #333;
+	/* theme */ background: #FFF;}
+	
+
+.ui_form input[readonly=readonly][type=text],
+.ui_form input[readonly=readonly][type=password],
+.ui_form textarea[readonly=readonly],
+.ui_form .readonly {
+ 	/* theme */ border: 1px solid #e4ecf6;
+	/* theme */ background:#edf2f9;}
+.ui_form textarea[readonly=readonly], 
+.ui_form textarea.readonly {	/* theme */ border: 1px solid #e4ecf6;} 
+
+
+.ui_form input[type=text].mandatory,
+.ui_form input[type=password].mandatory,
+.ui_form textarea.mandatory,
+.ui_form select.mandatory,
+.ui_form input[type=text].mandatory:focus,
+.ui_form input[type=password].mandatory:focus,
+.ui_form textarea.mandatory:focus,
+.ui_form select.mandatory:focus {/* theme */ background:#feeabf;}
+
+
+.ui_form input[type=text].error,
+.ui_form input[type=password].error,
+.ui_form textarea.error,
+.ui_form select.error,
+.ui_form input[type=text].error:focus,
+.ui_form input[type=password].error:focus,
+.ui_form textarea.error:focus,
+.ui_form select.error:focus {
+	/* theme */ border-top: 1px solid #6b2715;
+	/* theme */ border-right: 1px solid #a13a20;
+	/* theme */ border-bottom: 1px solid #a13a20;
+	/* theme */ border-left: 1px solid #a13a20;
+	/* theme */ color: #fff;
+	/* theme */ background: #ea542e;
+	}
+
+
+.ui_form input[type=text]:focus,
+.ui_form input[type=password]:focus,
+.ui_form textarea:focus {
+	/* theme */ border-top: 1px solid #7b9bc5;
+	/* theme */ border-right: 1px solid #96b8e3;
+	/* theme */ border-bottom: 1px solid #96b8e3;
+	/* theme */ border-left: 1px solid #96b8e3;
+	/* theme */ color: #000;
+	/* theme */ background: #e2ebf6;}
+	
+.ui_form .ui_fieldsetset,
+.ui_form fieldset {
+	/* theme */ background: #f2f6fb;
+	/* theme */ border: 1px solid #bed2eb;
+	position:relative;
+	padding: 10px;
+	margin: 15px;
+}
+
+.ui_form .ui_fieldsetset.full,
+.ui_form fieldset.full {
+	/* theme */ background: #f2f6fb;
+	/* theme */ border: 1px solid #bed2eb;
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+ padding: 10px;
+ margin: 10px;
+ overflow: auto;
+}
+
+
+
+.ui_form fieldset legend {
+	padding: 0px 3px;
+	
+}
+
+.ui_form label {
+	display: block;
+	float: left;
+	padding: 2px 0px 0px;
+	margin: 0px 0px 4px;
+}
+
+.ui_form .ui_lineBreak {
+	height:1px;
+	margin: 10px 0px 0px;
+	padding: 0px 0px 10px;
+	/* theme */ border-top: 1px solid #bed2eb;
+	clear: both;
+   }
+	
+.ui_form .ui_inputGroup {
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+}
+
+.ui_form .inputBlock {
+	float:left;
+	margin: 0px;
+	padding: 0px;
+	}
+	
+.ui_form p {
+	float:left;
+	margin: 0px;
+	padding: 2px 0px 0px;
+	}
+	
+.ui_form input[type=text],
+.ui_form input[type=password],
+.ui_form textarea,
+.ui_form select {
+	margin: 0px 4px 4px 0px;
+	padding: 1px 3px 2px;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	outline: none;
+}
+
+.ui_form input[type=checkbox],
+.ui_form input[type=radio] {
+	margin: 2px 4px 6px 0px;
+	margin: 0 0 0 0;
+	outline: none;
+}
+
+.ui_form input[readonly=readonly][type=text],
+.ui_form input[readonly=readonly][type=password],
+.ui_form textarea[readonly=readonly],
+.ui_form .readonly 
+{
+	margin: 0px 4px 4px 0px;
+	padding: 1px 3px 2px;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+
+
+.ui_form .ui_form_control {
+	float: left;
+	position:relative;
+}
+	
+.ui_form .ui_form_control .ui_lookupCntrl,
+.ui_form .ui_form_control .ui_CalendarCntrl,
+.ui_form .ui_form_control .ui_DropCntrl,
+.ui_form .ui_form_control .ui_lookupCntrlAlt,
+.ui_form .ui_form_control .ui_CalendarCntrlAlt,
+.ui_form .ui_form_control .ui_DropCntrlAlt {display: block;height: 18px;width: 21px;cursor:pointer;}
+
+/*.ui_form .ui_form_control .ui_lookupCntrl {background: url(../ui_gfx/appfurniture/ui_form_iconSearch.png) no-repeat;}
+.ui_form .ui_form_control .ui_CalendarCntrl {background: url(../ui_gfx/appfurniture/ui_form_iconCal.png) no-repeat;}
+.ui_form .ui_form_control .ui_DropCntrl {background: url(../ui_gfx/appfurniture/ui_form_iconDrop.png) no-repeat;}*/
+
+/* theme */ .ui_form .ui_form_control .ui_lookupCntrlAlt {	background: url(ui_images/ui_form_iconSearch_attached.png) no-repeat;}
+/* theme */ .ui_form .ui_form_control .ui_CalendarCntrlAlt {	background: url(ui_images/ui_form_iconCal_attached.png) no-repeat;}
+/* theme */ .ui_form .ui_form_control .ui_DropCntrlAlt {	background: url(ui_images/ui_form_iconDrop_attached.png) no-repeat;}
+
+.ui_form .ui_form_control .ui_DropCntrlAltSml {
+	position: absolute;
+	left: 250px;
+	top: 2px;
+	display: block;
+	height: 17px;
+	width: 17px;
+	/* theme */ background: url(ui_images/ui_form_iconActionGAlt.png) no-repeat;
+	cursor:pointer;
+}
+
+/* Form Table
+-----------------------------------------------------------------------------*/ 
+
+table.ui_tableA {
+	/* theme */ border-top: 1px solid #bed2eb;
+	/* theme */ border-left: 1px solid #bed2eb;
+	/* theme */ background: #FFF;
+}
+
+table.ui_tableA th {
+	padding: 3px 10px;
+	margin: 0px;
+	text-align:left;
+	font-weight: normal;
+	/* theme */ border-right: 1px solid #7b9bc5;
+	/* theme */ border-bottom: 1px solid #7b9bc5;
+	/* theme */ color: #284569;
+	/* theme */ background: #EAEBEC url(ui_images/ui_tableTH.png) no-repeat 0px 0px;
+}
+
+table.ui_tableA tr {}
+
+table.ui_tableA tr td {
+	padding: 3px 10px;
+	margin: 0px;
+	text-align:left;
+	/* theme */ background: #FFF;
+	/* theme */ border-right: 1px solid #bed2eb;
+	/* theme */ border-bottom: 1px solid #bed2eb;
+	/* theme */ color: #333;
+}
+
+table.ui_tableA tr.alt td {
+	/* theme */ background: #e2ebf6;
+}
+
+table.ui_tableA tr.selected td {
+	/* theme */ background: #1875e7;
+	/* theme */ color: #FFF;
+}
+
+
+.ui_form .ui_pagerFirst a,
+.ui_form .ui_pagerPrev a,
+.ui_form .ui_pagerNext a,
+.ui_form .ui_pagerLast a {
+	/* theme */ background: url(ui_images/ui_icons.png) no-repeat 50px 0px;
+}
+
+
+/* theme */ .ui_form .ui_pager {color: #4a4f57;}
+
+/* theme */ .ui_form .ui_pagerItem strong {	color: #284569;}
+
+/* theme */ .ui_form .ui_pagerItem a {	color: #4a4f57;}
+
+.ui_form .ui_pagerFirst a { background-position: -1000px -300px;}
+.ui_form .ui_pagerPrev a {background-position: -1050px -300px;}
+.ui_form .ui_pagerNext a {background-position: -1100px -300px;}
+.ui_form .ui_pagerLast a {background-position: -1150px -300px;}
+
+.ui_form .ui_pagerFirst a:hover { background-position: -1000px -400px;}
+.ui_form .ui_pagerPrev a:hover {background-position: -1050px -400px;}
+.ui_form .ui_pagerNext a:hover {background-position: -1100px -400px;}
+.ui_form .ui_pagerLast a:hover {background-position: -1150px -400px;}
+
+.ui_form .ui_pagerFirst.disabled a {background-position: -1000px -500px;}
+.ui_form .ui_pagerPrev.disabled a {background-position: -1050px -500px;}
+.ui_form .ui_pagerNext.disabled a {background-position: -1100px -500px;}
+.ui_form .ui_pagerLast.disabled a {background-position: -1150px -500px;}
+
+
+
+
+
+
+
+/* Modal form elements
+-----------------------------------------------------------------------------*/ 
+
+.ui_modaldrk,
+.ui_modaldrk input[type=text],
+.ui_modaldrk input[type=password],
+.ui_modaldrk textarea,
+.ui_modaldrk select,
+.ui_modallgt,
+.ui_modallgt input[type=text],
+.ui_modallgt input[type=password],
+.ui_modallgt textarea,
+.ui_modallgt select {
+	font: 12px "Segoe UI", Arial, Helvetica, sans-serif;
+}
+	 
+.ui_modaldrk .ui_error,
+.ui_modaldrk .ui_warning,
+.ui_modaldrk .ui_question,
+.ui_modaldrk .ui_info {
+	min-height:25px;
+	margin: 0px;
+	padding: 10px 10px 5px 40px;
+	clear: both;
+	vertical-align: middle;
+	font-size: 14px;
+	/* theme */ color: #FFF;
+	line-height: 1.1em;
+}
+
+.ui_modallgt .ui_error ,
+.ui_modallgt .ui_warning,
+.ui_modallgt .ui_question,
+.ui_modallgt .ui_info {
+	min-height:25px;
+	margin: 0px;
+	padding: 10px 10px 5px 40px;
+	clear: both;
+	vertical-align: middle;
+	font-size: 14px;
+	line-height: 1.1em;
+}
+
+
+/* theme */ .ui_modaldrk .ui_error,
+.ui_modallgt .ui_error,
+.ui_modaldrk .ui_warning,
+.ui_modallgt .ui_warning,
+.ui_modaldrk .ui_question,
+.ui_modallgt .ui_question,
+.ui_modaldrk .ui_info,
+.ui_modallgt .ui_info {background:url(ui_images/ui_icons_modal.png) no-repeat 0px 0px;}
+
+
+
+
+
+.ui_modaldrk .ui_error,
+.ui_modallgt .ui_error {background-position: 0px 5px;}
+.ui_modaldrk .ui_warning,
+.ui_modallgt .ui_warning {background-position:  -1000px 5px;}
+.ui_modaldrk .ui_question,
+.ui_modallgt .ui_question {background-position:  -2000px 5px;}
+.ui_modaldrk .ui_info,
+.ui_modallgt .ui_info {background-position:  -3000px 5px;}
+
+
+/* default sizing */
+
+.ui_modaldrk.ui_formdefault label {
+	width: 100px;
+	display: block;
+	float: left;
+	padding: 2px 0px 0px;
+	margin: 0px 0px 4px;
+}
+.ui_modaldrk.ui_formdefault .inputBlock,
+.ui_modaldrk.ui_formdefault input[type=text],
+.ui_modaldrk.ui_formdefault input[type=password],
+.ui_modaldrk.ui_formdefault textarea,
+.ui_modaldrk.ui_formdefault select,
+.ui_modaldrk.ui_formdefault input[readonly=readonly][type=text],
+.ui_modaldrk.ui_formdefault input[readonly=readonly][type=password],
+.ui_modaldrk.ui_formdefault textarea[readonly=readonly] ,
+.ui_modallgt.ui_formdefault .inputBlock,
+.ui_modallgt.ui_formdefault input[type=text],
+.ui_modallgt.ui_formdefault input[type=password],
+.ui_modallgt.ui_formdefault textarea,
+.ui_modallgt.ui_formdefault select,
+.ui_modallgt.ui_formdefault input[readonly=readonly][type=text],
+.ui_modallgt.ui_formdefault input[readonly=readonly][type=password],
+.ui_modallgt.ui_formdefault textarea[readonly=readonly]  {
+	width:220px;
+	margin: 0px 4px 8px 0px;
+	/*padding: 1px 3px 2px;*/
+	outline: none;
+}
+
+.ui_modaldrk.ui_formdefault input[type=checkbox] {
+	margin: 0px 4px 8px 0px;
+	outline: none;
+	padding: 5px 0px 0px;
+}
+
+.ui_modaldrk input[type=text],
+.ui_modaldrk input[type=password],
+.ui_modaldrk textarea,
+.ui_modaldrk select {
+	/* theme */ border-top: 1px solid #262626;
+	/* theme */ border-right: 1px solid #262626;
+	/* theme */ border-bottom: 1px solid #6e6e6e;
+	/* theme */ border-left: 1px solid #262626;
+	/* theme */ color: #FFF;
+	/* theme */ background: transparent url(ui_images/ui_modalDrk_input.png) 0px -200px;
+}
+
+.ui_modaldrk input[type=text]:focus,
+.ui_modaldrk input[type=password]:focus,
+.ui_modaldrk textarea:focus {
+	/* theme */ background: #203855;
+	outline: none;
+}
+
+.ui_modallgt input[type=text],
+.ui_modallgt input[type=password],
+.ui_modallgt textarea,
+.ui_modallgt select {
+	/* theme */ border-top: 1px solid #333;
+	/* theme */ border-right: 1px solid #ababab;
+	/* theme */ border-bottom: 1px solid #ababab;
+	/* theme */ border-left: 1px solid #ababab;
+	/* theme */ color: #333;
+	/* theme */ background: #FFF;
+}
+
+.ui_modallgt input[type=text]:focus,
+.ui_modallgt input[type=password]:focus,
+.ui_modallgt textarea:focus {
+	outline: none;
+}
+
+
+/* Dropdown list
+-----------------------------------------------------------------------------*/ 
+.ui_droplist {
+	width: 150px;
+	/* theme */ background: #d5e0ec url(ui_images/ui_form_dropdownbg.png) no-repeat 0px 0px;
+	/* theme */ border-top: 1px solid #7b9bc5;
+	/* theme */ border-right: 1px solid #7b9bc5;
+	/* theme */ border-bottom: 1px solid #3f6ea8;
+	/* theme */ border-left: 1px solid #7b9bc5;
+	padding: 3px;
+}
+
+.ui_droplist a {
+	display: block;
+	padding: 1px;
+	/* theme */ color: #333;
+}
+
+.ui_droplist a:hover {
+	/* theme */ background: #c8d6e5;
+}

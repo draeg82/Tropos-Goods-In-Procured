@@ -1,0 +1,1250 @@
+html,body
+{
+overflow: hidden;
+}
+
+html,
+body,
+form,
+#container
+{
+margin: 0;
+padding: 0;
+height: 100%;
+width: 100%;
+}
+
+/***************************************
+Colours, fills and borders
+***************************************/
+
+
+.TitleBar,
+th,
+input:focus,
+select:focus,
+/*#loginbox,*/
+#ctl00_TWCMenu_DYNAMIC_TROPOS_CTRL_TroposButtons
+{
+background-color: #AAAAAA;
+}
+
+
+#applicationArea,
+.pnlPopupButtons,
+.pnlPopup
+{
+background-color: #eaf2f5;
+}
+
+
+#applicationArea th,
+.errorShowMore
+{
+color: #096091;
+}
+
+th
+{
+	color: #ffffff;
+}
+
+.applicationContent,
+.pnlPopupdialog,
+.pnlPopupButtons
+{
+background-color:#FFFFFF;
+}
+
+
+.applicationContent,
+.pnlPopupButtons,
+.pnlPopupdialog,
+.TitleBar,
+#applicationArea table,
+#applicationArea th,
+#applicationArea td,
+#loginbox
+{
+border: 1px solid #c6d3db;
+}
+
+/***************************************
+Main Positioning
+***************************************/
+
+
+
+
+
+#bodyArea
+{
+position: absolute;
+top: 40px;
+bottom: 3px;
+left: 0;
+right: 3px;
+overflow: hidden;
+}
+
+
+
+#applicationArea
+{
+top: 0;
+left: 255px;
+right: 0;
+bottom: 0;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-topright: 5px;
+-webkit-border-top-right-radius: 5px;
+-webkit-border-top-left-radius: 5px;
+}
+
+#applicationArea.loginarea
+{
+left: 3px;
+}
+
+
+
+#applicationArea.loginarea table,
+#applicationArea.loginarea td
+{
+border: none;
+}
+
+#applicationArea.loginarea table
+{
+width: 100%;
+}
+
+#loginbox
+{
+	position: relative;
+	top: 20%;
+	width: 300px;
+	margin:0px auto;
+	padding: 10px;
+	background: #888888 url(ui_images/ui_treeblend_wide.png) no-repeat left top;
+}
+
+.loginfield
+{
+width: 100%;
+}
+
+
+
+/***************************************
+Specific foundation elements
+***************************************/
+
+
+/***************************************
+Application Elements
+***************************************/
+#applicationArea
+{
+position: absolute;
+}
+
+
+#applicationArea table
+{
+border-spacing: 0px;
+border-collapse: collapse;
+}
+
+#applicationArea th
+{
+	text-align: left;
+}
+
+.shortLabel
+{
+width: 40%;
+}
+
+.applicationContent
+{
+position: absolute;
+top: 3px;
+left: 3px;
+right: 3px;
+bottom: 2px;
+overflow: auto;
+padding: 3px;
+}
+
+/***************************************
+Tropos CSS
+***************************************/
+TABLE.lalFilterArea
+{
+	clear: both;
+	margin-top: 5px; 
+}
+TABLE.lalFilterArea,
+TABLE.lalFilterArea TD
+{
+	border: 0px none !important;
+	vertical-align: top;
+}
+
+.LALLabel
+{
+	white-space: nowrap;
+	padding: 0px 3px 0px 5px;
+}
+
+
+.LALFilter
+{
+}
+
+#ctl00_TWCMenu_DYNAMIC_TROPOS_CTRL_TroposButtons
+{
+border-bottom: 1px solid #cccccc;
+}
+
+#ctl00_TWCMenu_DYNAMIC_TROPOS_CTRL_TroposButtons input
+{
+background: none;
+border: none;
+font-size: 8pt !important;
+background: url(ui_images/vertical.png) right no-repeat;
+padding: 1px 10px 1px 8px;
+color: #707070;
+}
+
+#ctl00_TWCMenu_DYNAMIC_TROPOS_CTRL_TroposButtons input:hover
+{
+text-decoration: underline;
+color: #000000;
+}
+
+.ScreenLabel
+{
+color: #096091;
+padding: 3px 0px !important;
+}
+
+.troposField
+{
+}
+
+.troposInput
+{
+	color: #30A030;
+	border-style:  solid;
+	border-color: Black;
+	border-width: 1px;
+	height: 15px;
+	font-size: 12px;
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+.troposInput:hover
+{
+	border: 1px solid black;
+}
+
+.troposScroll,
+.troposScrollPrint
+{
+	font-family: "Courier New" !important;
+	overflow:auto;
+	-ms-overflow-x:hidden;
+	-ms-overflow-y:auto;
+	line-height:12px;
+}
+
+TD.troposScroll
+{
+    padding: 2px 0px 2px 0px;
+    border-width: 0px;
+}
+
+.troposScrollPrint
+{
+	display: none;
+}
+
+.troposDisplay
+{
+padding: 3px 0px !important;
+}
+
+.troposPutvar,
+div.SSI-PUTVAR,
+.troposPutfix
+{
+color: #000000;
+white-space: nowrap;
+overflow: hidden;
+height: 20px;
+}
+
+
+.troposPutvarLong
+{
+	color: #000000;
+	white-space: nowrap;
+	overflow: hidden;
+	height: 20px;
+	font-family: Courier New;
+}
+
+.troposPutfixButton
+{
+	color: #3030A0;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.TroposError,
+.troposError
+{
+	margin-top: 12px;
+	border-style: none;
+	height: 27px !important;
+	background: none;
+}
+
+.TroposErrorPopulated 
+{
+	margin: 12px 0 0 0;
+	border-style: none;
+	height: 27px !important;
+	padding: 6px 0px 6px 40px;
+	background: url(ui_images/ui_icons_modal.png) no-repeat -1000px 0px;
+}
+
+div.SSI-TEXT,
+.troposLabel
+{
+color: #096091;
+padding: 3px 0px !important;
+
+}
+
+
+
+
+.troposDavlButton
+{
+position: absolute;
+float: left;
+margin: 0 0 0 2px;
+cursor: pointer;
+text-decoration: none;
+border-top: solid 1px #aaaaaa;
+border-right: solid 1px #cccccc;
+border-bottom: solid 1px #cccccc;
+}
+
+.troposDavlButton:hover
+{
+}
+
+/***************************************
+* Popup Alert Panel
+***************************************/
+.pnlPopup
+{
+	border: 1px solid #000000;
+	padding: 3px;
+	max-width: 500px;
+}
+
+.pnlPopupdialog
+{
+	padding: 5px;
+}
+
+.TitleBar
+{
+font-size: 9pt;
+font-weight: bold;
+height: 19px;
+padding: 3px 0px 3px 3px;
+}
+
+.TitleBar img
+{
+	float: right;
+	margin-right: 3px;
+}
+
+.pnlPopupdialog
+{
+	border-top: none;
+	border-bottom: none;
+}
+
+.pnlPopupButtons
+{
+	padding: 3px;
+	border-top: none;
+}
+
+
+/*Alert*/
+.modalBackground {
+	background-color:White;
+	filter:alpha(opacity=50);
+	opacity:0.5;
+}
+
+/*Loading Message*/
+.updateProgress
+{
+	/*
+	border-width:1px; 
+    border-style:solid; 
+    background-color:#ffffff; 
+    position:absolute; 
+    width:200px; 
+    height:150px;   
+    background-image: url(ui_images/ui_loader_bg.png);
+*/
+}
+.updateProgressMessage
+{
+	display: none;
+    margin:3px; 
+    font-size:small; 
+    vertical-align: middle;
+    color: White;
+}
+
+
+/*************************************************************
+* Error Window
+*************************************************************/
+#applicationArea .errorContent table,
+#applicationArea .errorContent tr,
+#applicationArea .errorContent td
+{
+border: none;
+}
+
+.errorShowMore
+{
+font-weight: bold;
+cursor: pointer;
+}
+
+
+.errorDetails
+{
+    width: 99%;
+    height: 150px;
+    font-size: 11px;
+}
+
+.errorSupportInfo
+{
+    display:none;
+    width: 99%;
+}
+
+
+Div.RadMenu_Default .rmLink
+{
+	font-size: 12px;
+}
+
+.alignLeft
+{
+	text-align: left;
+}
+
+.alignRight
+{
+	text-align: right;
+	padding-right: 3px;
+}
+
+.TroposDropDownMenu
+{
+	width: 150px;
+	max-height: 450px;
+	z-index:1;
+	border: 1px solid #888888;
+	z-index: 99997;
+	padding: 3px;
+	/* The background colour D4D4D4 is not normally seen, but on very long menus the image can run out
+	 * before the end of the menu and the background prevents the menu becoming transparent 
+	 */
+	background: #ffffff;
+	color: #000000;
+	overflow-x: hidden;
+	overflow-y:auto;
+}
+
+.TroposExtendedData
+{
+	z-index:1;
+	border: 1px solid #888888;
+	padding: 3px;
+	background: #ffffff;
+	color: #000000;
+	overflow-x: hidden;
+	overflow-y:auto;
+}
+
+.TroposDropDownMenu br
+{
+	display: none;
+}
+
+.TroposDropDownItem
+{
+	cursor:pointer;
+	color: #000000;
+	display: block;
+	width: 99%;
+}
+
+.TroposDavlItem
+{
+	cursor:pointer;
+	color: #000000;
+	display: block;
+	width: 99%;
+    font-family: 'Segoe UI', Arial, Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    padding: 1px;
+}
+
+ .TroposDropDownItem:Link
+{
+	color: #000000;
+}
+
+.TroposDropDownItem:hover,
+.TroposDavlItem:hover
+{
+	background-color: #2d4b71;
+	/* background: url(ui_images/ui_tree.png) no-repeat -1000px -350px; */
+	color: #ffffff;	
+}
+
+/************************************************************
+* Telerik fixes
+*************************************************************/
+
+
+.RadPicker_Default td a.rcCalPopup  /* IE7 */
+{
+	height: 18px;
+	width: 21px;
+	margin: 1px 0 0 0px;
+	padding: 0px 0 0 0px;
+	background-position: 0px 0px !important;
+	background-image: url(ui_images/ui_form_iconCal_attached.png);
+	background-repeat: no-repeat;
+}
+
+.RadPicker_Default td a.rcCalPopup:hover
+{
+	background-position: 0px 0px;
+}
+
+.RadPicker_Default td a.rcCalPopup:focus
+{
+	background-position: 0px 0px !important;
+}
+
+html body .RadInput_Default input.riTextBox
+{
+	padding: 0 0 0 3px;
+	height: 17px;
+	/* theme */ border-top: 1px solid #96b8e3;
+	/* theme */ border-right: 1px solid #bed2eb;
+	/* theme */ border-bottom: 1px solid #bed2eb;
+	/* theme */ border-left: 1px solid #bed2eb;
+	/* theme */ color: #333;
+	/* theme */ background: #FFF;
+}
+
+html body .RadInput_Default input.riTextBox:focus {
+	/* theme */ border-top: 1px solid #7b9bc5;
+	/* theme */ border-right: 1px solid #96b8e3;
+	/* theme */ border-bottom: 1px solid #96b8e3;
+	/* theme */ border-left: 1px solid #96b8e3;
+	/* theme */ color: #000;
+	/* theme */ background: #e2ebf6;}
+
+body > div.RadCalendarPopup 
+{
+	z-index: 100000001 !important;
+}
+
+body > div.RadCalendarFastNavPopup
+{
+    z-index: 100000002 !important;
+}
+
+.rgMasterTable.rgClipCells,
+.rgRow
+{
+	height: auto !important;
+}
+
+
+/******************************************************
+* Data valid box
+*******************************************************/
+/*.pnlPopupDataValid
+{
+	border: 1px solid #000000;
+	width:250px;
+	padding: 3px;
+	z-index: 999;
+	background-color: #050505;
+}
+*/
+
+.pnlPopupDataValidItem
+{
+	color: White;
+	display: block;
+	width: 35%;
+}
+
+.pnlPopupDataValidTitleBar
+{
+background-color: #AAAAAA;
+width:100%;
+}
+
+/******************************************************
+* Help panel
+*******************************************************/
+.pnlPopupHelp
+{
+	border: 1px solid #000000;
+	height: 400px;
+	width: 550px;
+	padding: 3px;
+	z-index: 999;
+	background-color: #050505;
+}
+.ui_formdefault.ui_modallgt TEXTAREA.pnlPopupHelpLines,
+.pnlPopupHelpLines
+{
+	font-family: Courier New, Sans-Serif;
+	font-size: 8pt;
+	color: #284569;
+	height: 400px;
+	width: 620px;
+	background-color: #f2f6fb; /**#FFFF00;**/
+	color: #000000;
+}
+
+.LALSelect
+{
+	background: url(ui_images/ui_form_iconActionGAlt.png) no-repeat 0px 0px;
+	color: #FFF;
+	border: none;
+	outline: none;
+	width: 22px;
+	height: 18px;
+	cursor: pointer;
+}
+
+#splash {
+	background: url(ui_images/ui_login_ident.png) no-repeat 0px -200px;
+	height: 35px;
+	width: 143px;
+	position: absolute;
+	margin: 200px 350px;
+	color: #666;
+	font-size: 11px;
+	text-align: right;
+	padding: 65px 17px 0px 0px;
+}
+
+/**********************************************
+  Extensions to standard classes
+***********************************************/
+
+/***  Full screen app area for pop up windows  ******/
+div#ui_workspace.ui_workspace_full {
+	top: 0px;
+}
+
+/* Change so default is closed 
+div#ui_workspace.ui_workspace_navopen {
+	margin: 0px 0px 0px 0px !important;
+}
+*/
+.ui_form textarea
+{
+	font-family: Courier New, Sans-Serif !important;
+	font-size: 8pt !important;
+}
+
+.ui_buttonAltSml 
+{
+	margin: 0 3px 0 0 !important;
+}
+
+span.ui_buttonAltSml input
+{
+	padding: 2px 0px 0px 5px !important;
+	margin: 0 0px 0 0 !important;
+}
+
+
+.ui_button input
+{
+	color: #ffffff !important;
+}
+
+#ui_panelset
+{
+	/**display: none;**/
+}
+
+/******************************************************
+* RBA Styling
+*******************************************************/
+
+.ui_panelControls_Help,
+.ui_panelControls_Print,
+.ui_panelControls_Save,
+.ui_panelControls_Clear,
+.ui_panelControls_Refresh,
+.ui_panelControls_Email
+{
+cursor:pointer; float:right;
+}
+
+
+#ui_panel_box  .ui_panelControls_Help a,
+#ui_panel_box  .ui_panelControls_Print a,
+#ui_panel_box  .ui_panelControls_Save a,
+#ui_panel_box  .ui_panelControls_Clear a,
+#ui_panel_box .ui_panelControls_Refresh a,
+#ui_panel_box .ui_panelControls_Email a
+{
+	height: 17px;
+	display: block;
+	width: 21px;
+	border: none;
+	margin: 0px 0px 2px 20px   !important;
+	padding: 0px;
+	background: url(ui_images/rbaicons.png) no-repeat 0px 0px;
+}
+
+#ui_panel_box  .ui_panelControls_Print a {background-position: 0px 0px;}
+#ui_panel_box .ui_panelControls_Email a {background-position: -30px 0px;}
+#ui_panel_box .ui_panelControls_Refresh a {background-position: -60px 0px;}
+#ui_panel_box  .ui_panelControls_Clear a {background-position: -90px 0px;}
+#ui_panel_box  .ui_panelControls_Save a {background-position: -120px 0px;}
+#ui_panel_box  .ui_panelControls_Help a {background-position: -150px 0px;}
+
+#ui_panel_box  .ui_panelControls_Print:hover a {background-position: 0px -50px;}
+#ui_panel_box .ui_panelControls_Email:hover a {background-position: -30px -50px;}
+#ui_panel_box .ui_panelControls_Refresh:hover a {background-position: -60px -50px;}
+#ui_panel_box  .ui_panelControls_Clear:hover a {background-position: -90px -50px;}
+#ui_panel_box  .ui_panelControls_Save:hover a {background-position: -120px -50px;}
+#ui_panel_box  .ui_panelControls_Help:hover a {background-position: -150px -50px;}
+
+.ui_panelControls
+{
+width: 260px !important;
+}
+
+tr.stripe1 td,
+.RadGrid_Default tr.rgAltRow
+{
+  background-color: #e2ebf6;
+}
+
+.RadGrid_Default th.rgHeader a
+{
+	color: #284569;
+}
+
+.ui_modalContent.tropos td
+{
+	vertical-align: middle;
+}
+
+.PopupTitleText
+{
+	cursor: move;
+}
+
+#menuOptions
+{
+	padding-top: 4px;
+}
+
+#menuOptions input
+{
+	padding-right: 4px;
+}
+
+.ui-draggable h2
+{
+	cursor: move;
+}
+
+.ui_ModalWide ul.ruInputs input[type=text],
+.ui_Modal ul.ruInputs input[type=text]
+{
+        width: 0px;
+}
+
+.ui_ModalWide ul.ruInputs input.ruButton,
+.ui_Modal ul.ruInputs input.ruButton
+{
+        margin-top: 8px;
+        margin-left: -12px;
+}
+
+#divImportData .rgDataDiv
+{
+	height: 220px !important;
+}
+
+#divImportData .rgHeaderDiv
+{
+	width: 100% !important;
+}
+
+#divImportData .rgMasterTable
+{
+	width: 811px !important;
+}
+
+.ui_panelset_tabs
+{
+display: none !important;
+}
+
+/******************************************************************************************************************************
+* New Modal with header area
+/******************************************************************************************************************************/
+div.ui_modallgtapp.header .ui_modal_wrapper,
+div.ui_modallgt.header .ui_modal_wrapper {
+	background: url(ui_images/ui_modalLgtHeader.png) no-repeat right -2002px;
+	padding: 0px 20px 0px 0px;
+}
+
+div.ui_modallgtapp.header .ui_modalContent,
+div.ui_modallgt.header .ui_modalContent {
+	background: url(ui_images/ui_modalLgtHeader.png) left top;
+	padding: 15px 10px 5px 30px;
+	min-height:70px;
+}
+
+div.ui_modallgtapp.header .ui_modal_wrapperEnd,
+div.ui_modallgt.header .ui_modal_wrapperEnd {
+	background: url(ui_images/ui_modalLgtHeader.png) no-repeat right -3976px;
+	padding: 0px 20px 0px 0px;
+	height: 20px;
+}
+div.ui_modallgtapp.header .ui_modalContentEnd,
+div.ui_modallgt.header .ui_modalContentEnd {
+	background: url(ui_images/ui_modalLgtHeader.png) left -1974px;
+	height: 20px;
+}
+
+div.ui_modallgtapp.header .Controls,
+div.ui_modallgt.header .Controls{
+border-top: 2px groove #446791;
+}
+
+div.ui_modallgtapp.header .applicationMenu,
+div.ui_modallgt.header .applicationMenu, .modalTitle
+{
+font: 100 normal 18px "Segoe UI", Arial, Helvetica, sans-serif;
+color: #ffffff;
+}
+
+.menuBarLabel
+{
+	color:#c9c9c9 !important;
+}
+
+div.ui_modallgtapp.header H2,
+div.ui_modallgt.header H2
+{
+padding-bottom: 8px;
+}
+
+div.ui_modallgtapp.header .ui_panel_box,
+div.ui_modallgt.header .ui_panel_box
+{
+margin-bottom: 8px;
+}
+
+div.ui_modallgtapp.header .ui_modalaction,
+div.ui_modallgt.header .ui_modalaction
+{
+	display: none;
+}
+
+.updateProgress
+{
+	width: 55px;
+	height: 55px;
+	background-image: url(ui_images/ui_loaderlght.gif);
+}
+
+.LalTableWrapper
+{
+	overflow-Y: auto; 
+	overflow-X: auto; 
+	height: 100%;
+	width: 100%;
+}
+
+.LalTableWrapper .rgDataDiv
+{
+	height: 100% !important;
+}
+
+/* .LalTableWrapper .RadGrid_Default,*/
+.LalTableWrapper .rgMasterTable
+{
+  width: auto !important; 
+}
+
+.LalTableWrapper .rgMasterTable.Overridden,
+.LalTableWrapper .rgMasterTable.rgClipCells.Overridden
+{
+  width: 100% !important; 
+}
+
+
+div.RadComboBox_Default td.rcbArrowCellRight,
+div.RadComboBox_Default td.rcbArrowCellRight:hover
+{
+	/*background-position: -72px -88px !important;*/
+	background-position: -72px -88px;
+}
+
+.RadComboBox.rcbReadOnly.rcbInput
+{
+    border-style: none!important;
+}
+
+.rcbSlide, rcbItem, rcbList
+{
+   z-index: 100000000!important;
+}
+
+.troposDropdown input
+{
+ vertical-align: middle;
+ width: 121px;
+}
+ 
+.ui_formdefault .troposDropdown input[type=text],
+.ui_formdefault.ui_modallgt .troposDropdown input[type=text],
+.ui_form .troposDropdown input[type=text]
+{
+ margin: 1px 0px 0px 0px;
+ padding: 0 0 0 0;
+ height: 16px;
+}
+ 
+.ui_formdefault .troposDropdown input[type=image],
+.ui_form .troposDropdown input[type=image]
+{
+ background-image: url(ui_images/ui_form_iconSearch_attached.png);
+ margin: 1px 1px 0px -3px;
+ padding: 0 0 0 0;
+ width: 15px;
+ height: 18px;
+}
+
+/**BEGIN TDK Styles **/
+/**App Template Styles **/
+.developerCanvass
+{
+	position: absolute;
+	top: -10px;
+	width: 99%;
+	height: 99%;
+	left: 0;
+}
+
+/**TroposGridView styles **/
+/* So the overflow scrolls */
+.gridViewContainer 
+{
+	position: absolute;
+	overflow:auto;
+}
+/* Keep the header cells positioned as we scroll */
+.gridViewContainer table th {position:relative;} 
+/* For alignment of the scroll bar */
+.gridViewContainer table tbody {overflow-x:hidden}
+
+.tablecontainer
+{
+    position: absolute;
+}
+
+
+.ui_tableA.troposGridView
+{
+    table-layout: fixed;    
+}
+
+.ui_tableA.troposGridView TH
+{
+    width: 120px;
+}
+
+.ui_tableA.troposGridView TD, 
+.RadGrid_Default TD.rgHeader
+{
+
+}
+
+.ui_tableA.troposGridView TH, 
+.RadGrid_Default TH.rgHeader 
+{
+    background-color: #e0e0e0;    
+}
+
+.empty-cell, .first-cell, .last-cell{
+	padding: 3px 10px;
+	margin: 0px;
+	text-align:left;
+	font-weight: normal;
+	/* theme */ border-right: 1px solid #7b9bc5;
+	/* theme */ border-bottom: 1px solid #7b9bc5;
+	/* theme */ color: #284569;
+	/* theme */ background: #EAEBEC url(ui_images/ui_tableTH.png) no-repeat 0px 0px;
+}
+
+.ui_button_troposgridview {
+	color: #4a4f57;
+	padding: 0px 2px 2px 20px;
+	font-size: 12px;
+	background: url(ui_images/ui_icons.png) no-repeat 0px 0px;
+	margin: 0px 8px 0px 0px;
+	height: 20px;
+	/* display: block; */
+	white-space:nowrap;
+	cursor: pointer;
+}
+
+.ui_button_troposgridview:hover
+{
+	background: url(ui_images/ui_icons.png) no-repeat 0px -100px;
+	color: #4a4f57;
+}
+
+/** Tropos Business Calendar Styles **/
+
+.tropos_business_calendar .ui_tableA th
+{
+padding: 2px 1px 2px 1px;
+text-align: center;
+}
+ 
+.tropos_business_calendar .ui_tableA td
+{
+padding: 1px 1px 1px 1px;
+text-align: center;
+background-color: transparent;
+}
+ 
+table.ui_tableA table.month_area tr td,
+table.month_area,
+table.month_area tr td
+{
+background-color: #e2ebf6;
+border: none;
+text-align: center;
+color: #000000;
+}
+
+
+/*
+Pale blue grid background #e2ebf6
+Pale blue Form background #f2f6fb
+Pale Orange background #feeabf
+Rich Orange background #ea542e
+Dark Blue (header) #2d4d73
+Button Grey #e6e7e9
+*/
+ 
+.tropos_business_calendar td.calendar_range_date,
+.tropos_business_calendar td.calendar_other_date,
+.tropos_business_calendar td.calendar_before_start_date,
+.tropos_business_calendar td.calendar_after_end_date,
+.tropos_business_calendar td.calendar_non_date
+{
+background-color: #ffffff;
+color: #000000;
+}
+ 
+
+.tropos_business_calendar td.calendar_other_date a:hover,
+.tropos_business_calendar td.calendar_before_start_date a:hover,
+.tropos_business_calendar td.calendar_after_end_date a:hover,
+.tropos_business_calendar td.calendar_non_date a:hover
+{
+background-color: #e2ebf6;
+}
+ 
+.tropos_business_calendar td.calendar_range_date,
+.tropos_business_calendar td.calendar_range_date a
+{
+background-color: #ea542e;
+color: #ffffff !important;
+}
+ 
+.tropos_business_calendar td.calendar_range_date a:hover
+{
+color: #000000 !important;
+}
+ 
+.tropos_business_calendar td.calendar_other_date
+{
+ color: #feeabf;
+}
+ 
+.tropos_business_calendar td.calendar_before_start_date,
+.tropos_business_calendar td.calendar_after_end_date
+{
+ color: #e6e7e9;
+}
+ 
+.tropos_business_calendar td.calendar_non_date
+{
+ color: #f2f6fb;
+}
+
+/** End Tropos Business Calendar Styles **/
+
+/** Right Click Menu Styles**/
+.rightclickarea{}
+.vmenu
+{
+      border:1px solid #aaa;
+      position:fixed;
+      background: #ffffff;  
+      display:none;
+	  height: 50px;
+	  top: 50px;
+	  left:  50px;
+
+}
+
+.vmenu .first_li
+{
+      width:100px;
+      display:block;
+      padding:5px 10px;
+      cursor:hand;
+}
+
+.vmenu .first_li:hover
+{
+	background-color: #000000;
+	color: #ffffff;
+}
+/** End Right Click Menu Styles **/
+
+.TroposStatusBarPanel 
+{
+    font-size: 11px;     
+    position: absolute;     
+    left: 0px;     
+    right: 0px;     
+    background: #355883;     
+    background: #404040;     
+    bottom: 0px;     
+    color: white; 
+}
+
+.TroposStatusBarPanel .TroposStatusBarError,
+.TroposStatusBarPanel .TroposStatusBarMessage1, 
+.TroposStatusBarPanel .TroposStatusBarMessage2 
+{     
+    margin: 2px 0px 2px 2px;     
+    height: 14px;     
+    border: inset 2px #505050;     
+    overflow: hidden; 
+} 
+
+.TroposStatusBarError 
+{     
+    position: absolute;     
+    left: 0px;     
+    right: 412px;     
+    color: #ff6060;    /* background-color: #ff0000;*/ 
+} 
+
+.TroposStatusBarMessage1 
+{     
+    float: right;     
+    width: 300px; 
+} 
+
+.TroposStatusBarMessage2 
+{     
+    float: right;     
+    width: 100px;     
+    margin-right: 2px; 
+}  
+
+/* Expanding Field Sets Support *****************************/  
+.fsExpanding 
+{         
+    background: url(../silver/ui_images/ui_tree.png) no-repeat 0px -205px;         
+    padding-left: 12px !important;         
+    cursor: pointer; 
+}  
+
+.fsExpanding.Closed 
+{         
+    background-position: 0px -5px; 
+}  
+
+.ui_form fieldset 
+{         
+    padding-top: 0px;         
+    padding-bottom: 20px; 
+}
+
+/** Telerik RadProgressArea Styles **/
+
+/** Blend progress bar in with the modal background **/
+div.ui_modal_wrapper div.RadUploadProgressArea, 
+div.ui_modal_wrapper li.ruProgressHeader, 
+div.ui_modal_wrapper div.ruShadow,
+div.ui_modal_wrapper ul.ruProgress 
+{
+    background-image: none;
+    background-color: Transparent;
+    border: none;        	
+}         
+div.ui_modal_wrapper li.ruProgressHeader 
+{
+    margin: 15px 18px -7px;        	
+}
+div.ui_modal_wrapper li.ruFileCount
+{
+    font-family:"Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+}
+
+/** End Telerik RadProgressArea Styles **/
+/**END TDK Styles **/

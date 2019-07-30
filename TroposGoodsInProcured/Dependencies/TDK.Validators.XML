@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TDK.Validators</name>
+    </assembly>
+    <members>
+        <member name="M:TDK.Validators.Helper.SaleOrderNoFormatter.Format(System.String@,System.Collections.Generic.IList{TDK.Common.DTO.ValidationFailure}@)">
+            <summary>
+            Formats the Sale Order Number, if succceeded returns true
+            </summary>
+            <param name="saleOrderNo">Sale Order Number to format</param>
+            <param name="errors">Returns any Validation Failures back</param>
+            <returns></returns>
+        </member>
+        <member name="T:TDK.Validators.TestValidator">
+            <summary>
+            Dummy test for now, proof of concept
+            </summary>
+        </member>
+    </members>
+</doc>

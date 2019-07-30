@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*----------------------------------
+Epicor Tropos UI - Internet Explorer tweaks
+
+version:   
+author:    Neale Thomas Hall 
+
+-----------------------------------*/ 
+
+.ui_form fieldset legend {
+	position: absolute;
+top: -.5em;
+left: 1em;
+}

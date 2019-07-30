@@ -1,0 +1,713 @@
+﻿@charset "UTF-8";
+/* CSS Document */
+
+/*----------------------------------
+Epicor Tropos UI - panels
+
+version:   
+author:    Neale Thomas Hall 
+
+-----------------------------------*/ 
+
+
+/* Default Setup 
+-----------------------------------------------------------------------------*/ 
+.ui_panelset,
+#ui_panelset {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	min-width: 400px;
+}
+
+#ui_panelset.plus {left: 20px;
+	top: 20px;
+	right: 20px;
+	bottom:20px;}
+
+
+.ui_panelset .ui_panelWrapper,
+#ui_panelset .ui_panelWrapper {
+	position: absolute;
+	left: 10px;
+	top: 31px;
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+	overflow: hidden;
+	/* theme */ moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); 
+	/* theme */ -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+	/* theme */ background: #fff;
+	/* theme */ border: 1px solid #87909c;
+	/* z-index: 500; */
+}
+
+.ui_panelset .ui_panel,
+#ui_panelset .ui_panel {
+	position: absolute;
+	left: 0px;
+	top: 80px;
+	right: 0px;
+	bottom: 0px;
+	overflow: auto;
+}
+
+.ui_panelset .ui_boxSimple .ui_panel,
+#ui_panelset .ui_boxSimple .ui_panel {top: 60px;}
+
+#ui_panelset .ui_panel .ui_panelgroupset {
+	background: #f0f0f0;
+	border: 1px solid #bfbfbf;
+	padding: 10px;
+	position: relative;
+	margin: 10px;
+}
+
+
+
+
+/* Panel Box tabs
+-----------------------------------------------------------------------------*/
+/* theme */ #ui_panelset .ui_panelset_tabs,#ui_panelset .ui_panelset_tabs li a {color:#5c5c5c;}
+/* theme */ #ui_panelset .ui_panelset_tabs li.ui_tabsCurrent a {color:#cdd8e3;}
+/* theme */ #ui_panelset .ui_panelset_tabs li a:hover {color:#000;}
+/* theme */ #ui_panelset .ui_panelset_tabs li.ui_tabsCurrent a:hover {color:#fff;}
+/* theme */ #ui_panelset .ui_panelset_tabs li, #ui_panelset .ui_panelset_tabs li span {background: url(ui_images/ui_tabs.png) right -100px;}
+	
+	#ui_panelset .ui_panelset_tabs {
+	/* theme */ color: #FFF;
+	position: absolute;
+	height: 21px;
+	left: 10px;
+	top: 10px;
+	right: 10px;
+	/* z-index: 1000; */
+}
+
+#ui_panelset .ui_panelset_tabs ul {
+	list-style: none;
+	height: 23px;
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px 0px 0px 14px;
+	font-size: 12px;
+}
+
+#ui_panelset .ui_panelset_tabs li {
+	position:relative;
+	float: left;
+	display: block;
+	height: 22px;
+	background-position:  right -100px;
+	padding: 0px 20px 0px 0px;
+	margin: 0px 0px 0px -16px;
+	/* z-index:1; */
+}
+#ui_panelset .ui_panelset_tabs li:first-child span {
+	background-position: 2px -200px;
+}
+
+#ui_panelset .ui_panelset_tabs li span {
+	display: block;
+	height: 18px;
+	padding: 4px 2px 0px 18px;
+	margin: 0px;
+	background-position: 0px -100px;
+	white-space: nowrap;
+}
+
+#ui_panelset .ui_panelset_tabs li.ui_tabsCurrent {
+	background-position:  right 0px;
+	/* z-index:100; */
+	font-size: 13px;
+	height: 23px;
+}
+
+#ui_panelset .ui_panelset_tabs li.ui_tabsCurrent span {
+	background-position: 0px 0px;
+	padding: 2px 5px 0px 15px;
+	height: 22px;
+}
+
+#ui_panelset .ui_panelset_tabs li:first-child.ui_tabsCurrent span {
+	background-position:  2px 0px;
+}
+
+
+
+
+
+/* Panel Box header 
+-----------------------------------------------------------------------------*/
+.ui_panel_box,
+#ui_panel_box {
+	margin: 0px;
+	padding: 0px;
+	/* z-index: 99999; */
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	height: 78px;
+	/* theme */ background: #fff;
+	/* theme */ color:#aeaeae;
+}
+
+.ui_boxSimple  #ui_panel_box {
+	height: 58px;
+}
+
+.ui_panel_box .Info,	
+#ui_panel_box .Info {
+	padding: 3px 25px 3px 10px;
+	height: 46px;
+	overflow:hidden;
+	position: relative;
+}
+
+.ui_panel_box .InfoWrap,
+#ui_panel_box .InfoWrap {
+	/* theme */ background: #355883 url(ui_images/ui_panel-Controlheader.png) repeat-x 0px 0px;
+	/* theme */ border-bottom: 1px solid #122030;
+	/* theme */ border-top: 1px solid #9eb0c6;
+	/* theme */ border-right: 1px solid #9eb0c6;
+	/* theme */ border-left: 1px solid #9eb0c6;
+}
+
+.ControlsWrap .Controls,
+.ui_panel_box .Controls,
+#ui_panel_box .Controls {
+	padding: 3px 5px 5px 10px;
+	height: 16px;
+	overflow:hidden;
+}
+.ui_panel_box .ControlsWrap,
+#ui_panel_box .ControlsWrap {
+	padding: 0px;
+	/* theme */ background: url(ui_images/ui_panel-Controlheader.png) repeat-x 0px bottom;
+	/* theme */ border-top: 1px solid #354961;
+	/* theme */ border-right: 1px solid #9eb0c6;
+	/* theme */ border-left: 1px solid #9eb0c6;
+	/* theme */ border-bottom: 1px solid #cdcdcd;
+}
+
+.ui_boxSimple .ui_panel_box .Info,
+.ui_boxSimple #ui_panel_box .Info {
+	height: 26px;
+}
+
+/* theme */ 
+.ui_boxSimple .ui_panel_box .InfoWrap,
+.ui_boxSimple #ui_panel_box .InfoWrap {background: #355883 url(ui_images/ui_panel-ControlheaderS.png) repeat-x 0px 0px;}
+
+
+.ui_panel_box .Info h2,
+#ui_panel_box .Info h2 {
+	font: 100 normal 18px "Segoe UI", Arial, Helvetica, sans-serif;
+	/* theme */ color: #fff;
+	margin: 0px;
+	padding: 0px;
+	white-space:nowrap;
+	
+}
+
+.ui_panel_box .Info h2 em,
+#ui_panel_box .Info h2 em {
+	font-style: normal;
+}
+
+.ui_panel_box .Info h3,
+#ui_panel_box .Info h3 {
+	/* theme */ color: #cdd8e3;
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+}
+
+
+
+/* Panel Box header control  and icons 
+-----------------------------------------------------------------------------*/
+.ui_panel_box ul,
+#ui_panel_box ul {
+	list-style: none;
+	height: 20px;
+	overflow: hidden;
+	display: block;
+	margin: 0px;
+}
+
+/* theme */ #ui_panel_box a,
+a.menuLink,
+a.ui_action,
+a.barbuttondiv2,
+a.barbuttondiv_qc2,
+#ui_panel_box .ui_action,
+#ui_panel_box .ui_actionSec {	color: #b9bec5;}
+
+/* theme */ #ui_panel_box .ui_action,
+a.menuLink,
+a.ui_action,
+a.barbuttondiv2,
+a.barbuttondiv_qc2,
+#ui_panel_box .ui_actionSec,
+#ui_panel_box .ui_panelControls_Close a,
+.ui_panelControls_Close a,
+#ui_panel_box .ui_panelControls_Print a,
+.ui_pagerFirst a,
+.ui_pagerPrev a,
+.ui_pagerNext a,
+.ui_pagerLast a { background: url(ui_images/ui_icons.png) no-repeat 0px 0px;}
+
+#ui_panel_box .ui_panelControls_LUHelp a,
+.ui_panelControls_LUHelp a {
+    color:#bbbbdd;
+}
+/* theme */ #ui_panel_box a:hover,
+a.menuLink:hover,
+a.ui_action:hover,
+a.barbuttondiv2:hover,
+a.barbuttondiv_qc2:hover,
+#ui_panel_box .ui_action:hover,
+#ui_panel_box .ui_action.selected,
+#ui_panel_box .ui_actionSec:hover,
+#ui_panel_box .ui_actionSec.selected {	color: #fff;cursor:pointer;}
+
+/* theme */ #ui_panel_box .ui_action.disabled,
+a.menuLink.disabled,
+a.ui_action.disabled,
+#ui_panel_box .ui_action[disabled="disabled"],
+#ui_panel_box .ui_action .disabled,
+#ui_panel_box .ui_action[disabled],
+#ui_panel_box .ui_actionSec.disabled,
+#ui_panel_box .ui_actionSec[disabled="disabled"],
+#ui_panel_box .ui_actionSec .disabled,
+#ui_panel_box .ui_actionSec[disabled] {color: #47586b ; cursor: auto}
+
+#ui_panel_box li.show a.ui_action.disabled
+{
+color: #b9bec5;
+cursor:pointer;
+background-position: 0 0;
+}
+
+#ui_panel_box li.show a.ui_action.disabled:hover
+{
+color: #fff;cursor:pointer;
+background-position: 0px -100px;
+}
+
+a.menuLink, .ui_action, a.barbuttondiv2_qc2, a.barbuttondiv2, #ui_panel_box ul li {	float:left;}
+#ui_panel_box ul.ui_actionSetOne {float:left;}
+#ui_panel_box ul.ui_actionSetTwo {float:right;}
+
+#ui_panel_box .ui_action,
+a.ui_action,
+a.barbuttondiv2,
+a.barbuttondiv_qc2,
+a.menuLink {
+	padding: 1px 2px 1px 20px;
+	margin: 0px 8px 0px 0px;
+	height: 20px;
+	display: block;
+	white-space:nowrap;
+}
+
+a.menuLink:hover,
+a.ui_action:hover,
+a.barbuttondiv2:hover,
+a.barbuttondiv_qc2:hover,
+#ui_panel_box .ui_action:hover {background-position: 0px -100px;}
+
+a.menuLink.selected,#ui_panel_box .ui_action.selected {	background-position: 0px -200px;}
+
+.ui_action.ui_add,.ui_action.ui_add {background-position: 0px -800px;}
+.ui_action.ui_remove,.ui_action.ui_remove {background-position: 0px -1200px;}
+.ui_action.ui_edit,.ui_action.ui_edit {background-position: -500px -800px;}
+.ui_action.ui_search,.ui_action.ui_search {background-position: -500px -1200px;}
+
+.ui_action.ui_add:hover,.ui_action.ui_add:hover {background-position: 0px -900px;}
+.ui_action.ui_remove:hover,.ui_action.ui_remove:hover {background-position: 0px -1300px;}
+.ui_action.ui_edit:hover,.ui_action.ui_edit:hover {background-position:  -500px -900px;}
+.ui_action.ui_search:hover,.ui_action.ui_search:hover {background-position: -500px -1300px;}
+
+.ui_action.ui_add.selected {background-position: 0px -1000px;}
+.ui_action.ui_remove.selected {background-position: 0px -1400px;}
+.ui_action.ui_edit.selected {background-position:  -500px -1000px;}
+.ui_action.ui_search.selected {background-position:  -500px -1400px;}
+
+a.menuLink.disabled,
+.ui_action.disabled,
+.ui_action[disabled="disabled"],
+.ui_action .disabled,
+.ui_action[disabled],
+#ui_panel_box .ui_action.disabled,
+#ui_panel_box .ui_action[disabled="disabled"],
+#ui_panel_box .ui_action .disabled,
+#ui_panel_box .ui_action[disabled] {background-position: 0px -300px;}
+
+.ui_action.ui_add.disabled,
+.ui_action.ui_add[disabled="disabled"],
+.ui_action .ui_add .disabled,
+.ui_action.ui_add[disabled] {background-position:  0px -1100px;}
+
+.ui_action.ui_remove.disabled,
+.ui_action.ui_remove[disabled="disabled"],
+.ui_action .ui_remove .disabled,
+.ui_action.ui_remove[disabled] {background-position: 0px -1500px;}
+
+.ui_action.ui_edit.disabled,
+.ui_action.ui_edit[disabled="disabled"],
+.ui_action .ui_edit .disabled,
+.ui_action.ui_edit[disabled] {background-position: -500px -1100px;}
+
+.ui_action.ui_search.disabled,
+.ui_action.ui_search[disabled="disabled"],
+.ui_action .ui_search .disabled,
+.ui_action.ui_search[disabled] {background-position: -500px -1500px;}
+
+#ui_panel_box .ui_actionSec {
+	padding: 1px 2px 1px 7px;
+	font-size: 12px;
+	background-position: -500px 0px;
+	margin: 0px 5px 10px 0px;
+	height: 20px;
+	display: block;
+	white-space:nowrap;
+}
+
+#ui_panel_box .ui_actionSec:hover {background-position: -500px -100px;}
+#ui_panel_box .ui_actionSec.selected {background-position: -500px -200px;}
+#ui_panel_box .ui_actionSec.disabled {background-position: -500px -300px;}
+
+
+#ui_panel_box .ui_pager {
+	padding: 0px 0px 3px;
+	float: right;
+	margin: 0px 10px 0px 0px;
+}
+#ui_panel_box .ui_pagerFirst a,
+#ui_panel_box .ui_pagerPrev a,
+#ui_panel_box .ui_pagerNext a,
+#ui_panel_box .ui_pagerLast a {
+	margin: 2px 3px 0px;
+	}
+	
+#ui_panel_box .ui_panelControls {
+	position: absolute;
+	width: 25px;
+	top: 5px;
+	right: 5px;
+}
+
+.ui_boxSimple  #ui_panel_box .ui_panelControls {
+	width: 55px;
+}
+
+.ui_panelControls_Close,
+#ui_panel_box .ui_panelControls_Close,
+#ui_panel_box .ui_panelControls_Print { cursor:pointer; float:right}
+
+.ui_panelControls_LUHelp,
+#ui_panel_box .ui_panelControls_LUHelp { cursor:pointer; float:right}
+
+.ui_panelControls_Closex .ui_action {float: right !important;}
+
+.ui_panelControls_Close a,
+#ui_panel_box .ui_panelControls_Close a,
+#ui_panel_box .ui_panelControls_Print a {
+	height: 17px;
+	display: block;
+	width: 21px;
+	border: none;
+	margin: 0px 0px 2px 5px;
+	padding: 0px;
+}
+.ui_panelControls_LUHelp a,
+#ui_panel_box .ui_panelControls_LUHelp a 
+{
+	height: 17px;
+	display: block;
+	width: 21px;
+	border: none;
+	margin: 0px 0px 2px 10px;
+	padding: 0px 0px 0px 10px;
+}
+	
+.ui_panelControls_Close a,	
+#ui_panel_box .ui_panelControls_Close a {background-position: -1500px 0px;}
+.ui_panelControls_LUHelp a,	
+#ui_panel_box .ui_panelControls_LUHelp a {background-position: -1500px 0px;}
+#ui_panel_box .ui_panelControls_Print a {background-position: -1550px 0px;}
+
+.ui_panelControls_Close:hover a,
+#ui_panel_box .ui_panelControls_Close:hover a {background-position: -1500px -100px;}
+.ui_panelControls_LUHelp:hover a,
+#ui_panel_box .ui_panelControls_LUHelp:hover a {background-position: -1500px -100px;}
+#ui_panel_box .ui_panelControls_Print:hover a {background-position: -1550px -100px;}
+
+.ui_pager {
+	padding: 3px 0px;
+	height: 15px;
+	overflow: hidden;
+}
+.ui_pagerFirst a,
+.ui_pagerPrev a,
+.ui_pagerNext a,
+.ui_pagerLast a {
+	height: 14px;
+	display: block;
+	width: 18px;
+	border: none;
+	float:left;
+	margin: 1px 3px 0px;
+	}
+	
+.ui_pagerItem {
+	display: block;
+	float:left;
+	margin: 0px 3px;
+	padding: 1px 0px 0px;
+	}
+.ui_pagerItem strong {
+	font-weight: normal;
+}
+
+.ui_pagerItem a {
+	padding: 0px 2px;
+}
+
+.ui_pagerItem a:hover { text-decoration:underline;}
+
+.ui_pagerFirst,
+.ui_pagerPrev,
+.ui_pagerNext,
+.ui_pagerLast { cursor:pointer;}
+	
+.ui_pagerFirst a {background-position: -1000px 0px;}
+.ui_pagerPrev a {background-position: -1050px 0px;}
+.ui_pagerNext a {background-position: -1100px 0px;}
+.ui_pagerLast a {background-position: -1150px 0px;}
+
+.ui_pagerFirst:hover a {background-position: -1000px -100px;}
+.ui_pagerPrev:hover a {background-position: -1050px -100px;}
+.ui_pagerNext:hover a {background-position: -1100px -100px;}
+.ui_pagerLast:hover a {background-position: -1150px -100px;}
+
+.ui_pagerFirst.disabled a {background-position: -1000px -200px;}
+.ui_pagerPrev.disabled a {background-position: -1050px -200px;}
+.ui_pagerNext.disabled a {background-position: -1100px -200px;}
+.ui_pagerLast.disabled a {background-position: -1150px -200px;}
+
+
+
+
+/* Panel Login - Modal Dark
+-----------------------------------------------------------------------------*/
+
+#ui_login {
+	margin: 100px auto 0px;
+	width: 600px;
+	position: relative;
+}
+
+#ui_login .ui_ident {
+	/* theme */ background: url(ui_images/ui_login_ident.png) no-repeat 0px 0px;
+	height: 35px;
+	width: 143px;
+	position: absolute;
+	left: -20px;
+	top: 20px;
+	color: #666;
+	font-size: 11px;
+	text-align: right;
+	padding: 90px 17px 0px 0px;
+}
+
+#ui_login .ui_ident.tropos {background-position:  0px -200px;}
+#ui_login .ui_ident.ivp {background-position: 0px -400px;}
+#ui_login .ui_ident.mvp {background-position:  0px -600px;}
+#ui_login .ui_ident.xvp {background-position:  0px -800px;}
+#ui_login .ui_ident.mtc {background-position:  0px -1000px;}
+
+#ui_login .ui_modaldrk,
+#ui_login .ui_modallgt  {
+	float: right;
+	position: absolute;
+	top: 0px;
+	right: 30px;
+}
+
+#ui_login .ui_modaldrk .ui_submit,
+#ui_login .ui_modallgt .ui_submit {
+	padding: 10px 0px 0px 210px;
+	clear: both;
+	height: 27px;
+}
+
+#ui_login .ui_modaldrk .ui_inputGroup,
+#ui_login .ui_modallgt .ui_inputGroup { clear:both;}
+
+
+
+
+
+/* Panel Login - Modal Dark - Modal light
+-----------------------------------------------------------------------------*/
+
+.ui_modaldrk p,
+.ui_modallgt p {
+	padding: 0px 0px 10px;
+}
+
+.ui_modaldrk h2,
+.ui_modallgt h2 {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0px 0px 15px;
+}
+
+
+
+.ui_Modal,
+#ui_Modal {
+	margin: 60px auto 0px;
+	width: 450px;
+	position: relative;
+}
+
+.ui_ModalWide,
+#ui_ModalWide {
+	margin: 60px auto 0px;
+	width: 900px;
+	position: relative;
+}
+
+.ui_modaldrk {
+	position: relative;
+	width: 400px;
+	/* theme */ color: #d3d3d3;
+}
+
+
+.ui_modaldrk .ui_modal_wrapper,
+.ui_modaldrk .ui_modalContent,
+.ui_modaldrk .ui_modal_wrapperEnd,
+.ui_modaldrk .ui_modalContentEnd {
+	/* theme */ background: url(ui_images/ui_modalDrk.png) no-repeat 0px 0px;}
+	
+	
+.ui_modaldrk .ui_modal_wrapper {
+	background-position:  right -1000px;
+	padding: 0px 20px 0px 0px;
+}
+
+.ui_modaldrk .ui_modalContent {
+	background-position:  left top;
+	padding: 30px 10px 10px 30px;
+	min-height:70px;
+}
+
+.ui_modaldrk .ui_modal_wrapperEnd {
+	background-position:  right bottom;
+	padding: 0px 20px 0px 0px;
+	height: 20px;
+}
+
+.ui_modaldrk .ui_modalContentEnd {
+	background-position:  left -980px;
+	height: 20px;
+}
+
+.ui_modaldrk .ui_lineBreak {
+	/* theme */ border-top: 1px solid #3e3e3e;
+	/* theme */ border-bottom: 1px solid #515151;
+	height:0px;
+	margin: 5px 0px 15px;
+	padding: 0px;
+	clear: both;
+}
+
+
+.ui_Modal .ui_modallgt,
+.ui_Modal .ui_modallgtapp,
+.ui_Modal .ui_modallgtWide,
+.ui_Modal .ui_modallgtappWide,
+#ui_Modal .ui_modallgt,
+#ui_Modal .ui_modallgtapp,
+#ui_Modal .ui_modallgtWide,
+#ui_Modal .ui_modallgtappWide {
+	position: relative;
+	/* width: 450px; */
+	/* theme */ color: #333;
+}
+
+.ui_Modal .ui_modallgtWide,
+.ui_Modal .ui_modallgtappWide,
+#ui_Modal .ui_modallgtWide,
+#ui_Modal .ui_modallgtappWide {
+	width: 900px;
+}
+
+.ui_modallgtapp .ui_modal_wrapper,
+.ui_modallgtapp .ui_modalContent,
+.ui_modallgtapp .ui_modal_wrapperEnd,
+.ui_modallgtapp .ui_modalContentEnd,
+.ui_modallgt .ui_modal_wrapper,
+.ui_modallgt .ui_modalContent,
+.ui_modallgt .ui_modal_wrapperEnd,
+.ui_modallgt .ui_modalContentEnd {
+	/* theme */ background: url(ui_images/ui_modalLgt.png) no-repeat 0px 0px;}
+	
+	
+.ui_modallgt .ui_modal_wrapper,
+.ui_modallgtapp .ui_modal_wrapper {
+	background-position: right -1000px;
+	padding: 0px 20px 0px 0px;
+}
+
+.ui_modallgt .ui_modalContent,
+.ui_modallgtapp .ui_modalContent {
+	background-position: left top;
+	padding: 25px 10px 5px 30px;
+	min-height:70px;
+}
+
+.ui_modallgt .ui_modal_wrapperEnd,
+.ui_modallgtapp .ui_modal_wrapperEnd {
+	background-position:  right bottom;
+	padding: 0px 20px 0px 0px;
+	height: 20px;
+}
+.ui_modallgt .ui_modalContentEnd,
+.ui_modallgtapp .ui_modalContentEnd {
+	background-position:  left -980px;
+	height: 20px;
+}
+
+.ui_modallgt .ui_lineBreak {
+	/* theme */ border-top: 1px solid #bfc9d4;
+	/* theme */ border-bottom: 1px solid #e2e9f2;
+	height:0px;
+	margin: 5px 0px 15px;
+	padding: 0px;
+	clear: both;
+   }
+
+.ui_modalaction {
+	padding: 10px 0px 0px;
+	clear: both;
+	min-height: 27px;
+	text-align: center;
+	margin: 0px;
+}
+
+
+.ui_modalaction .ui_button,
+.ui_modalaction .ui_buttonAlt,
+.ui_modalaction .ui_buttonAltSml {
+	margin: 0px 0px 5px 10px;
+	float: right;
+}

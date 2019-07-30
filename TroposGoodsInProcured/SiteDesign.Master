@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteDesign.master.cs" Inherits="TroposGoodsInProcured.SiteDesign" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title></title>
+    <link href="style/ui_theme/silver/TroposUI.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="style/ui_theme/silver/ui_core.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="style/ui_theme/silver/ui_nav.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="style/ui_theme/silver/ui_panels.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="style/ui_theme/silver/ui_forms.css" rel="stylesheet" type="text/css" media="all" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="TWCScriptManager" runat="server" EnablePartialRendering="true" AsyncPostBackTimeout="900" 
+        AllowCustomErrorsRedirect="false">
+</asp:ScriptManager>
+ <div id="ui_panelset" style="height: 2000px;">
+            <div class="ui_panelset_tabs">
+                tabs</div>
+                <div class="ui_panelWrapper ui_boxSimple">
+                <!-- Panel box header -->
+                <div id="ui_panel_box">
+                    <div class="InfoWrap">
+                        <div class="Info">
+                            <h2>
+                                <em><span class="applicationMenu">Tropos NG</span></em>
+                            </h2>
+                            
+                            <div class=ui_panelControls>
+	                        </div>
+                        </div>
+                    </div>
+                    <div class="ControlsWrap">
+                        <div class="Controls">
+                            <asp:ContentPlaceHolder ID="ButtonPlaceHolder" runat="server" />
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Panel area -->
+	            <div class="ui_panel ui_form">
+                <div class="ui_fieldsetset full"> 
+                        <asp:ContentPlaceHolder ID="TroposContentPlaceHolder" runat="server">
+                        </asp:ContentPlaceHolder>
+                </div> <!-- end ui_fieldset  -->
+                </div> <!-- end ui_form  -->
+                </div> <!-- end ui_panelWrapper  -->
+    </div>
+     <asp:PlaceHolder ID="TroposButtons" runat="server" Visible="false" />                
+    </form>
+</body>
+</html>

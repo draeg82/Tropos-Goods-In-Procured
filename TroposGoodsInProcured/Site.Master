@@ -1,0 +1,662 @@
+﻿<%-- 
+$Log: Site.Master  $
+Revision 1.40 2016/11/10 14:30:45GMT Charles D P Miller (cdpm) 
+Remove leading period (.) when deriving window ID from the content code of a new page, to prevent problems when opening pages in customer-written TWAs.
+Revision 1.39 2015/09/17 12:11:37BST Charles D P Miller (cdpm) 
+Change style of print button to position it at the very top of the screen and reduce its height as much ass possible
+Revision 1.38 2014/12/12 12:21:06GMT Charles D P Miller (cdpm) 
+Correct so that all help appears in the same window (which is reused as necessary) and bring window to front when required.
+Revision 1.37 2014/12/11 14:05:32GMT Charles D P Miller (cdpm) 
+
+Revision 1.36 2014/12/05 11:35:39GMT Charles D P Miller (cdpm) 
+Add update panel around help, refresh etc. controls. Remove redundant (commented out) code
+Revision 1.35 2014/10/24 09:51:49BST Charles D P Miller (cdpm) 
+Ensure that the TWA page will be made visible after 0.5 seconds if running in an old (SP9 or earlier) TroposUI
+Revision 1.34 2014/10/16 09:29:12BST Charles D P Miller (cdpm) 
+Hide splitter bar until the TroposUI shows it - this prevents it appearing when deployed to TroposUI 1.9.0 (and causing confusion because it wouldn't work)
+Revision 1.33 2014/10/15 16:32:33BST Charles D P Miller (cdpm) 
+Correct display of autoexpand and autoclose checkboxes when the menu gets narrower
+Revision 1.20 2014/10/15 16:32:33BST Charles D P Miller (cdpm) 
+Change so that AutoExpand and AutoClose checkboxes always display alongside their labels, rather than breaking to a different line. Has the side-effect that the two now display one under the other, which solves the probkem of longer labels in French or German
+Revision 1.19 2014/10/15 15:23:29BST Charles D P Miller (cdpm) 
+Correct syntax
+Revision 1.18 2014/10/15 13:46:42BST Charles D P Miller (cdpm) 
+Changes for resizable menus
+Revision 1.17 2014/01/23 11:17:50GMT Charles D P Miller (cdpm) 
+Branding
+Revision 1.16 2014/01/21 15:52:30GMT Charles D P Miller (cdpm) 
+Use page methods to supply URL for help page, rather than doing a full postback
+Revision 1.15 2014/01/17 14:43:21GMT Charles D P Miller (cdpm) 
+Add facility for callback when popped up page is closed.
+Revision 1.27 2013/12/12 10:57:00GMT Charles D P Miller (cdpm) 
+Add processing to remember last field focussed.
+
+--%>
+
+<%@ Master Language="C#" AutoEventWireup="True" CodeBehind="Site.master.cs" Inherits="TroposWebClient.Site" %>
+
+<%@ Register Assembly="TroposAlertDialog" Namespace="TroposAlertDialog" TagPrefix="cc1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Tropos</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <link rel="shortcut icon" href="~/images/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="icon" href="~/images/favicon.ico" type="image/vnd.microsoft.icon" />
+    <script type="text/javascript">
+        function AppLoad()
+        {
+            prm = Sys.WebForms.PageRequestManager.getInstance();
+            prm.add_initializeRequest(initializeRequest);
+            prm.add_endRequest(EndRequestHandler);
+        }
+
+        function initializeRequest(sender, args)
+        {
+            document.body.style.cursor = "wait";
+            if (timeout == null)
+                timeout = setTimeout("$find('mdlPopupLoading').show();", 2000);
+
+            if (prm.get_isInAsyncPostBack())
+            {
+                args.set_cancel(true);
+            }
+        }
+
+        function EndRequestHandler(sender, args)
+        {
+            clearTimeout(timeout);
+            timeout = null;
+            document.body.style.cursor = "default";
+            $find('mdlPopupLoading').hide();
+
+            if (args.get_error() != undefined)
+            {
+                if (args.get_response().get_statusCode() == '200')
+                {
+                    // Error occurred on the server page
+                    errorMessage = "(" + location.pathname + ") ";
+                    errorMessage += args.get_error().message;
+                    errorMessage = encodeURIComponent(errorMessage.replace(/</g, '{').replace(/>/g, '}'));
+                    location.href = ParentUrlPrefix + "Error.aspx?Message=" + errorMessage;
+                    args.set_errorHandled(true);
+                }
+            }
+            //$(reinstateMenu);
+        }
+        function doQuickCode(buttonName, e)
+        {//the purpose of this function is to allow the enter key to point to the correct button to click.
+            var key;
+
+            if (window.event)
+                key = window.event.keyCode;     //IE
+            else
+                key = e.which;     //firefox
+
+            if (key == 13)
+            {
+                //Get the button the user wants to have clicked
+                var btn = document.getElementById(buttonName);
+                if (btn != null)
+                { //If we find the button click it
+                    btn.click();
+                    event.keyCode = 0
+                }
+            }
+
+        }
+
+        function launchNewWindow(obj)
+        {
+            var contenturl = obj.parentElement.attributes["contenturl"].value;
+            var containerurl = obj.parentElement.attributes["containerurl"].value;
+            var contenttype = obj.parentElement.attributes["contenttype"].value;
+            var url;
+            var menuid = obj.parentElement.attributes["menuId"].value;
+            var menuUID = obj.parentElement.attributes["menuUID"].value;
+            var quickcode = obj.parentElement.attributes["quickcode"].value;
+            var transactionlist = obj.parentElement.attributes["transactionlist"].value;
+            var width;
+            var height;
+            var top;
+            var left;
+            var maximised;
+            if (containerurl.replace(/\s/g, '') == '')
+            {
+                if (contenturl.toLowerCase().indexOf(':') < 0)
+                {
+                    //url does not begin with type, so add http for the local machine
+                    if (contenttype == "TWAHeaderPage" || contenttype == "URL")
+                        url = UrlBasePrefix + contenturl;
+                    else
+                        url = UrlPrefix + contenturl;
+                }
+                else
+                {
+                    url = contenturl;
+                }
+                if (contenttype != "URL")
+                {
+                    if (url.indexOf("?") >= 0)
+                        url += '&ContentCode=' + menuid;
+                    else
+                        url += '?ContentCode=' + menuid;
+                }
+            }
+            else
+            {
+                url = ParentUrlPrefix + containerurl;
+                if (contenturl.replace(/\s/g, '') == '')
+                {
+                    if (url.indexOf("?") >= 0)
+                        url += '&ContentCode=' + menuid;
+                    else
+                        url += '?ContentCode=' + menuid;
+                }
+                else
+                {
+                    if (url.indexOf("?") >= 0)
+                        url += '&url=' + contenturl;
+                    else
+                        url += '?url=' + contenturl;
+                }
+            }
+
+            if (contenttype != "URL")
+            {
+                url += "&MenuUID=" + menuUID;
+
+                if (contenttype == "Transaction")
+                    url += '?Transactions=' + transactionlist;
+            }
+
+            width = obj.parentElement.attributes["width"].value;
+            height = obj.parentElement.attributes["height"].value;
+            top = obj.parentElement.attributes["top"].value;
+            left = obj.parentElement.attributes["left"].value;
+            maximised = obj.parentElement.attributes["maximised"].value;
+            if (obj.parentElement.attributes["isLegacyRba"].value == "True" ||
+                contenttype == "TWAHeaderPage")
+            {
+                url += '&TroposLogin=' + TroposLogin +
+                        "&ParentUrlPrefix=" + ParentUrlPrefix;
+            }
+
+            //Identify that this is launched in a new window so that the correct master page can be used
+            if (contenttype != "URL")
+                url += '&IsNewWindow=True&Title=' + obj.parentElement.innerText;
+            OpenInNewPage(url, menuid, maximised, width, height, top, left);
+
+            event.cancelBubble = true;
+        }
+
+        // function OpenInNewPage may be 'called' from the server when the QC button clicked
+        function OpenInNewPage(url, menuid, maximised, width, height, top, left)
+        {
+            var p = 'toolbar=no,menubar=no,resizable=yes';
+            if (maximised == 'True')
+            {
+                width = screen.availWidth;
+                height = screen.availHeight;
+                top = 0;
+                left = 0;
+            }
+            else
+            {
+                if (width == 0)
+                    width = screen.availWidth - 100; //default to screen available minus 100
+                if (height == 0)
+                    height = screen.availHeight - 100; //default to screen available minus 100
+            }
+            if (url.toLowerCase().indexOf("rbaheader") >= 0)
+            {
+                p = p + ',status=yes';
+            }
+            p = p + ',width =' + width;
+            p = p + ',height =' + height;
+            p = p + ',top =' + top;
+            p = p + ',left =' + left;
+
+            var re = / |[-\/]/g
+            var locMenuId;
+            if (menuid.substr(0, 1) == '$' || menuid.substr(0, 1) == '.')
+                locMenuId = menuid.substr(1).replace(re, '_');
+            else
+                locMenuId = menuid.replace(re, '_');
+
+            var locUrl = url.replace("?&url", "?url");
+
+            var win = window.open(locUrl, locMenuId, p);
+            win.focus();
+        }
+
+        function HideDavlMenu()
+        {
+            $(".TroposDropDownMenu").hide();
+        }
+
+    </script>
+</head>
+<body style="visibility:hidden"; onload="setTimeout(function(){document.body.style.visibility='visible';}, 500);">
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="TWCScriptManager" runat="server"
+            EnablePartialRendering="true" EnableHistory="true"
+            AsyncPostBackTimeout="900" AllowCustomErrorsRedirect="false"
+            OnAsyncPostBackError="SM_AsyncPostBackError"
+            EnableScriptGlobalization="true"
+            EnableScriptLocalization="true"
+            OnNavigate="TWCScriptManager_Navigate"
+            EnablePageMethods="true">
+            <Services>
+                <asp:ServiceReference Path="WebServices/TDKServices.svc" />
+            </Services>
+        </asp:ScriptManager>
+        <asp:TextBox runat="server" ID="hdMousePosition" Style="display: none" />
+        <div id="ui_header_bar">
+            <div id="ui_brand"><span>Epicor</span></div>
+
+            <div id="ui_header_menu">
+                <div id="ui_Suser" class="ui_Suser">
+                    <asp:LinkButton ID="LogoutButton" runat="server" OnCommand="LogoutButton_Command" TabIndex="-1">
+                        <asp:Literal ID="Literal8" Text="<%$ Resources:  BTN_LOGOUT %>" runat="server" />
+                    </asp:LinkButton>
+                    <span id="Span1">
+                        <asp:Label ID="UserInfo" runat="server" OnLoad="UserInfo_Load" />
+                    </span>
+                </div>
+                <div id="ui_Ssearch" class="ui_Ssearch">
+                    <asp:UpdatePanel ID="upQC" runat="server" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <asp:TextBox ID="QC" CssClass="ui_Ssearch_newWindow" runat="server"></asp:TextBox>
+                            <asp:Button CssClass="ui_goSearch" ID="btnQCSamePage" runat="server"
+                                OnClick="QCSamePage_Click" ToolTip="<%$ Resources:  TIP_OPEN_IN_SAME_WINDOW %>" />
+                            <asp:Button runat="server" CssClass="ui_goSearch_newWindow" ToolTip="<%$ Resources:  TIP_OPEN_IN_NEW_WINDOW %>"
+                                OnClick="QCNewPage_Click" ID="btnQCNewPage" />
+                            <asp:LinkButton ID="hdnQCEvent" runat="server" Visible="true" OnClick="QCEvent_Click" Style="visibility: hidden" />
+                            <asp:LinkButton ID="hdnCallback" runat="server" Visible="true" OnClick="CallbackEvent_Click" Style="visibility: hidden" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                <div id="ui_AppBar">
+                    <div class="Trp" id="ui_WebApp">
+                        <span>
+                            <asp:Label ID="ApplicationInfo" runat="server">Tropos</asp:Label>
+                        </span>
+                    </div>
+                    <asp:TextBox ID="Reference" runat="server" Style="visibility: hidden"></asp:TextBox>
+                </div>
+            </div>
+        </div>
+        <!-- Header -->
+
+        <asp:UpdatePanel ID="upMenu" runat="server" ChildrenAsTriggers="true">
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="hdnMenuItemPBbutton" />
+            </Triggers>
+            <ContentTemplate>
+                <input id="selectedNode" runat="server" name="selectedNode" class="selectedNode"
+                    type="hidden" />
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <input type="hidden" id="menuStateControl" class="menuStateControl" runat="server" />
+        <!-- Menu Area -->
+        <div id="ui_nav" class="ui_nav_navopen">
+            <div id="ui_navcontrol">
+                <div id="menuOptions">
+                    <asp:UpdatePanel ID="UP_SingleMenu" runat="server" EnableViewState="true" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <asp:CheckBox ID="menuSingleOption" CssClass="menuSingleOption" Text="<%$ Resources:  LBL_AUTO_CLOSE_MENUS %>" ToolTip="<%$ Resources:  TIP_AUTO_CLOSE_MENUS %>"
+                                runat="server" OnCheckedChanged="menuSingleOption_Changed" AutoPostBack="true" style="display:block;"/>
+                            <asp:CheckBox ID="menuAutoExpandOption" CssClass="menuExpandOption" Text="<%$ Resources:  LBL_AUTO_EXPAND_MENUS %>" ToolTip="<%$ Resources:  TIP_AUTO_EXPAND_MENUS %>"
+                                runat="server" OnCheckedChanged="menuAutoExpandOption_Changed" AutoPostBack="true" style="display:block;"/>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+
+
+                </div>
+            </div>
+            <div id="ui_nav_area">
+                <div id="ui_tree" class="ui_tree">
+                    <div id="menuPlaceHolder">
+
+                        <input id="menuState" runat="server" name="menuState" class="menuState" type="hidden"
+                            value="open" />
+                        <input id="menuAutoClose" runat="server" name="menuAutoClose" class="menuAutoClose"
+                            type="hidden" />
+
+                        <asp:PlaceHolder ID="phMenu" runat="server"></asp:PlaceHolder>
+
+                        <asp:Button ID="hdnMenuItemPBbutton" runat="server" OnClick="onMenuItemClientClick"
+                            Visible="true" Style="z-index: 1; visibility: hidden" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Menu Area -->
+        <div id="ui_nav_splitter" style="display:none;"></div>
+        <!-- Workspace -->
+        <div id="ui_workspace" class="ui_workspace_navopen">
+
+            <div id="splash"></div>
+            <asp:UpdatePanel ID="upQCError" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <cc1:TroposAlert ID="TroposAlert_QuickCode" runat="server" IconClass="ui_info" Title="<%$ Resources:  LBL_QUICK_CODE %>" Visible="false">
+                        <buttons>
+                <asp:Button ID="btnClose" runat="server" Text="<%$ Resources:  BTN_CLOSE %>" OnClick="btnClose_Click"/>
+            </buttons>
+                    </cc1:TroposAlert>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+            <!-- Stylised areas for default pages -->
+            <div id="ui_panelset" onclick="setTimeout('HideDavlMenu();',5);">
+                <div class="ui_panelset_tabs">
+                </div>
+
+                <!-- Main body of panel -->
+                <div class="ui_panelWrapper ui_boxSimple">
+                    <div id="ui_panel_box">
+                        <div class="InfoWrap">
+                            <div class="Info">
+                                <h2><em><span class="applicationMenu">Tropos</span></em></h2>
+                                <asp:UpdatePanel runat="server" ID="updControls" UpdateMode="Always">
+                                    <ContentTemplate>
+                                        <div class="ui_panelControls">
+                                            <asp:LinkButton ID="lnkRefresh" runat="server" Style="display: none" OnClick="Refresh_Clicked" Text="refresh"></asp:LinkButton>
+                                            <asp:LinkButton ID="lnkClearFields" runat="server" Style="display: none" OnClick="ClearFields_Clicked" Text="ClearFields"></asp:LinkButton>
+                                            <asp:LinkButton ID="lnkTriggerPrint" runat="server" Style="display: none" OnClick="TriggerPrint_Clicked" Text="TriggerPrint"></asp:LinkButton>
+                                            <span class="ui_panelControls_Help" title='<asp:Literal ID="Literal5" runat="server" Text="<%$ Resources: TIP_Help%>"/>' onclick='javascript:DoHelp();'>
+                                                <a href="#"></a>
+                                            </span>
+                                            <span class="ui_panelControls_Print" onclick="javascript: _ssi_ShowPrintWindow(<%=printOptions.indirect %>, <%=printOptions.fit %>, <%=printOptions.trigger %>);return false;" title='<asp:Literal ID="Literal6" runat="server" Text="<%$ Resources: TIP_Print%>" /> '>
+                                                <a href="#"></a>
+                                            </span>
+                                            <span class="ui_panelControls_Clear" onclick='javascript: __doPostBack("<%= lnkClearFields.UniqueID %>", "");' title='<asp:Literal runat="server" Text="<%$ Resources: TIP_ClearFields%>" /> '>
+                                                <a href="#"></a>
+                                            </span>
+                                            <span class="ui_panelControls_Refresh" title='<asp:Literal runat="server" Text="<%$ Resources: TIP_Refresh%>"/>' onclick='javascript: __doPostBack("<%= lnkRefresh.UniqueID %>", "");'>
+                                                <a href="#"></a>
+                                            </span>
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+
+                            </div>
+                        </div>
+                        <div class="ControlsWrap">
+                            <div class="Controls">
+                                <asp:ContentPlaceHolder ID="ButtonPlaceHolder" runat="server">
+                                </asp:ContentPlaceHolder>
+                                <asp:PlaceHolder ID="TroposButtons" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel area -->
+                    <div class="ui_panel ui_form">
+                        <div class="ui_fieldsetset full">
+                            <asp:ContentPlaceHolder ID="TroposContentPlaceHolder" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                        <!-- end ui_fieldset  -->
+                    </div>
+                    <!-- end ui_form  -->
+
+                    <asp:Panel ID="TroposStatusBar" CssClass="TroposStatusBarPanel" runat="server" Style="display: none">
+                        <asp:UpdatePanel runat="server" ID="upTroposStatusBar" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <asp:Panel CssClass="TroposStatusBarError" ID="TroposStatusBarErrorPanel" runat="server">
+                                    <asp:Literal ID="TroposStatusBarError" runat="server" Text="" /></asp:Panel>
+                                <asp:Panel CssClass="TroposStatusBarMessage2" ID="TroposStatusBarAdditionalPanel" runat="server">
+                                    <asp:Literal ID="TroposStatusBarAdditional" runat="server" Text="MANUAL" /></asp:Panel>
+                                <asp:Panel CssClass="TroposStatusBarMessage1" ID="TroposStatusBarInfoPanel" runat="server">
+                                    <asp:Literal ID="TroposStatusBarInfo" runat="server" Text="" /></asp:Panel>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </asp:Panel>
+
+                </div>
+                <!-- end ui_panelWrapper  -->
+            </div>
+            <!-- end ui-panelset  -->
+            <!-- End Stylised Area -->
+
+        </div>
+        <!-- End of Workspace -->
+        <div id="ui_nav_navtoggle"><span id="menuexpand"></span></div>
+        <%--    <asp:LinkButton ID="hdnQCEvent" runat="server" Visible="true" OnClick="QCEvent_Click"  style="visibility: hidden"/>
+        --%>
+        <asp:ModalPopupExtender ID="ModalPopupExtender2" BehaviorID="mdlPopupLoading" runat="server"
+            TargetControlID="pnlPopupLoading" PopupControlID="pnlPopupLoading" BackgroundCssClass="modalBackground" />
+        <asp:Panel ID="pnlPopupLoading" runat="server" CssClass="updateProgress" Style="display: none;">
+            <div align="center" style="margin-top: 13px;">
+                <span class="updateProgressMessage">
+                    <asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:  MSG_LOADING %>" /></span>
+            </div>
+            <asp:TextBox runat="server" ID="hdnLastFocusInput" Style="visibility: hidden" />
+        </asp:Panel>
+    </form>
+    <script type="text/javascript">
+        function SetLastFocusInput(name)
+        {
+            $get('<%=hdnLastFocusInput.ClientID%>').value = name;
+        }
+    </script>
+    <script type="text/javascript">
+        var UrlPrefix = '<% =TroposUI.Common.UrlHelper.UrlPrefix() %>';
+        var UrlBasePrefix = '<% =TroposUI.Common.UrlHelper.UrlBasePrefix() %>';
+    </script>
+    <script type="text/javascript">
+        Sys.Application.add_load(AppLoad);
+        var prm;
+        var timeout;
+
+        function menuItemSelected(menuId)
+        {
+            __doPostBack('<%= hdnMenuItemPBbutton.UniqueID%>', menuId);
+        }
+
+        function PopupCallback(QC)
+        {
+            // This function is called when a transaction is executed in a popped up transaction window.
+            __doPostBack('<%= hdnCallback.UniqueID%>', QC);
+        }
+
+    </script>
+    <script type="text/javascript">
+        var PageHtml = "";
+        function _ssi_ShowPrintWindow(Indirect, Fit, Trigger)
+        {
+            if (Trigger)
+            {
+                __doPostBack("<%= lnkTriggerPrint.UniqueID %>", "");
+                return;
+            }
+            if (!Indirect)
+            {
+                window.print();
+                return;
+            }
+            PageHtml = $(".ui_fieldsetset").html().replace(/<script/gi, "<!--").replace(/<\/script>/gi, "-->");
+            var PrintWindow = window.open("", "PrintWindow", 'resizable=yes,location=no,menubar=no,toolbar=yes,status=yes,height=700,top=50,width=1000,left=50,scrollbars=yes');
+            PrintWindow.document.writeln('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">');
+            PrintWindow.document.writeln('<html>');
+            PrintWindow.document.writeln('<head>');
+            PrintWindow.document.writeln('<title>Print Window</title>');
+            PrintWindow.document.writeln('<style TYPE="text/css" MEDIA="print">');
+            PrintWindow.document.writeln('    #PrintButton { display: none } ');
+            PrintWindow.document.writeln('</style>');
+            if (Fit)
+            {
+                PrintWindow.document.writeln('<style TYPE="text/css" MEDIA="print"> ');
+                PrintWindow.document.writeln('    div, table, td { ');
+                PrintWindow.document.writeln('      width: auto !important; ');
+                PrintWindow.document.writeln('      padding-left: 0 !important;');
+                PrintWindow.document.writeln('      padding-right: 0 !important;');
+                PrintWindow.document.writeln('      margin-left: 0 !important;');
+                PrintWindow.document.writeln('      margin-right: 0 !important;}');
+                PrintWindow.document.writeln(' body { width: 500%;  padding-left: 0 !important; padding-right: 0 ! important; height: 100%;  margin: 0% 0% 0% 0%;  } ');
+                PrintWindow.document.writeln('</style>');
+            }
+            PrintWindow.document.writeln('<style TYPE="text/css"> ');
+            PrintWindow.document.writeln('    .gobutton,');
+            PrintWindow.document.writeln('    .TroposDavlButton,');
+            PrintWindow.document.writeln('    .troposDavlButton,');
+            PrintWindow.document.writeln('    input[type="submit"],');
+            PrintWindow.document.writeln('    .rcCalPopup { display: none } ');
+            PrintWindow.document.writeln('</style>');
+            PrintWindow.document.writeln('<style TYPE="text/css"> ');
+            PrintWindow.document.writeln('    .gridViewContainer { bottom:auto !important;}');
+            PrintWindow.document.writeln('</style>');
+            PrintWindow.document.writeln('<style TYPE="text/css"> ');
+            PrintWindow.document.writeln('    .SSI-TEXT,');
+            PrintWindow.document.writeln('    .SSI-INPUT,');
+            PrintWindow.document.writeln('    .SSI-PUTVAR,');
+            PrintWindow.document.writeln('    .SSI-PUTFIX,');
+            PrintWindow.document.writeln('    body, table, tr, td, p, h1,h2,h3,h4,h5,input,select,');
+            PrintWindow.document.writeln('    .ssi-grid-banner,');
+            PrintWindow.document.writeln('    .ssi-grid-cell,');
+            PrintWindow.document.writeln('    .ssi-grid-input-cell');
+            PrintWindow.document.writeln('{ font-size: 12px; font-family: "Segoe UI", Arial, Helvetica, sans-serif } ');
+            PrintWindow.document.writeln('</style>');
+            PrintWindow.document.writeln('<script language="javascript" type="text/javascript">');
+            PrintWindow.document.writeln('var WithinFrameSet="NO";');
+            PrintWindow.document.writeln('<' + '/script>');
+            PrintWindow.document.writeln('<script language="javascript" type="text/javascript">');
+            PrintWindow.document.writeln('function DoFormat()');
+            PrintWindow.document.writeln('{');
+            PrintWindow.document.writeln('     ExpandAll(document.all("Brt_Sd"), true, true);');
+            PrintWindow.document.writeln('     ExpandAll(document.all("Trt_div"), false, true);');
+            PrintWindow.document.writeln('     ExpandAll(document.all("Blt_Sd"), true, false);');
+            PrintWindow.document.writeln('}');
+            PrintWindow.document.writeln('function ExpandAll(table, autoHeight, autoWidth)');
+            PrintWindow.document.writeln('{');
+            PrintWindow.document.writeln('    if (table == null) return;');
+            PrintWindow.document.writeln('    if (table.id != null)');
+            PrintWindow.document.writeln('    {');
+            PrintWindow.document.writeln('        DoExpand(table, autoHeight, autoWidth);');
+            PrintWindow.document.writeln('    }');
+            PrintWindow.document.writeln('    else');
+            PrintWindow.document.writeln('    {');
+            PrintWindow.document.writeln('        for (i = 0; i < table.length; i++)');
+            PrintWindow.document.writeln('        {');
+            PrintWindow.document.writeln('            DoExpand(table[i], autoHeight, autoWidth);');
+            PrintWindow.document.writeln('        }');
+            PrintWindow.document.writeln('    }');
+            PrintWindow.document.writeln('}');
+            PrintWindow.document.writeln('function DoExpand(aTable, autoHeight, autoWidth)');
+            PrintWindow.document.writeln('{');
+            PrintWindow.document.writeln('    child = aTable.children[0];');
+            PrintWindow.document.writeln('    if (child.className.indexOf("TroposGridPrintExpanded") > -1)');
+            PrintWindow.document.writeln('    {');
+            PrintWindow.document.writeln('        if (autoHeight) aTable.style.height = "auto";');
+            PrintWindow.document.writeln('        if (autoWidth) aTable.style.width = "auto";');
+            PrintWindow.document.writeln('    }');
+            PrintWindow.document.writeln('}');
+            PrintWindow.document.writeln('<' + '/script>');
+            PrintWindow.document.writeln('<script language="javascript" type="text/javascript">');
+            PrintWindow.document.writeln('function DoPrint()');
+            PrintWindow.document.writeln('{');
+            PrintWindow.document.writeln('    window.print();');
+            PrintWindow.document.writeln('    window.close();');
+            PrintWindow.document.writeln('}');
+            PrintWindow.document.writeln('<' + '/script>');
+            PrintWindow.document.writeln('<' + '/head>');
+            PrintWindow.document.writeln('<body onload="javascript:DoPrint()" >');
+            PrintWindow.document.writeln('<input style="position:absolute; top:0px; left:900px; height:15px; padding:0px 3px 0px 3px;" type="button" value="Print" id="PrintButton" onclick="javascript:history.go(0)"/>');
+            PrintWindow.document.writeln(PageHtml);
+            PrintWindow.document.writeln('</body>');
+            PrintWindow.document.writeln('<script language="javascript" type="text/javascript">');
+            PrintWindow.document.writeln('DoFormat();');
+            PrintWindow.document.writeln('<' + '/script>');
+            PrintWindow.document.writeln('</html>');
+        }
+        $(document).ready(function ()
+        {
+            $(document).mousedown(function (event)
+            {
+                var currentPos = "X:" + (event.pageX - 20);
+                currentPos += ",Y:" + (event.pageY - 90);
+                $("#" + "<%= this.hdMousePosition.ClientID %>").val(currentPos);
+            });
+        });
+    </script>
+    <script type='text/javascript'>
+        var ChildWindow = new Array();
+        window.onunload = function () { while (1) { var c = ChildWindow.pop(); if (!c) return; try { c.close() } catch (e) {; } } }
+
+        function LookupMenuClick(targetCode, targetType, itemText)
+        {
+            if (targetType == "Lookup")
+                url = concatAndResolveUrl(ParentUrlPrefix, "Containers/Lookup.aspx?ContentCode=" + targetCode + "&MenuUID=0&IsNewWindow=True&Title=" + itemText + "&LookupDrilldown=True");
+            else if (targetType == "Transaction")
+                url = concatAndResolveUrl(ParentUrlPrefix, "Containers/Transaction.aspx?&ContentCode=" + targetCode + "&MenuUID=0&Transactions=" + targetCode + "&IsNewWindow=True&Title=" + itemText + "&AutoExecute=Y");
+            var Keys = "";
+            var FieldCount = 0;
+            for (i = 3; i < arguments.length; i = i + 2)
+            {
+                Keys += "&" + arguments[i] + "=" + arguments[i + 1];
+                FieldCount++;
+            }
+            url = url + "&FieldCount=" + FieldCount + Keys;
+            ChildWindow.push(OpenInNewPage(url, targetCode, "False", 1024, 768, 50, 50));
+            return false;
+        }
+        function concatAndResolveUrl(url, concat)
+        {
+            var url1 = url.split('/');
+            var url2 = concat.split('/');
+            var url3 = [];
+            for (var i = 0, l = url1.length; i < l; i++)
+            {
+                if (url1[i] == '..')
+                {
+                    url3.pop();
+                } else if (url1[i] == '.')
+                {
+                    continue;
+                } else
+                {
+                    url3.push(url1[i]);
+                }
+            }
+            if (url3[url3.length - 1] == "")
+                url3.pop();
+            for (var i = 0, l = url2.length; i < l; i++)
+            {
+                if (url2[i] == '..')
+                {
+                    url3.pop();
+                } else if (url2[i] == '.')
+                {
+                    continue;
+                } else
+                {
+                    url3.push(url2[i]);
+                }
+            }
+            return url3.join('/');
+        }
+        function DoHelp()
+        {
+            PageMethods.HelpUrl(HelpCallback, HelpFailureCallback);
+        }
+        function HelpCallback(returnArray)
+        {
+            var url = returnArray[0];
+            var ApplicationVersion = returnArray[1];
+            var options = "toolbar=no,menubar=no,location=no,resizable=yes,top=100,left=100,width=700,height=500,scrollbars=yes,status=yes";
+            var oWin = window.open(url, 'TroposUIHelp', options);
+            oWin.status = ApplicationVersion;
+            oWin.focus();
+        }
+        function HelpFailureCallback(error)
+        {
+            alert("Failed to retrieve help: " + error);
+        }
+    </script>
+</body>
+</html>
