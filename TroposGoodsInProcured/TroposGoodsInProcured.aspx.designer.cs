@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TroposGoodsInProcured
-{
-
-
-    public partial class DefaultWithElecSign
-    {
-
+namespace TroposGoodsInProcured {
+    
+    
+    public partial class TroposGoodsInProcured {
+        
         /// <summary>
         /// developerButtons control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace TroposGoodsInProcured
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel developerButtons;
-
+        
         /// <summary>
         /// updButtons control.
         /// </summary>
@@ -31,7 +29,16 @@ namespace TroposGoodsInProcured
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel updButtons;
-
+        
+        /// <summary>
+        /// tab_Clear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tropos.Web.UI.TroposActionButton tab_Clear;
+        
         /// <summary>
         /// developerCanvass control.
         /// </summary>
@@ -40,16 +47,133 @@ namespace TroposGoodsInProcured
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel developerCanvass;
-
+        
         /// <summary>
-        /// updContent control.
+        /// updConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updContent;
-
+        protected global::System.Web.UI.UpdatePanel updConfirm;
+        
+        /// <summary>
+        /// TransAlert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TroposAlertDialog.TroposAlert TransAlert;
+        
+        /// <summary>
+        /// btnOK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOK;
+        
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// vREQUIRED_DATE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tropos.Web.UI.TroposLabel vREQUIRED_DATE;
+        
+        /// <summary>
+        /// tbcDATE_REQUIRED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tropos.Web.UI.TroposBusinessCalendar tbcDATE_REQUIRED;
+        
+        /// <summary>
+        /// vPURCHASE_ORDER_DETAIL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tropos.Web.UI.TroposLabel vPURCHASE_ORDER_DETAIL;
+        
+        /// <summary>
+        /// iPURCHASE_ORDER control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tropos.Web.UI.TroposDAVL iPURCHASE_ORDER;
+        
+        /// <summary>
+        /// vSUPPLIER_LABEL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tropos.Web.UI.TroposLabel vSUPPLIER_LABEL;
+        
+        /// <summary>
+        /// vSUPPLIER control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tropos.Web.UI.TroposLabel vSUPPLIER;
+        
+        /// <summary>
+        /// vINCLUDECOMPLETE_LABEL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tropos.Web.UI.TroposLabel vINCLUDECOMPLETE_LABEL;
+        
+        /// <summary>
+        /// tcboxINCLUDECOMPLETE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tropos.Web.UI.TroposCheckbox tcboxINCLUDECOMPLETE;
+        
+        /// <summary>
+        /// grdGOODSIN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Tropos.Web.UI.TroposGridView grdGOODSIN;
+        
         /// <summary>
         /// tcv control.
         /// </summary>
@@ -58,196 +182,16 @@ namespace TroposGoodsInProcured
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Tropos.Web.UI.TroposCustomValidator tcv;
-
+        
         /// <summary>
-        /// TroposErrorSummary control.
+        /// TroposErrorSummary1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Tropos.Web.UI.TroposErrorSummary TroposErrorSummary;
-
-        /// <summary>
-        /// showModalPopupServerOperatorButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton showModalPopupServerOperatorButton;
-
-        /// <summary>
-        /// pnlPopupDataValid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlPopupDataValid;
-
-        /// <summary>
-        /// Literal1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal1;
-
-        /// <summary>
-        /// DVSignature control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DVSignature;
-
-        /// <summary>
-        /// litIdentity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litIdentity;
-
-        /// <summary>
-        /// txtDvIdentity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDvIdentity;
-
-        /// <summary>
-        /// litPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litPassword;
-
-        /// <summary>
-        /// txtDvPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDvPassword;
-
-        /// <summary>
-        /// litESReason control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litESReason;
-
-        /// <summary>
-        /// lstDvReason control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstDvReason;
-
-        /// <summary>
-        /// litESComment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litESComment;
-
-        /// <summary>
-        /// txtDvComment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDvComment;
-
-        /// <summary>
-        /// lblDvError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDvError;
-
-        /// <summary>
-        /// btnBackground control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnBackground;
-
-        /// <summary>
-        /// btnDefer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnDefer;
-
-        /// <summary>
-        /// btnNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNo;
-
-        /// <summary>
-        /// spanYes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spanYes;
-
-        /// <summary>
-        /// btnYes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnYes;
-
-        /// <summary>
-        /// DVError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DVError;
-
-        /// <summary>
-        /// pnlPopup_DataValid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender pnlPopup_DataValid;
-
+        protected global::Tropos.Web.UI.TroposErrorSummary TroposErrorSummary1;
+        
         /// <summary>
         /// TransactionCallbackButton control.
         /// </summary>
@@ -256,7 +200,7 @@ namespace TroposGoodsInProcured
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button TransactionCallbackButton;
-
+        
         /// <summary>
         /// SharedLookup control.
         /// </summary>
@@ -265,7 +209,7 @@ namespace TroposGoodsInProcured
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl SharedLookup;
-
+        
         /// <summary>
         /// SharedLookup_TLU control.
         /// </summary>
@@ -274,5 +218,32 @@ namespace TroposGoodsInProcured
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::TroposLookUp.LookUp SharedLookup_TLU;
+        
+        /// <summary>
+        /// updDummy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updDummy;
+        
+        /// <summary>
+        /// screenWidth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden screenWidth;
+        
+        /// <summary>
+        /// screenHeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden screenHeight;
     }
 }

@@ -24,6 +24,7 @@
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
+    <ApplicationInsightsResourceId />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -110,32 +111,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DefaultWithElecSign.aspx" />
     <Content Include="Help\Custom\ReadMe.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\favicon.ico" />
+    <Content Include="images\icons\Clear.png" />
+    <Content Include="images\icons\save.png" />
     <Content Include="TDKVersion.txt" />
+    <Content Include="TroposGoodsInProcured.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="WebServices\TDKServices.svc" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultWithElecSign.aspx.cs">
-      <DependentUpon>DefaultWithElecSign.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DefaultWithElecSign.aspx.designer.cs">
-      <DependentUpon>DefaultWithElecSign.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +179,13 @@
     <Compile Include="TemplatePopUpControl.ascx.designer.cs">
       <DependentUpon>TemplatePopUpControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="TroposGoodsInProcured.aspx.cs">
+      <DependentUpon>TroposGoodsInProcured.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TroposGoodsInProcured.aspx.designer.cs">
+      <DependentUpon>TroposGoodsInProcured.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebServices\TDKServices.svc.cs">
       <DependentUpon>TDKServices.svc</DependentUpon>
     </Compile>
@@ -210,7 +206,6 @@
     <Content Include="SiteNewPage.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\icons\Thumbs.db" />
     <Content Include="images\icons\unlock.png" />
@@ -413,6 +408,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TroposGoodsInProcuredBO\TroposGoodsInProcuredBO.csproj">
+      <Project>{c8d13e70-590d-4dbb-9611-7ba0401ac861}</Project>
+      <Name>TroposGoodsInProcuredBO</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
