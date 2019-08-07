@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TroposGoodsInProcured")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Tropos Goods In Procured")]
+[assembly: AssemblyDescription("Tropos Goods In Procured")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Epicor Software (UK) Ltd")]
-[assembly: AssemblyProduct("P00093 Tropos Development Toolkit")]
-[assembly: AssemblyCopyright("Copyright 2014 Epicor Software Corporation and its affiliates")]
+[assembly: AssemblyCompany("Kettle Produce Ltd")]
+[assembly: AssemblyProduct("Tropos Goods In Procured")]
+[assembly: AssemblyCopyright("Copyright 2019 Kettle Produce Ltd and its affiliates")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

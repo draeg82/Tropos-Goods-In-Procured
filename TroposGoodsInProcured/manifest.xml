@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Manifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="Tropos Goods In Procured" ServerVersion="" Origin="" Type="TWA" Clean="N">
+  <Database />
+  <TROPOS>
+    <Transaction Source="troposgoodsinprocured.aspx">ATVM</Transaction>
+    <Transaction Source="troposgoodsinprocured.aspx">GRIS</Transaction>
+    <Transaction Source="troposgoodsinprocured.aspx">GROS</Transaction>
+    <Transaction Source="troposgoodsinprocured.aspx">PHDY</Transaction>
+    <Transaction Source="troposgoodsinprocured.aspx">SLDY</Transaction>
+  </TROPOS>
+  <WebClient>
+    <Menu Name="">
+      <MenuItem QC=".Pro588383" ContentCode=".Pro588383" Name="Procured Raw Material Intake" Delete="N">TroposGoodsInProcured.aspx</MenuItem>
+    </Menu>
+  </WebClient>
+</Manifest>

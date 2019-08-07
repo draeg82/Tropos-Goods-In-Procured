@@ -117,6 +117,7 @@
     <Content Include="images\favicon.ico" />
     <Content Include="images\icons\Clear.png" />
     <Content Include="images\icons\save.png" />
+    <Content Include="manifest.xml" />
     <Content Include="TDKVersion.txt" />
     <Content Include="TroposGoodsInProcured.aspx" />
     <Content Include="Web.config">
