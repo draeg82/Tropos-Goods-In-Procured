@@ -51,301 +51,202 @@
                 <cc1:TroposLabel ID="vINCLUDECOMPLETE_LABEL" Text="Include Completed Lines" runat="server" Style='position: absolute; top: 100px; left: 25px; width: 150px;' Width="150px" Visible="false"></cc1:TroposLabel>
                 <cc1:TroposCheckbox ID="tcboxINCLUDECOMPLETE" runat="server" Style='position: absolute; top: 105px; left: 225px;' Visible="false" Checked="false" OnCheckedChanged="tcboxINCLUDECOMPLETE_CheckedChanged" AutoPostBack="true" ToolTip="Toggles display of lines where there is no outstanding items to receive." />
 
-                <cc1:TroposGridView ID="grdGOODSIN" runat="server" Style="position: relative; top: 150px; left: 25px; height: 100%;" AutoGenerateColumns="false" AllowPaging="false" PageSize="1000">
+                <cc1:TroposGridView ID="grdGOODSIN" runat="server" Style="position: relative; top: 150px; left: 25px; height: 100%; width: 95%" AutoGenerateColumns="false" AllowPaging="false" PageSize="1000" Width="100%">
 
                     <AlternatingRowStyle CssClass="alt" />
                     <Columns>
 
                         <%-- Column 0 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="25px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlLineNo" runat="server" Text="Line No" />
-                                </center>
+                                <center>Line No</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="30px" />
-                            <ItemStyle />
                             <ItemTemplate>
-                                <center>
-                                    <%# Eval("PORDITM_SCH")%>
-                                </center>
+                                <center><%# Eval("PORDITM_SCH")%> </center>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- Column 1 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="40px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlItemNo" runat="server" Text="Item No" />
-                                </center>
+                                <center>Item No</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="30px" />
                             <ItemTemplate>
-                                <center>
-                                    <%# Eval("PARTNO_PORD")%>
-                                </center>
+                                <center><%# Eval("PARTNO_PORD")%></center>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- Column 2 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="300px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlDescription" runat="server" Text="Description" />
-                                </center>
+                                <center>Description</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="300px" />
                             <ItemTemplate>
-                                <%# Eval("DESCRIPTION")%>
+                                <center><%# Eval("DESCRIPTION")%></center>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- Column 3 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlUnit" runat="server" Text="UOM" />
-                                </center>
+                                <center>Ordered Qty</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="30px" />
                             <ItemTemplate>
-                                <center>
-                                    <%# Eval("UOM_PURCH")%>
-                                </center>
+                                <center><%# Eval("PORDQTY")%> <%# Eval("UOM_PURCH") %></center>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- Column 4 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlOrdQty" runat="server" Text="Ordered Qty" />
-                                </center>
+                                <center>Outstanding Qty</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="30px" />
                             <ItemTemplate>
-                                <center>
-                                    <%# Eval("PORDQTY")%>
-                                </center>
+                                <center><%# Eval("OUTSTANDING_QTY")%> <%# Eval("UOM_PURCH") %></center>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- Column 5 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlOutstandingQty" runat="server" Text="Outstanding Qty" />
-                                </center>
+                                <center>Receiving Qty</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="30px" />
                             <ItemTemplate>
-                                <center>
-                                    <%# Eval("OUTSTANDING_QTY")%>
-                                </center>
+                                <cc1:TroposInput ID="iRECEIVEDQTY" runat="server" Style="align-content: center; text-align: center; align-self: center;" Width="60px"></cc1:TroposInput>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- Column 6 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlLineNo" runat="server" Text="Receiving Qty" />
-                                </center>
+                                <center>Advice Note</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="40px" HorizontalAlign="Center" VerticalAlign="Middle" />
                             <ItemTemplate>
-                                <cc1:TroposInput ID="iRECEIVEDQTY" runat="server" Style="align-content: center; text-align: center;" Width="60px"></cc1:TroposInput>
+                                <cc1:TroposInput ID="iADVICENOTE" runat="server" Style="align-content: center; text-align: center; align-self: center;" Width="60px"></cc1:TroposInput>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- Column 7 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="80px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlLineNo" runat="server" Text="Advice Note" />
-                                </center>
+                                <center>Receied Date</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="40px" />
                             <ItemTemplate>
-                                <cc1:TroposInput ID="iADVICENOTE" runat="server" Style="align-content: center; text-align: center;" Width="60px"></cc1:TroposInput>
+                                <cc1:TroposBusinessCalendar ID="tbcRECEIVEDDATE" runat="server" Text='<%#Eval("TODAY")%>' Width="90px"></cc1:TroposBusinessCalendar>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- Column 8 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlLineNo" runat="server" Text="Received Date" />
-                                </center>
+                                <center>Store</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="40px" />
                             <ItemTemplate>
-                                <center>
-                                    <cc1:TroposBusinessCalendar ID="tbcRECEIVEDDATE" runat="server" Text='<%#Eval("TODAY")%>'></cc1:TroposBusinessCalendar>
-                                </center>
+                                <cc1:TroposInput ID="iSTORE" runat="server" Style="align-content: center; text-align: center; align-self: center;" Width="60px"></cc1:TroposInput>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- Column 9 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlDelQty" runat="server" Text="Delivered Qty To Date" />
-                                </center>
+                                <center>Location</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="30px" />
                             <ItemTemplate>
-                                <center>
-                                    <%# Eval("PORDREC")%>
-                                </center>
+                                <cc1:TroposInput ID="iLOCATION" runat="server" Style="align-content: center; text-align: center; align-self: center;" Width="60px"></cc1:TroposInput>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- Column 10 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="100px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlStore" runat="server" Text="Store" />
-                                </center>
+                                <center>Country of Origin</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="60px" />
                             <ItemTemplate>
-                                <center>
-                                    <cc1:TroposInput ID="iSTORE" runat="server" Style="align-content: center; text-align: center;" Width="60px"></cc1:TroposInput>
-                                </center>
+                                <cc1:TroposInput ID="iCOUNTRYOFORIGIN" runat="server" Style="align-content: center; text-align: center; align-self: center;" Width="100px"></cc1:TroposInput>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <%-- Column 11 --%>
-                        <asp:TemplateField>
+                        <%-- column 11 --%>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlCountryOfOrigin" runat="server" Text="Country of Origin" />
-                                </center>
+                                <center>Container Type</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="60px" />
                             <ItemTemplate>
-                                <center>
-                                    <cc1:TroposInput ID="iCOUNTRYOFORIGIN" runat="server" Style="align-content: center; text-align: center;" Width="60px"></cc1:TroposInput>
-                                </center>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <%-- column 12 --%>
-                        <asp:TemplateField>
-                            <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlContainerType" runat="server" Text="Type of Container" />
-                                </center>
-                            </HeaderTemplate>
-                            <HeaderStyle Width="40px" HorizontalAlign="Center" VerticalAlign="Middle" />
-                            <ItemStyle Height="100%" Wrap="true" />
-                            <ItemTemplate>
-                                <asp:DropDownList runat="server" ID="iCONTAINERTYPE" Width="70px">
+                                <asp:DropDownList runat="server" ID="iCONTAINERTYPE" Style="align-content: center; text-align: center; align-self: center;" Width="60px">
                                 </asp:DropDownList>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                         <%-- Column 13 --%>
-                        <asp:TemplateField>
+                        <%-- Column 12 --%>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlNumberOfContainers" runat="server" Text="Number of Containers" />
-                                </center>
+                                <center>Number of Containers</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="60px" />
                             <ItemTemplate>
-                                <center>
-                                    <cc1:TroposInput ID="iNUMBEROFCONTAINERS" runat="server" Style="align-content: center; text-align: center;" Width="60px"></cc1:TroposInput>
-                                </center>
+                                <cc1:TroposInput ID="iNUMBEROFCONTAINERS" runat="server" Style="align-content: center; text-align: center; align-self: center;" Width="60px"></cc1:TroposInput>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                         <%-- column 14 --%>
-                        <asp:TemplateField>
+                        <%-- column 13 --%>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlPalletType" runat="server" Text="Type of Pallets" />
-                                </center>
+                                <center>Pallet Type</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="40px" HorizontalAlign="Center" VerticalAlign="Middle" />
-                            <ItemStyle Height="100%" Wrap="true" />
                             <ItemTemplate>
-                                <asp:DropDownList runat="server" ID="iPALLETTYPE" Width="70px">
+                                <asp:DropDownList runat="server" ID="iPALLETTYPE" Style="align-content: center; text-align: center; align-self: center;" Width="60px">
                                 </asp:DropDownList>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                         <%-- Column 15 --%>
-                        <asp:TemplateField>
+                        <%-- Column 14 --%>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlNumberOfPallets" runat="server" Text="Number of Pallets" />
-                                </center>
+                                <center>Number of Pallets</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="60px" />
                             <ItemTemplate>
-                                <center>
-                                    <cc1:TroposInput ID="iNUMBEROFPALLETS" runat="server" Style="align-content: center; text-align: center;" Width="60px"></cc1:TroposInput>
-                                </center>
+                                <cc1:TroposInput ID="iNUMBEROFPALLETS" runat="server" Style="align-content: center; text-align: center;" Width="60px"></cc1:TroposInput>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <%-- Column 16 --%>
-                        <asp:TemplateField>
+                        <%-- Column 15 --%>
+                        <asp:TemplateField HeaderStyle-Width="60px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlDeliveredQtyToDate" runat="server" Text="Delivered Qty To Date" />
-                                </center>
+                                <center>Delivered Qty to Date</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="30px" />
                             <ItemTemplate>
-                                <center>
-                                    <%# Eval("PORDREC")%>
-                                </center>
+                                <center><%# Eval("PORDREC")%> <%# Eval("UOM_PURCH") %></center>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                       <%-- column 17 --%>
-                        <asp:TemplateField>
+                        <%-- column 16 --%>
+                        <asp:TemplateField HeaderStyle-Width="40px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlGRN" runat="server" Text="GRN" />
-                                </center>
+                                <center>GRN</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="60px" />
                             <ItemTemplate>
                                 <center>
                                     <asp:LinkButton ID="lnkGRN" runat="server" ForeColor="Black" Font-Underline="true" OnCommand="lnkGRN_Command" CommandArgument='<%# Eval("GRNUMBER")%>'>
-                                    <%# Eval("GRNUMBER")%>
-                                    </asp:LinkButton>
-                                </center>
+                                    <%# Eval("GRNUMBER")%></center>
+                                </asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <%-- column 17 --%>
+                        <asp:TemplateField HeaderStyle-Width="30px" ItemStyle-VerticalAlign="Middle">
+                            <HeaderTemplate>
+                                <center>Write Details</center>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <center>
+                                    <asp:ImageButton ID="imgEXECUTE_BTN" runat="server" onblur="pressUpdateButton(this.id)" OnCommand="imgEXECUTE_BTN_Command" CommandArgument="<%# Container.DataItemIndex%>" ImageUrl="~/images/icons/save.png" Height="20px" Width="20px" /></center>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <%-- column 18 --%>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderStyle-Width="30px" ItemStyle-VerticalAlign="Middle">
                             <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlRECORDDETAILS" runat="server" Text="Record Details" />
-                                </center>
+                                <center>Clear Details</center>
                             </HeaderTemplate>
-                            <HeaderStyle Width="10px" />
-                            <ItemTemplate>
-                                <center>
-                                    <asp:ImageButton ID="imgEXECUTE_BTN" runat="server" onblur="pressUpdateButton(this.id)" OnCommand="imgEXECUTE_BTN_Command" CommandArgument="<%# Container.DataItemIndex%>" ImageUrl="~/images/icons/save.png" Height="20px" Width="20px" />
-                                </center>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <%-- column 19 --%>
-                        <asp:TemplateField>
-                            <HeaderTemplate>
-                                <center>
-                                    <asp:Literal ID="ltlCLEAR" Text="Clear Details" runat="server"></asp:Literal>
-                                </center>
-                            </HeaderTemplate>
-                            <HeaderStyle Width="10px" />
                             <ItemTemplate>
                                 <center>
                                     <asp:ImageButton ID="tab_Clear_main" runat="server" OnCommand="tab_Clear_main_Click" CommandArgument="<%# Container.DataItemIndex%>" ImageUrl="~/images/icons/Clear.png" Height="20px" Width="20px"></asp:ImageButton>

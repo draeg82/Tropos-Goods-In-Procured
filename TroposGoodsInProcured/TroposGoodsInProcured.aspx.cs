@@ -11,6 +11,7 @@ using TroposUI.Common.Menu;
 using TroposGoodsInProcuredBO.DTO;
 using TroposGoodsInProcuredBO.Transactions;
 using System.Collections;
+using System.Linq;
 
 namespace TroposGoodsInProcured
 {
@@ -55,16 +56,20 @@ namespace TroposGoodsInProcured
 
             TransAlert.Visible = false;
 
-            try
+            if (!IsPostBack)
             {
-                UpdateGoodsInTable();
-            }
 
-            catch
-            {
-                grdGOODSIN.Visible = false;
-            }
 
+                try
+                {
+                    UpdateGoodsInTable();
+                }
+
+                catch
+                {
+                    grdGOODSIN.Visible = false;
+                }
+            }
 
         }
 
@@ -80,25 +85,68 @@ namespace TroposGoodsInProcured
         {
 
             GROS gros = new GROS();
+            gros.iREPORTDEST = "ERP_HP2300";
             gros.iPORDNOENT = ViewState["purchaseOrder"].ToString();
             gros.iPORDITM_GRN = ViewState["LineNo"].ToString();
             gros.iGRNADVISE = ViewState["receivedquantity"].ToString();
             gros.iGRNREC = ViewState["receivedquantity"].ToString();
             gros.iGRNDELADV = ViewState["advicenote"].ToString();
-            gros.iREPORTDEST = "ERP_HP2300";
             gros.iGRNDATE = ViewState["receivedDate"].ToString();
-            gros.iUOM_ADV = ViewState["uomSelected"].ToString();
+
 
 
             if (gros.Execute())
+            {
+                ShowMessage("GROS Update Successful");
+
+            }
+            else
+            {
+                ShowMessage(gros.Errors);
+                return;
+            }
+
+            // GRIS = Store and Location
+            GRIS gris = new GRIS();
+            gris.iGRNUMBERENT = gros.Results[0].Fields["vGRNUMBER"].ToString();
+            gris.iSTOR = ViewState["store"].ToString();
+            gris.iBINLOCN = ViewState["location"].ToString();
+            gris.iREPORTDEST_1 = "ERP_HP2300";
+
+           
+            if (gris.Execute())
+            {
+                ShowMessage("GRIS Update Successful");
+            }
+            else
+            {
+                ShowMessage(gris.Errors);
+                return;
+            }
+
+            // ATVM = country of origin, container type, number of containers, pallet type, number of pallets, 
+            ATVM atvm = new ATVM();
+            atvm.iATTRIBTYPE = "L";
+            atvm.iATTREFTYP = "RP";
+            atvm.iATTKEYVAL = "G" + gros.Results[0].Fields["vGRNUMBER"].ToString();
+            atvm.iATTVALFROM_T10_0 = ViewState["numberofpallets"].ToString();
+            atvm.iATTVALFROM_T10_1 = ViewState["pallettype"].ToString();
+            atvm.iATTVALFROM_T10_2 = ViewState["numberofcontainers"].ToString();
+            atvm.iATTVALFROM_T10_3 = ViewState["containertype"].ToString();
+            atvm.iATTVALFROM_T10_4 = ViewState["receivedquantity"].ToString();
+            atvm.iATTVALFROM_T10_5 = ViewState["countryoforigin"].ToString();
+
+            if (atvm.Execute())
             {
                 ShowMessage("Update Successful");
             }
             else
             {
-                ShowMessage(gros.Errors);
+                ShowMessage(atvm.Errors);
+                return;
             }
-
+            
+            
             TransAlert.Visible = false;
             updConfirm.Update();
 
@@ -341,8 +389,6 @@ namespace TroposGoodsInProcured
                 PopupPage pp = new PopupPage(updDummy, "Popups/OrderLineReceipts", "Order+Line+Receipts", false, 50, 50, width, height, Fields);
                 updDummy.Update();
 
-
-
             }
         }
 
@@ -352,16 +398,38 @@ namespace TroposGoodsInProcured
             {
                 try
                 {
+                    // Put data entry in gridview into viewstate
 
-
-                    TroposInput receivedQty = (TroposInput)grdGOODSIN.Rows[i].Cells[6].FindControl("iRECEIVEDQTY");
+                    TroposInput receivedQty = (TroposInput)grdGOODSIN.Rows[i].Cells[5].FindControl("iRECEIVEDQTY");
                     ViewState["receivedQty_" + i.ToString()] = receivedQty.Text;
-                    TroposInput adviceNote = (TroposInput)grdGOODSIN.Rows[i].Cells[8].FindControl("iADVICENOTE");
+
+                    TroposInput adviceNote = (TroposInput)grdGOODSIN.Rows[i].Cells[6].FindControl("iADVICENOTE");
                     ViewState["adviceNote_" + i.ToString()] = adviceNote.Text;
-                    TroposBusinessCalendar receivedDate = (TroposBusinessCalendar)grdGOODSIN.Rows[i].Cells[9].FindControl("tbcRECEIVEDDATE");
+
+                    TroposBusinessCalendar receivedDate = (TroposBusinessCalendar)grdGOODSIN.Rows[i].Cells[7].FindControl("tbcRECEIVEDDATE");
                     ViewState["receivedDate_" + i.ToString()] = receivedDate.Text;
-                    DropDownList uomSelected = (DropDownList)grdGOODSIN.Rows[i].Cells[7].FindControl("iUOM");
-                    ViewState["uomSelected_" + i.ToString()] = uomSelected.Text;
+
+                    TroposInput store = (TroposInput)grdGOODSIN.Rows[i].Cells[8].FindControl("iSTORE");
+                    ViewState["store_" + i.ToString()] = store.Text;
+
+                    TroposInput location = (TroposInput)grdGOODSIN.Rows[i].Cells[9].FindControl("iLOCATION");
+                    ViewState["location_" + i.ToString()] = location.Text;
+
+                    TroposInput countryOfOrigin = (TroposInput)grdGOODSIN.Rows[i].Cells[10].FindControl("iCOUNTRYOFORIGIN");
+                    ViewState["countryOfOrigin_" + i.ToString()] = countryOfOrigin.Text;
+
+                    DropDownList containerType = (DropDownList)grdGOODSIN.Rows[i].Cells[11].FindControl("iCONTAINERTYPE");
+                    ViewState["containerType_" + i.ToString()] = containerType.Text;
+
+                    TroposInput numberOfContainers = (TroposInput)grdGOODSIN.Rows[i].Cells[12].FindControl("iNUMBEROFCONTAINERS");
+                    ViewState["numberOfContainers_" + i.ToString()] = numberOfContainers.Text;
+
+                    DropDownList palletType = (DropDownList)grdGOODSIN.Rows[i].Cells[13].FindControl("iPALLETTYPE");
+                    ViewState["palletType_" + i.ToString()] = palletType.Text;
+
+                    TroposInput numberOfPallets = (TroposInput)grdGOODSIN.Rows[i].Cells[14].FindControl("iNUMBEROFPALLETS");
+                    ViewState["numberOfPallets_" + i.ToString()] = numberOfPallets.Text;
+
 
 
                 }
@@ -371,15 +439,23 @@ namespace TroposGoodsInProcured
                 }
             }
 
-
+            // e.command arguement is the row index to be written to file.  Get data from input fields and validate
             int index = Convert.ToInt32(e.CommandArgument);
 
             ViewState["purchaseOrder"] = iPURCHASE_ORDER.Text;
-            TroposInput ReceivedQty = (TroposInput)grdGOODSIN.Rows[index].Cells[3].FindControl("iRECEIVEDQTY");
-            TroposInput AdviceNote = (TroposInput)grdGOODSIN.Rows[index].Cells[5].FindControl("iADVICENOTE");
-            TroposBusinessCalendar ReceivedDate = (TroposBusinessCalendar)grdGOODSIN.Rows[index].Cells[6].FindControl("tbcRECEIVEDDATE");
-            DropDownList UOMSelected = (DropDownList)grdGOODSIN.Rows[index].Cells[7].FindControl("iUOM");
+            TroposInput ReceivedQty = (TroposInput)grdGOODSIN.Rows[index].Cells[5].FindControl("iRECEIVEDQTY");
+            TroposInput AdviceNote = (TroposInput)grdGOODSIN.Rows[index].Cells[6].FindControl("iADVICENOTE");
+            TroposBusinessCalendar ReceivedDate = (TroposBusinessCalendar)grdGOODSIN.Rows[index].Cells[7].FindControl("tbcRECEIVEDDATE");
+            TroposInput Store = (TroposInput)grdGOODSIN.Rows[index].Cells[8].FindControl("iSTORE");
+            TroposInput Location = (TroposInput)grdGOODSIN.Rows[index].Cells[9].FindControl("iLOCATION");
+            TroposInput CountryOfOrigin = (TroposInput)grdGOODSIN.Rows[index].Cells[10].FindControl("iCOUNTRYOFORIGIN");
+            DropDownList ContainerType = (DropDownList)grdGOODSIN.Rows[index].Cells[11].FindControl("iCONTAINERTYPE");
+            TroposInput NumberOfContainers = (TroposInput)grdGOODSIN.Rows[index].Cells[12].FindControl("iNUMBEROFCONTAINERS");
+            DropDownList PalletType = (DropDownList)grdGOODSIN.Rows[index].Cells[13].FindControl("iPALLETTYPE");
+            TroposInput NumberOfPallets = (TroposInput)grdGOODSIN.Rows[index].Cells[14].FindControl("iNUMBEROFPALLETS");
             ViewState["LineNo"] = grdGOODSIN.Rows[index].Cells[0].InnerText().Replace("<center>", "").Replace("</center>", "").Trim();
+
+            #region Input Validation
 
             // Entry Validation
             int qty;
@@ -399,7 +475,7 @@ namespace TroposGoodsInProcured
 
             if (int.Parse(ReceivedQty.Text) == 0)
             {
-                ShowMessage("Please enter valid non-zero, quantity");
+                ShowMessage("Please enter valid, non-zero value for received quantity");
                 ReceivedQty.HighlightError = true;
                 return;
             }
@@ -410,13 +486,6 @@ namespace TroposGoodsInProcured
                 AdviceNote.HighlightError = true;
                 return;
             }
-
-            if (UOMSelected.Text == "")
-            {
-                ShowMessage("Please Select a valid UOM");
-                return;
-            }
-
 
             else
             {
@@ -438,10 +507,126 @@ namespace TroposGoodsInProcured
                 ReceivedDate.HighlightError = false;
             }
 
-            ViewState["receivedquantity"] = qty;
+            // Validate Store
+            SLDY sldy = new SLDY();
+            sldy.iSTOR_SL = Store.Text;
+            sldy.iBINLOCN_SL = Location.Text;
+            if (sldy.Execute(true))
+            {
+                ShowMessage("");
+                ReceivedDate.HighlightError = false;
+            }
+            else
+            {
+                ShowMessage(sldy.Errors);
+                return;
+            }
+
+            if (CountryOfOrigin.Text.Trim() == string.Empty)
+            {
+                ShowMessage("Please enter a country of origin");
+                CountryOfOrigin.HighlightError = true;
+                return;
+            }
+            else
+            {
+                ShowMessage("");
+                CountryOfOrigin.HighlightError = false;
+            }
+
+            if (CountryOfOrigin.Text.Any(c => char.IsDigit(c)))
+            {
+                ShowMessage("Country of origin cannot contain numbers");
+                CountryOfOrigin.HighlightError = true;
+                return;
+            }
+            else
+            {
+                ShowMessage("");
+                CountryOfOrigin.HighlightError = false;
+            }
+
+
+            if (ContainerType.Text == "")
+            {
+                ShowMessage("Please select a container type");
+                return;
+            }
+            else
+            {
+                ShowMessage("");
+            }
+
+            if (!int.TryParse(NumberOfContainers.Text, out qty))
+            {
+                ShowMessage("Number of containers is not a number");
+                NumberOfContainers.HighlightError = true;
+                return;
+            }
+            else
+            {
+                ShowMessage("");
+                NumberOfContainers.HighlightError = false;
+            }
+
+            if (int.Parse(NumberOfContainers.Text) == 0)
+            {
+                ShowMessage("Please enter a valid, non-zero value for number of containers");
+                NumberOfContainers.HighlightError = true;
+                return;
+            }
+            else
+            {
+                ShowMessage("");
+                NumberOfContainers.HighlightError = false;
+            }
+
+            if (PalletType.Text == "")
+            {
+                ShowMessage("Please select pallet type");
+                return;
+            }
+            else
+            {
+                ShowMessage("");
+            }
+
+            if (!int.TryParse(NumberOfPallets.Text, out qty))
+            {
+                ShowMessage("Number of pallets is not a number");
+                NumberOfPallets.HighlightError = true;
+                return;
+            }
+            else
+            {
+                ShowMessage("");
+                NumberOfPallets.HighlightError = false;
+            }
+
+            if (int.Parse(NumberOfPallets.Text) == 0)
+            {
+                ShowMessage("Please enter a valid, non-zero value for number of pallets");
+                NumberOfPallets.HighlightError = true;
+                return;
+            }
+            else
+            {
+                ShowMessage("");
+                NumberOfPallets.HighlightError = false;
+            }
+
+            #endregion
+
+            ViewState["receivedquantity"] = ReceivedQty.Text;
             ViewState["advicenote"] = AdviceNote.Text;
             ViewState["receivedDate"] = ReceivedDate.Text;
-            ViewState["uomSelected"] = UOMSelected.Text;
+            ViewState["store"] = Store.Text;
+            ViewState["location"] = Location.Text;
+            ViewState["countryoforigin"] = CountryOfOrigin.Text;
+            ViewState["containertype"] = ContainerType.Text;
+            ViewState["numberofcontainers"] = NumberOfContainers.Text;
+            ViewState["pallettype"] = PalletType.Text;
+            ViewState["numberofpallets"] = NumberOfPallets.Text;
 
 
             TransAlert.Visible = true;
@@ -458,14 +643,36 @@ namespace TroposGoodsInProcured
                 try
                 {
 
-                    ReceivedQty = (TroposInput)grdGOODSIN.Rows[i].Cells[6].FindControl("iRECEIVEDQTY");
+                    ReceivedQty = (TroposInput)grdGOODSIN.Rows[i].Cells[5].FindControl("iRECEIVEDQTY");
                     ReceivedQty.Text = ViewState["receivedQty_" + i.ToString()].ToString();
-                    AdviceNote = (TroposInput)grdGOODSIN.Rows[i].Cells[8].FindControl("iADVICENOTE");
+
+                    AdviceNote = (TroposInput)grdGOODSIN.Rows[i].Cells[6].FindControl("iADVICENOTE");
                     AdviceNote.Text = ViewState["adviceNote_" + i.ToString()].ToString();
-                    ReceivedDate = (TroposBusinessCalendar)grdGOODSIN.Rows[i].Cells[9].FindControl("tbcRECEIVEDDATE");
+
+                    ReceivedDate = (TroposBusinessCalendar)grdGOODSIN.Rows[i].Cells[7].FindControl("tbcRECEIVEDDATE");
                     ReceivedDate.Text = ViewState["receivedDate_" + i.ToString()].ToString();
-                    UOMSelected = (DropDownList)grdGOODSIN.Rows[i].Cells[7].FindControl("iUOM");
-                    UOMSelected.Text = ViewState["uomSelected_" + i.ToString()].ToString();
+
+                    Store = (TroposInput)grdGOODSIN.Rows[i].Cells[8].FindControl("iSTORE");
+                    Store.Text = ViewState["store_" + i.ToString()].ToString();
+
+                    Location = (TroposInput)grdGOODSIN.Rows[i].Cells[9].FindControl("iLOCATION");
+                    Location.Text = ViewState["location_" + i.ToString()].ToString();
+
+                    CountryOfOrigin = (TroposInput)grdGOODSIN.Rows[i].Cells[10].FindControl("iCOUNTRYOFORIGIN");
+                    CountryOfOrigin.Text = ViewState["countryOfOrigin_" + i.ToString()].ToString();
+
+                    ContainerType = (DropDownList)grdGOODSIN.Rows[i].Cells[11].FindControl("iCONTAINERTYPE");
+                    ContainerType.Text = ViewState["containerType_" + i.ToString()].ToString();
+
+                    NumberOfContainers = (TroposInput)grdGOODSIN.Rows[i].Cells[12].FindControl("iNUMBEROFCONTAINERS");
+                    NumberOfContainers.Text = ViewState["numberOfContainers_" + i.ToString()].ToString();
+
+                    PalletType = (DropDownList)grdGOODSIN.Rows[i].Cells[13].FindControl("iPALLETTYPE");
+                    PalletType.Text = ViewState["palletType_" + i.ToString()].ToString();
+
+                    NumberOfPallets = (TroposInput)grdGOODSIN.Rows[i].Cells[14].FindControl("iNUMBEROFPALLETS");
+                    NumberOfPallets.Text = ViewState["numberOfPallets_" + i.ToString()].ToString();
+
 
                 }
                 catch (Exception)
@@ -478,6 +685,12 @@ namespace TroposGoodsInProcured
             ReceivedQty.HighlightError = false;
             AdviceNote.HighlightError = false;
             ReceivedDate.HighlightError = false;
+            Store.HighlightError = false;
+            Location.HighlightError = false;
+            CountryOfOrigin.HighlightError = false;
+            NumberOfContainers.HighlightError = false;
+            NumberOfPallets.HighlightError = false;
+
             ShowMessage("");
         }
 
@@ -598,11 +811,29 @@ namespace TroposGoodsInProcured
 
         protected void UpdateGoodsInTable()
         {
+
+            // Get goods in table data
             ITroposQuery grdGOODSIN_Query = new Populate_grdGOODSIN(UserContext, iPURCHASE_ORDER.Text);
             DataTable grd_data_table = Helpers.TroposQuery(grdGOODSIN_Query, UserContext);
             grdGOODSIN.DataSource = grd_data_table;
             grdGOODSIN.DataBind();
 
+            for (int i = 0; i < grdGOODSIN.Rows.Count; i++)
+            {
+                TroposInput Store = (TroposInput)grdGOODSIN.Rows[i].FindControl("iSTORE");
+                Store.Text = grd_data_table.Rows[i]["STOR"].ToString();
+
+                TroposInput Location = (TroposInput)grdGOODSIN.Rows[i].FindControl("iLOCATION");
+                Location.Text = grd_data_table.Rows[i]["BINLOCN"].ToString();
+            }
+
+            ITroposQuery containers = new Populate_davlCONTAINER(UserContext);
+            String ddlName = "iCONTAINERTYPE";
+            PopulateDDLfromQuery(containers, ddlName);
+
+            ITroposQuery pallets = new Populate_davlPALLETS(UserContext);
+            ddlName = "iPALLETTYPE";
+            PopulateDDLfromQuery(pallets, ddlName);
 
             if (tcboxINCLUDECOMPLETE.Checked == false)
             {
@@ -611,7 +842,7 @@ namespace TroposGoodsInProcured
                     int outstandingamount;
                     try
                     {
-                        outstandingamount = int.Parse(grdGOODSIN.Rows[i].Cells[5].InnerText().Replace("<center>", "").Replace("</center>", "").Trim());
+                        outstandingamount = int.Parse(grdGOODSIN.Rows[i].Cells[4].InnerText().Replace("<center>", "").Replace("</center>", "").Split(' ')[0].Trim());
                     }
                     catch
                     {
@@ -657,8 +888,14 @@ namespace TroposGoodsInProcured
                     grdGOODSIN.Rows[row].Cells[7].Controls.Clear();
                     grdGOODSIN.Rows[row].Cells[8].Controls.Clear();
                     grdGOODSIN.Rows[row].Cells[9].Controls.Clear();
+                    grdGOODSIN.Rows[row].Cells[10].Controls.Clear();
+                    grdGOODSIN.Rows[row].Cells[11].Controls.Clear();
                     grdGOODSIN.Rows[row].Cells[12].Controls.Clear();
                     grdGOODSIN.Rows[row].Cells[13].Controls.Clear();
+                    grdGOODSIN.Rows[row].Cells[14].Controls.Clear();
+                    grdGOODSIN.Rows[row].Cells[13].Controls.Clear();
+                    grdGOODSIN.Rows[row].Cells[17].Controls.Clear();
+                    grdGOODSIN.Rows[row].Cells[18].Controls.Clear();
                 }
 
                 if (tcboxINCLUDECOMPLETE.Checked == false)
@@ -668,7 +905,7 @@ namespace TroposGoodsInProcured
                         int outstandingamount;
                         try
                         {
-                            outstandingamount = int.Parse(grdGOODSIN.Rows[i].Cells[5].InnerText().Replace("<center>", "").Replace("</center>", "").Trim());
+                            outstandingamount = int.Parse(grdGOODSIN.Rows[i].Cells[4].InnerText().Replace("<center>", "").Replace("</center>", "").Split(' ')[0].Trim());
                         }
                         catch
                         {
@@ -703,7 +940,28 @@ namespace TroposGoodsInProcured
             }
         }
 
+        protected void PopulateDDLfromQuery(ITroposQuery itroposQuery, String dropdowncontrolName)
+        {
+            try
+            {
+                DataTable dt = Helpers.TroposQuery(itroposQuery, UserContext);
 
+                for (int i = 0; i < grdGOODSIN.Rows.Count; i++)
+                {
+                    DropDownList ddl = (DropDownList)grdGOODSIN.Rows[i].FindControl(dropdowncontrolName);
+                    ddl.Items.Add("");
+                    for (int j = 0; j < dt.Rows.Count; j++)
+                    {
+                        ddl.Items.Add(dt.Rows[j][0].ToString());
+                    }
+                }
+            }
+            catch
+            {
+                // Don't throw         
+            }
+
+        }
     }
 }
 
