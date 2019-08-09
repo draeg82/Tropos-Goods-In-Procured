@@ -50,6 +50,8 @@
     <Compile Include="DTO\Populate_davlCONTAINER.cs" />
     <Compile Include="DTO\Populate_davlPALLETS.cs" />
     <Compile Include="DTO\Populate_grdGOODSIN.cs" />
+    <Compile Include="DTO\Populate_grdORDERLINERECEIPTS.cs" />
+    <Compile Include="DTO\Populate_grdREJECTNOTEINFORMATION.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transactions\ATVM.cs" />
     <Compile Include="Transactions\GRIS.cs" />
