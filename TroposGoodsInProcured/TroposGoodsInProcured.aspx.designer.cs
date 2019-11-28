@@ -85,6 +85,33 @@ namespace TroposGoodsInProcured {
         protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
+        /// updSuccessMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updSuccessMessage;
+        
+        /// <summary>
+        /// AlertSUCCESS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TroposAlertDialog.TroposAlert AlertSUCCESS;
+        
+        /// <summary>
+        /// btnSuccessOK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSuccessOK;
+        
+        /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
@@ -92,24 +119,6 @@ namespace TroposGoodsInProcured {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
-        /// vREQUIRED_DATE control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Tropos.Web.UI.TroposLabel vREQUIRED_DATE;
-        
-        /// <summary>
-        /// tbcDATE_REQUIRED control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Tropos.Web.UI.TroposBusinessCalendar tbcDATE_REQUIRED;
         
         /// <summary>
         /// vPURCHASE_ORDER_DETAIL control.
@@ -121,13 +130,31 @@ namespace TroposGoodsInProcured {
         protected global::Tropos.Web.UI.TroposLabel vPURCHASE_ORDER_DETAIL;
         
         /// <summary>
+        /// panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel1;
+        
+        /// <summary>
         /// iPURCHASE_ORDER control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Tropos.Web.UI.TroposDAVL iPURCHASE_ORDER;
+        protected global::Tropos.Web.UI.TroposInput iPURCHASE_ORDER;
+        
+        /// <summary>
+        /// EnterPO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EnterPO;
         
         /// <summary>
         /// vSUPPLIER_LABEL control.

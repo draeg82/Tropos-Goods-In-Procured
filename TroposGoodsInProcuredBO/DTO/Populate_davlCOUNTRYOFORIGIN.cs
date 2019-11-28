@@ -5,26 +5,25 @@ using TroposUI.Common.Context;
 
 namespace TroposGoodsInProcuredBO.DTO
 {
-    public class Populate_davlCONTAINER : ITroposQuery
+    public class Populate_davlCOUNTRYOFORIGIN : ITroposQuery
     {
         private readonly UserContext _context;
         private ArrayList _parameters;
 
-        public Populate_davlCONTAINER(UserContext context)
+        public Populate_davlCOUNTRYOFORIGIN(UserContext context)
         {
             _context = context;
             _parameters = new ArrayList();
         }
 
         #region ITroposQuery Members
-
         public string SQLStatement
         {
             get
             {
                 string SQL = @"SELECT ATTVALFROM
-                                FROM MBT020
-                                WHERE ATTRIBCODE_T02='TTP'
+                               FROM MBT020
+                                WHERE ATTRIBCODE_T02 = 'CYO'
                                 ORDER BY ATTVALFROM";
 
                 return Helpers.ConvertSQL(_context, SQL);
@@ -40,13 +39,7 @@ namespace TroposGoodsInProcuredBO.DTO
             }
         }
 
-        public bool TableFunction
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool TableFunction => false;
 
         #endregion
     }

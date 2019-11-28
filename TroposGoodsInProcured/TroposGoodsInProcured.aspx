@@ -36,15 +36,32 @@
             </ContentTemplate>
         </asp:UpdatePanel>
 
+        <%--Update panel holding confirmation message for successful booking in of goods to a line--%>
+        <asp:UpdatePanel ID="updSuccessMessage" runat="server" UpdateMode="Conditional">
+            <ContentTemplate>
+                <cc2:TroposAlert ID="AlertSUCCESS" runat="server" IconClass="ui_info" Message="Update Successful" Visible="false" Title="">
+                    <buttons>
+                        <asp:Button ID="btnSuccessOK" runat="server" Text="Ok" />
+                    </buttons>
+                </cc2:TroposAlert>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
+
+
+
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
 
-                <cc1:TroposLabel ID="vREQUIRED_DATE" Text="Required Date" runat="server" Style='position: absolute; top: 25px; left: 25px; width: 100px;'></cc1:TroposLabel>
-                <cc1:TroposBusinessCalendar ID="tbcDATE_REQUIRED" runat="server" Style='position: absolute; top: 25px; left: 140px; width: 100px;' Width="120px" OnDateSelected="tbcDATE_REQUIRED_DateSelected"></cc1:TroposBusinessCalendar>
+                <%--                <cc1:TroposLabel ID="vREQUIRED_DATE" Text="Required Date" runat="server" Style='position: absolute; top: 25px; left: 25px; width: 100px;'></cc1:TroposLabel>
+                <cc1:TroposBusinessCalendar ID="tbcDATE_REQUIRED" runat="server" Style='position: absolute; top: 25px; left: 140px; width: 100px;' Width="120px" OnDateSelected="tbcDATE_REQUIRED_DateSelected"></cc1:TroposBusinessCalendar>--%>
 
                 <cc1:TroposLabel ID="vPURCHASE_ORDER_DETAIL" Text="Purchase Order" runat="server" Style='position: absolute; top: 50px; left: 25px; width: 100px;'></cc1:TroposLabel>
-                <cc1:TroposDAVL ID="iPURCHASE_ORDER" DavlDropDownType="CodeOnly" DavlType="UserDefined" runat="server" Style='position: absolute; top: 50px; left: 140px; width: 100px;' Width="100px" Text=""></cc1:TroposDAVL>
-
+                <%-- <cc1:TroposDAVL ID="iPURCHASE_ORDER" DavlDropDownType="CodeOnly" DavlType="UserDefined" runat="server" Style='position: absolute; top: 50px; left: 140px; width: 100px;' Width="100px" Text=""></cc1:TroposDAVL>--%>
+                <asp:Panel ID="panel1" runat="server" DefaultButton="EnterPO">
+                    <cc1:TroposInput ID="iPURCHASE_ORDER" runat="server" Style='position: absolute; top: 50px; left: 140px; width: 200px;' Width="100px" LookUpCode="PORDER_PROCURED_OUTSTANDING" loo></cc1:TroposInput>
+                    <asp:Button ID="EnterPO" runat="server" Text="Enter PO" Style="position: absolute; top: 50px; left: 250px; display: none;" />
+                </asp:Panel>
                 <cc1:TroposLabel ID="vSUPPLIER_LABEL" Text="Grower" runat="server" Style='position: absolute; top: 75px; left: 25px; width: 75px;' Width="75px" Visible="false"></cc1:TroposLabel>
                 <cc1:TroposLabel ID="vSUPPLIER" runat="server" Style='position: absolute; top: 75px; left: 140px; width: 250px;' Visible="false"></cc1:TroposLabel>
 
@@ -162,7 +179,7 @@
                                 <center>Country of Origin</center>
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <cc1:TroposInput ID="iCOUNTRYOFORIGIN" runat="server" Style="align-content: center; text-align: center; align-self: center;" Width="100px"></cc1:TroposInput>
+                                <asp:DropDownList runat="server" ID="iCOUNTRYOFORIGIN" Style="align-content: center; text-align: center; align-self: center;" Width="100px"></asp:DropDownList>
                             </ItemTemplate>
                         </asp:TemplateField>
 

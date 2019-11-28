@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DTO\Populate_davlCONSIGNMENT.cs" />
     <Compile Include="DTO\Populate_davlCONTAINER.cs" />
+    <Compile Include="DTO\Populate_davlCOUNTRYOFORIGIN.cs" />
     <Compile Include="DTO\Populate_davlPALLETS.cs" />
     <Compile Include="DTO\Populate_grdGOODSIN.cs" />
     <Compile Include="DTO\Populate_grdORDERLINERECEIPTS.cs" />

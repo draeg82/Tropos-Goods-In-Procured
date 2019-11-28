@@ -21,10 +21,11 @@ namespace TroposGoodsInProcuredBO.DTO
         {
             get
             {
-                string SQL = @"
-                            SELECT ATTVALFROM
-                            FROM MBT020
-                            WHERE ATTRIBCODE_T02 = 'PTP'";
+                string SQL = @"SELECT ATTVALFROM
+                                FROM MBT020
+                                WHERE ATTRIBCODE_T02 = 'PTP'
+                                ORDER BY ATTVALFROM"
+                        ;
 
                 return Helpers.ConvertSQL(_context, SQL);
             }
