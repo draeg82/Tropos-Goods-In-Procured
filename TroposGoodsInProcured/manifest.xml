@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Manifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="Tropos Goods In Procured" ServerVersion="" Origin="" Type="TWA" Clean="N">
+<Manifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="TroposGoodsInProcured" ServerVersion="" Origin="" Type="TWA" Clean="N">
   <Database />
   <TROPOS>
     <Transaction Source="troposgoodsinprocured.aspx">ATVM</Transaction>

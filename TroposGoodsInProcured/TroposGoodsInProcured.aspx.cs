@@ -23,9 +23,7 @@ namespace TroposGoodsInProcured
         protected void Page_Init(object sender, EventArgs e)
         {
             tcv.ServerValidate += tcv_ServerValidate;
-            //iPURCHASE_ORDER.KeyChanged += iPURCHASE_ORDER_Keychanged;
-            //iPURCHASE_ORDER.DescriptionField.Visible = false;
-            iPURCHASE_ORDER.TroposLookUpDataSelected += iPURCHASE_ORDER_Keychanged;
+            // iPURCHASE_ORDER.TroposLookUpDataSelected += iPURCHASE_ORDER_Keychanged;    REMOVED FOR DEBUGGING
             btnOK.Click += BtnOK_Click;
             btnCancel.Click += BtnCancel_Click;
             btnSuccessOK.Click += BtnSuccessOk_Click;
@@ -422,7 +420,7 @@ namespace TroposGoodsInProcured
                     TroposInput adviceNote = (TroposInput)grdGOODSIN.Rows[i].Cells[6].FindControl("iADVICENOTE");
                     ViewState["adviceNote_" + i.ToString()] = adviceNote.Text;
 
-                    TroposBusinessCalendar receivedDate = (TroposBusinessCalendar)grdGOODSIN.Rows[i].Cells[7].FindControl("tbcRECEIVEDDATE");
+                    TroposBusinessCalendar receivedDate = (TroposBusinessCalendar)grdGOODSIN.Rows[i].Cells[7].FindControl("iRECEIVEDDATE");
                     ViewState["receivedDate_" + i.ToString()] = receivedDate.Text;
 
                     TroposInput store = (TroposInput)grdGOODSIN.Rows[i].Cells[8].FindControl("iSTORE");
@@ -580,42 +578,6 @@ namespace TroposGoodsInProcured
             }
         }
 
-        //protected void tbcDATE_REQUIRED_DateSelected(object sender, EventArgs e)
-        //{
-        //    tab_Clear_Click(new object(), new EventArgs());
-
-        //    grdGOODSIN.Visible = false;
-
-        //    string dateRequired = tbcDATE_REQUIRED.Text;
-        //    ITroposQuery davlConsignmentQuery = new Populate_davlCONSIGNMENT(UserContext, dateRequired);
-        //    DataTable davlConsignmentDT = Helpers.TroposQuery(davlConsignmentQuery, UserContext);
-        //    if (davlConsignmentDT.Rows.Count == 0)
-        //    {
-        //        string code = string.Empty;
-        //        string text = string.Empty;
-        //        DAVLUserDefinedData davlData = new DAVLUserDefinedData(code, text);
-        //        //iPURCHASE_ORDER.UserDefined.Add(davlData);
-        //    }
-        //    else
-        //    {
-        //        for (int i = 0; i < davlConsignmentDT.Rows.Count; i++)
-        //        {
-        //            string code = davlConsignmentDT.Rows[i][0].ToString();
-        //            string text = davlConsignmentDT.Rows[i][1].ToString();
-        //            DAVLUserDefinedData davlData = new DAVLUserDefinedData(code, text);
-        //            //iPURCHASE_ORDER.UserDefined.Add(davlData);
-
-        //            try
-        //            {
-        //                UpdateGoodsInTable();
-        //            }
-        //            catch
-        //            {
-        //                grdGOODSIN.Visible = false;
-        //            }
-        //        }
-        //    }
-        //}
 
         protected void tab_Clear_main_Click(object sender, CommandEventArgs e)
         {

@@ -47,28 +47,23 @@
             </ContentTemplate>
         </asp:UpdatePanel>
 
-
-
-
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
 
-                <%--                <cc1:TroposLabel ID="vREQUIRED_DATE" Text="Required Date" runat="server" Style='position: absolute; top: 25px; left: 25px; width: 100px;'></cc1:TroposLabel>
-                <cc1:TroposBusinessCalendar ID="tbcDATE_REQUIRED" runat="server" Style='position: absolute; top: 25px; left: 140px; width: 100px;' Width="120px" OnDateSelected="tbcDATE_REQUIRED_DateSelected"></cc1:TroposBusinessCalendar>--%>
 
-                <cc1:TroposLabel ID="vPURCHASE_ORDER_DETAIL" Text="Purchase Order" runat="server" Style='position: absolute; top: 50px; left: 25px; width: 100px;'></cc1:TroposLabel>
-                <%-- <cc1:TroposDAVL ID="iPURCHASE_ORDER" DavlDropDownType="CodeOnly" DavlType="UserDefined" runat="server" Style='position: absolute; top: 50px; left: 140px; width: 100px;' Width="100px" Text=""></cc1:TroposDAVL>--%>
-                <asp:Panel ID="panel1" runat="server" DefaultButton="EnterPO">
-                    <cc1:TroposInput ID="iPURCHASE_ORDER" runat="server" Style='position: absolute; top: 50px; left: 140px; width: 200px;' Width="100px" LookUpCode="PORDER_PROCURED_OUTSTANDING" loo></cc1:TroposInput>
-                    <asp:Button ID="EnterPO" runat="server" Text="Enter PO" Style="position: absolute; top: 50px; left: 250px; display: none;" />
+                <%--REMOVED FROM iPURCHASE_ORDER FOR DEBUGGING:    LookUpCode="PORDER_PROCURED_OUTSTANDING"--%>  
+                <cc1:TroposLabel ID="vPURCHASE_ORDER_DETAIL" Text="Purchase Order" runat="server" Style='position: absolute; top: 25px; left: 25px; width: 100px;'></cc1:TroposLabel>
+                <asp:Panel ID="panel1" runat="server" DefaultButton="">
+                    <cc1:TroposInput ID="iPURCHASE_ORDER" runat="server" Style='position: absolute; top: 25px; left: 140px; width: 200px;' Width="100px"></cc1:TroposInput>
+                    <asp:Button ID="EnterPO" runat="server" Text="Enter PO" Style="position: absolute; top: 25px; left: 250px; display: none;" />
                 </asp:Panel>
-                <cc1:TroposLabel ID="vSUPPLIER_LABEL" Text="Grower" runat="server" Style='position: absolute; top: 75px; left: 25px; width: 75px;' Width="75px" Visible="false"></cc1:TroposLabel>
-                <cc1:TroposLabel ID="vSUPPLIER" runat="server" Style='position: absolute; top: 75px; left: 140px; width: 250px;' Visible="false"></cc1:TroposLabel>
+                <cc1:TroposLabel ID="vSUPPLIER_LABEL" Text="Grower" runat="server" Style='position: absolute; top: 50px; left: 25px; width: 75px;' Width="75px" Visible="false"></cc1:TroposLabel>
+                <cc1:TroposLabel ID="vSUPPLIER" runat="server" Style='position: absolute; top: 50px; left: 140px; width: 250px;' Visible="false"></cc1:TroposLabel>
 
-                <cc1:TroposLabel ID="vINCLUDECOMPLETE_LABEL" Text="Include Completed Lines" runat="server" Style='position: absolute; top: 100px; left: 25px; width: 150px;' Width="150px" Visible="false"></cc1:TroposLabel>
-                <cc1:TroposCheckbox ID="tcboxINCLUDECOMPLETE" runat="server" Style='position: absolute; top: 105px; left: 225px;' Visible="false" Checked="false" OnCheckedChanged="tcboxINCLUDECOMPLETE_CheckedChanged" AutoPostBack="true" ToolTip="Toggles display of lines where there is no outstanding items to receive." />
+                <cc1:TroposLabel ID="vINCLUDECOMPLETE_LABEL" Text="Include Completed Lines" runat="server" Style='position: absolute; top: 75px; left: 25px; width: 150px;' Width="150px" Visible="false"></cc1:TroposLabel>
+                <cc1:TroposCheckbox ID="tcboxINCLUDECOMPLETE" runat="server" Style='position: absolute; top: 80px; left: 225px;' Visible="false" Checked="false" OnCheckedChanged="tcboxINCLUDECOMPLETE_CheckedChanged" AutoPostBack="true" ToolTip="Toggles display of lines where there is no outstanding items to receive." />
 
-                <cc1:TroposGridView ID="grdGOODSIN" runat="server" Style="position: relative; top: 150px; left: 25px; height: 100%; width: 95%" AutoGenerateColumns="false" AllowPaging="false" PageSize="1000" Width="100%">
+                <cc1:TroposGridView ID="grdGOODSIN" runat="server" Style="position: relative; top: 125px; left: 25px; height: 100%; width: 95%" AutoGenerateColumns="false" AllowPaging="false" PageSize="1000" Width="100%">
 
                     <AlternatingRowStyle CssClass="alt" />
                     <Columns>
